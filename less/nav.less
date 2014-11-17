@@ -1,0 +1,120 @@
+/**
+ * This source file is part of HeroCast.
+ *
+ * HeroCast is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * HeroCast is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along
+ * with HeroCast. If not, see <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ *
+ *
+ * @category HC_App
+ * @package  less
+ * @author   Shawn Williams <shawnbeta@outlook.com>
+ * @license  GNU/LGPL http://www.gnu.org/licenses/lgpl-3.0.html
+ * @link     http://herocast.shawnbeta.com
+ */
+
+.menu {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu:hover{
+  cursor: pointer;
+}
+
+.subscriptions a.closeBrowsePodcast, .primary li a.close{
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+ 
+
+.primary {
+  width: 320px;
+  position: fixed;
+  left: -325px;
+  background: #fff;
+  z-index: 5;
+  top: 0px;
+  bottom: 0;
+  overflow: scroll;
+}
+
+
+.primary a{
+  display: block; 
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+}
+
+.primary a:hover {
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+}
+
+.primary .sbCancel, 
+.subscriptions .sbCancel {
+  color: #d73d32;
+  padding: 0;
+  font-size: 25px;
+  border-bottom: none;
+  position: absolute; 
+  z-index: 6;
+}
+
+.primary .sbCancel {
+  top: 5px;
+  right:5px;
+}
+ 
+.subscriptions .sbCancel {
+  top: 5px;
+  left: -3px;
+} 
+ 
+.primary .sbCancel:hover {
+  color: #333
+}
+  
+.subscriptions a.closeBrowsePodcast {
+  background: #d73d32;
+}
+
+.subscriptions {
+  background: #ccc;
+  width: 320px;
+  right: -325px;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.subscriptions a{
+  display: block; 
+  padding: 10px 0 10px 30px;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+}
+  
+.subscriptions a.selected {
+  color: #fff;
+}
+
+.subscriptions a:hover {
+  background: #333;
+  color: #fff;
+}

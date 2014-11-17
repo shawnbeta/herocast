@@ -1,0 +1,149 @@
+/**
+ * This source file is part of HeroCast.
+ *
+ * HeroCast is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * HeroCast is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along
+ * with HeroCast. If not, see <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ *
+ *
+ * @category HC_App
+ * @package  less
+ * @author   Shawn Williams <shawnbeta@outlook.com>
+ * @license  GNU/LGPL http://www.gnu.org/licenses/lgpl-3.0.html
+ * @link     http://herocast.shawnbeta.com
+ */
+
+.sbPlayer{
+  bottom: 0;
+  background: #ccc;
+  position: fixed; 
+  z-index: 3;
+  width: 100%;
+}
+
+.sbPlayer .sbCtrls {
+  text-align: center;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.sbFooterPager .sbCtrls i {
+  margin: 0;
+}
+
+.stage {
+  width: 100%;
+  margin: 5px auto 10px;
+  background: #fff; 
+  padding: 10px 8px; 
+  position: relative;
+}
+
+.video .header {
+  display: table;
+  width: 100%;
+  margin: 5px auto;
+  background: #4486f8;
+  padding: 8px;
+  color: #fff;
+}
+
+.video .sbCtrls {
+  font-size: 30px;
+}
+
+.header .sbDate {
+  padding: 8px;
+  background: #535353;
+  color: #fff;
+}
+
+/*
+.stage .sbResume {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+  height: 50px;
+  position: relative;
+}
+*/
+
+
+.jp-progress {
+  width: 100%;
+  background: #d73d32; 
+  display: block;
+  height: 50px;
+}
+
+.jp-video{
+  background: #333;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+  background: url("jplayer.blue.monday.seeking.gif");
+}
+
+.video .sbButton {
+  margin: 0 auto;
+  display: table;
+}
+
+.sbIcons {
+  float: left;
+}
+
+.sbResume{
+  float:right;
+}
+
+.sbCtrls {
+  text-align: center;
+}
+
+div.jp-progress {
+  margin-bottom: 10px;
+}
+
+div.jp-play-bar {
+  background: url("img/playerCtrls.jpg") 0px -256px repeat-x;
+  width:0px;
+  height:100%;
+}
+
+div.jp-seek-bar {
+  background: url("img/playerCtrls.jpg") 0px -204px repeat-x ;
+  width:0px;
+  height:100%;
+  cursor: pointer;
+  
+}
+
+
+div.jp-video div.jp-time-holder {
+  left: 2%;
+  right: 2%;
+  width: 100%;
+  font-size: 23px;
+}
+
+.jp-current-time {
+  float: left;
+  display: block;
+}
+
+.jp-duration {
+  display: block;
+  float: right;  
+}

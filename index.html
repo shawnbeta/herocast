@@ -1,0 +1,154 @@
+<!-- 
+/**
+ * This source file is part of HeroCast.
+ *
+ * HeroCast is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * HeroCast is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along
+ * with HeroCast. If not, see <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ *
+ *
+ * @category HC_App
+ * @author   Shawn Williams <shawnbeta@outlook.com>
+ * @license  GNU/LGPL http://www.gnu.org/licenses/lgpl-3.0.html
+ * @link     http://herocast.shawnbeta.com
+ */
+ -->
+ 
+ <!doctype html>
+<html lang="en" ng-app="hcApp" ng-controller="Application">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, user-scalable=no">
+	  <title>HEROCAST - Avondale</title>
+	  <link href='css/style.css' rel='stylesheet' type='text/css'>                   
+	  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+	  <script src='js/libs/fastclick.js'></script> 
+	</head>
+	
+	<body>
+        	
+        	<!-- App Initializer -->
+        	
+        	<div ng-show="appLoaded" class="initialize">
+        		<div class="loading" ng-show="loading">
+        			<i class="icon-spin6 animate-spin" ></i>
+        			<span>loading</span>
+        		</div>
+        	</div>
+        	
+        	<div ng-if="!appLoaded">
+        	
+	          <header class="container-fluid" > 
+	          	
+	            <div class="topper col-xs-12 col-sm-5">
+	              <!-- Engages the slideout menu -->
+	              <a class="icon-menu sbMenu lBlue" ng-click="doMenu()"></a>
+	              
+	              <a class="logo" href="#episodes">
+	                <h1>HeroCast!</h1>
+	              </a>
+	            </div>  
+							
+							<!-- Import the header buttons-->
+	            <div class="buttons col-xs-12 col-sm-7 pull-right" ng-include="'Views/Application/buttons.html'"></div>    
+	            
+	          </header>
+	            
+	          <div class="overlay" ng-show="showOverlay">
+	          	
+	          	<div class="closeHolder">
+	
+						  	<!--Click to display the full episode description in the overlay -->		     
+								<a class="icon-cancel sbCancel orange" ng-click="doMask()"></a>	   
+								       		
+	          	</div>
+	          	
+	            <div class="wrapper">
+	            	<div class="sbTitle">{{overlay.title}}</div>
+	            	<img class="sbImage" src="{{overlay.image}}">
+	            	<div class="sbDate"><label>Release Date:</label> {{overlay.pub_date|date}}</div>
+	              <div ng-bind-html="overlay.overview"></div> 
+	            </div>
+	          </div>
+	
+	          <!-- Always build the primary Menu --> 
+	         <nav class="primary">
+	            
+					  	<!-- Close menu -->		     
+							<i class="icon-cancel-circled sbCancel" ng-click="doMenu()"></i>
+								               
+	            <a ng-repeat="plink in primary" {{plink.attr}}  ng-click="doMenu()" href="#{{plink.link}}" >
+	              {{plink.title}}
+	            </a>              
+	           </nav>
+	
+	          <!-- Always build the subscription Menu -->
+	          <nav ng-if="subscriptions" class="subscriptions">
+	          	<i class="icon-cancel-circled sbCancel" ng-click="doSubscriptions()"></i>
+	            <a ng-repeat="subscription in subscriptions" ng-click="doSubscriptions()" href="#series/{{subscription.id}}" >
+	              {{subscription.title}}
+	            </a>  
+	          </nav>          
+	                  
+	          <span class="mask" ng-click="doMask()" ng-if="showMask"></span>
+	
+	          <h2 class="pageTitle">{{title}}</h2>
+	          <div ng-show="msg && !loading" ng-bind-html="msg" ng-class="{error: error, success: !error}"></div>
+	          <!--<img src="img/loading.gif" ng-show="loading">-->
+	          
+        		<div class="loading" ng-show="loading">
+        			<i class="icon-spin6 animate-spin" ></i>
+        			<span>loading</span>
+        		</div>
+        			
+	          <div class="container" ng-show="!loading" ng-view></div>
+	          
+	          <div ng-show="togglePlayer" class="sbPlayer container-fluid" ng-include="'Views/Players/player.html'"></div>
+	          
+    			</div><!-- end hide while loading -->
+    			
+          <!-- Import LIBS from CDN instead of require.js -->
+          <script src='js/libs/angular.js'></script> 
+          <script src="js/libs/angular-route.js"></script>
+          <script src='js/libs/angular-sanitize.js'></script> 
+          <script src='js/libs/angular-touch.js'></script>
+          <script src='js/libs/angular-animate.js'></script> 
+          <script src="js/libs/jquery-1.11.1.js"></script>  
+          <script src='js/libs/jquery.jplayer.min.js'></script> 
+          
+          <!-- Custom -->
+          <script src='js/app.js'></script> 
+          <script src='js/nav.js'></script> 
+
+          <!-- Controllers -->
+          <script src='js/Controllers/ApplicationController.js'></script>
+          <script src='js/Controllers/SubscriptionController.js'></script>
+          <script src='js/Controllers/EpisodeController.js'></script>
+          <script src='js/Controllers/SecurityController.js'></script>
+          <script src='js/Controllers/SearchController.js'></script>
+          <script src='js/Controllers/ApiController.js'></script>
+          
+          <!-- Services -->
+          <script src='js/Services/ApplicationService.js'></script>
+          <script src='js/Services/SubscriptionService.js'></script>
+          <script src='js/Services/EpisodeService.js'></script>
+          <script src='js/Services/SecurityService.js'></script>
+          <script src='js/Services/PlayerService.js'></script>
+          <script src='js/Services/SearchService.js'></script>
+          <script src='js/Services/FileService.js'></script>
+          <script src='js/Services/APIService.js'></script>
+        </body>
+        
+        
+        
+        
+    </html>

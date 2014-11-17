@@ -1,0 +1,162 @@
+/**
+ * This source file is part of HeroCast.
+ *
+ * HeroCast is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * HeroCast is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along
+ * with HeroCast. If not, see <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ *
+ *
+ * @category HC_App
+ * @package  less
+ * @author   Shawn Williams <shawnbeta@outlook.com>
+ * @license  GNU/LGPL http://www.gnu.org/licenses/lgpl-3.0.html
+ * @link     http://herocast.shawnbeta.com
+ */
+
+/* Series View */
+
+
+.episodeRow .sbDate span{
+  display: block;
+}
+
+  .episodeRow .sbDate .col{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .episodeRow {
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .episodeRow .sbTitle{
+    font-weight: bold;
+  }
+  
+  .episodeRow .seriesButtons {
+    background: #ccc;
+    text-align: center;
+    font-size: 18px;
+  }  
+  
+  .episodeRow {
+    background: white;
+  }
+  
+  .episodeRow .sbWrap{
+    padding: 0 10px;
+  }  
+    
+    
+  .topper{
+    margin-bottom: 10px;
+  }
+
+  
+  .series .sbImage{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+    .episodeRow.container-fluid {
+    padding:10px 0;
+  }
+  
+  .seriesDetails {
+    background: #fff;
+    padding: 10px;
+  }
+  
+@media(min-width:768px){
+  
+
+
+  .seriesDetails, .seriesEpisodes{
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+  }
+  
+
+  .episodeRow .sbDate{
+    background: #4486f8;
+    color: #fff;
+    text-align: right;
+    width: 105px;
+  }
+  
+  .episodeRow .sbDateWrapper{
+    float: left;
+    width: 105px;
+    padding-right: 8px;
+  }  
+  
+  .episodeRow .sbDate .day{
+    font-size: 3em
+  }    
+
+  .episodeRow .sbTitle{
+    font-weight: bold;
+  }
+  
+  .episodeRow .seriesButtons a:hover{
+    cursor: pointer;
+    cursor: hand;
+  }
+  
+  .sbDate.small{
+    display: none;
+  }
+  
+
+}
+
+@media(max-width:767px){
+  
+  .series .sbDateWrapper {
+    display: none;
+  }
+  
+  .series .seriesDetails .sbImage, .series .seriesDetails .sbTitle{
+    text-align: center;
+    
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .series .seriesDetails .sbTitle {
+    padding: 10px;
+    margin-bottom:  15px;
+  }
+
+    
+  .series .seriesDetails {
+    text-align: center;
+  }
+  
+  .episodeRow .sbDate{
+    background: #4486f8;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+  }  
+  
+
+
+  
+  
+  
+}
