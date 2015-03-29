@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:28:"http://trekcast.podbean.com/";s:8:"feed_url";s:33:"http://trekcast.podbean.com/feed/";s:5:"build";s:14:"20150209232443";}
