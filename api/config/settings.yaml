@@ -1,9 +1,0 @@
-parameters:
-  paths:
-    module_root: modules
-    file_root: /home/shawn/Projects/web/dev/march/hc/api/files
-    web_root: http://localhost/dev/march/hc/api/files
-  apis:
-    youtube: AIzaSyAIV2ia1Wor-vK6pLvczkTzHJmmNCpbnC8
-    
-  

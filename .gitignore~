@@ -2,5 +2,5 @@ api/config/db.yaml
 api/config/settings.yaml
 api/cache/*
 api/files/cover-art/*
-
+api/files/media/*
 api/vendor/*
