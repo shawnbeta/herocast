@@ -1,0 +1,99 @@
+@media min-width:800px { 
+
+}
+
+
+
+@media all and (orientation: landscape) { 
+	body{
+		background: blue;
+	}
+}
+
+body {
+	padding: 10px;
+}
+
+.selected {
+	background: red;
+	font-weight: bold;
+	color: blue;
+}
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+.searchAddForm {
+	width: 300px;
+	background: #fff;
+	position: fixed;
+	
+}
+.searchItem {
+	display: inline-block;
+}
+
+.searchItem img {
+	width: 100px;
+}
+
+.searchItem span {
+	display: block;
+}
+
+.searchDetails label {
+	font-weight: bold;
+}
+
+.searchDetails span {
+	display: block;
+}
+
+
+.searchDetails {
+	position: absolute;
+	max-width: 600px;
+	background: #fff;
+	display: block;
+	
+}
+
+
+.episodeItem span{
+	display: block;
+}
+
+.episodeDetails label {
+	font-weight: bold;
+}
+
+.episodeDetails span {
+	display: block;
+}
+
+.episodeItem img{
+	width: 280px;
+}
+
+.episodeDetails {
+	position: absolute;
+	max-width: 600px;
+	background: #fff;
+	display: block;
+	
+}
+
+.subscriptionItem, .episodeItem{
+	display: inline-block;
+}
+
+.subscriptionItem span{
+	display: block;
+}
+
+.subscriptionItem img{
+	width: 280px;
+}

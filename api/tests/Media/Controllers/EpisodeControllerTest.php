@@ -1,0 +1,39 @@
+<?php
+namespace Media\Controllers;
+
+use modules\media\services\EpisodeService;
+use modules\app\controllers\BaseController;
+
+class EpisodeController extends BaseController {
+
+	public static function getAction($get)
+	{
+
+		switch($get['action']){
+
+			case 'add' :
+				$rsp = EpisodeService::addSubscription($get);
+				break;
+			case 'get':
+					if($get['id'] == 'all'){
+						$rsp = EpisodeService::getAllEpisodes();
+					}else if($get['id'] == 'many-date-before'){
+						$rsp = EpisodeService::getEpisodesDateBefore($get);
+					}else if($get['id'] == 'many-date-after'){
+						$rsp = EpisodeService::getEpisodesDateAfter($get);
+					}else{
+						$rsp = EpisodeService::getEpisodeByID($get);
+					}
+				break;
+			case 'update' :
+				$rsp = EpisodeService::updateEpisode($get);
+				break;
+		}
+		parent::jsonResponse($rsp);
+
+	}
+
+
+
+
+}

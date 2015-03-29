@@ -1,0 +1,5 @@
+engine: mysql
+host: localhost
+name: hcAPIPDO
+user: hcAPIPDO
+password: mEtruv5s

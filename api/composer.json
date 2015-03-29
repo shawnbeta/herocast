@@ -1,0 +1,23 @@
+{
+    "require": {
+        "symfony/console": "2.7.*@dev",
+        "phpunit/dbunit": ">=1.2",
+        "zetacomponents/feed": "dev-master",
+        "simplepie/simplepie": "dev-master",
+        "shark/simple_html_dom": "dev-master",
+        "symfony/yaml": "3.0.*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShawnBeta\\App\\Controllers\\": "modules/App/Controllers",
+            "ShawnBeta\\App\\Commands\\": "modules/App/Commands",
+            "ShawnBeta\\App\\Services\\": "modules/App/Services",
+            "ShawnBeta\\Media\\Controllers\\": "modules/Media/Controllers",
+            "ShawnBeta\\Media\\Models\\": "modules/Media/Models",
+            "ShawnBeta\\Media\\PDO\\": "modules/Media/PDO",
+            "ShawnBeta\\Media\\Services\\": "modules/Media/Services",
+            "ShawnBeta\\Utility\\Services\\": "modules/Utility/Services",
+            "ShawnBeta\\Tests\\": "test"
+        }
+    }
+}
