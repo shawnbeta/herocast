@@ -1,0 +1,9 @@
+parameters:
+  paths:
+    module_root: modules
+    file_root: file_directory_root
+    web_root: http_web_path
+  apis:
+    youtube: youtube_api_code
+    
+  
