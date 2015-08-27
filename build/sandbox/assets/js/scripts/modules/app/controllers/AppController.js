@@ -19,7 +19,10 @@ hcApp.controller('AppController', [
         
         // Collect episodes
         var oldEpisodes = EpisodeService.gatherOld(ec);
-        if(oldEpisodes){
+
+        if(!oldEpisodes){
+
+            alert('removing');
             // Remove episode ID from episodeCollection
             EpisodeService.removeFromEpisodeCollection(ec, oldEpisodes); 
             // Reload the collection

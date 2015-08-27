@@ -8,7 +8,6 @@ hcApp.controller('SettingsController', [
     $rootScope.actionPane = 'settings';
 
 	$scope.flushLocalStorage = function(){
-		alert('hi')
 	    localStorage.clear();
 	    location.reload();
 	};
@@ -21,6 +20,7 @@ hcApp.controller('SettingsController', [
 		
 		// returns subscription collection
 	    f.then(function(rsp) {
+			console.log(rsp);
 	       var subscriptionObjCollection = 
 	           SubscriptionService.executeBulkRetrieval(rsp.data.subscriptions);
 	           $rootScope.subscriptions = subscriptionObjCollection;
