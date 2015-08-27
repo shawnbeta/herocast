@@ -3,7 +3,7 @@ function(Episode, $http, $rootScope) {
     return {
         executeSearch : function(scope) {
             console.log(scope.rqst);
-            var url = 'api/?entity=search&action=all' +
+            var url = '../../api/?entity=search&action=all' +
                 '&keyword=' + scope.rqst.keyword +
                 '&itunes=' + scope.rqst.itunesCheckbox +
                 '&youtube=' + scope.rqst.youtubeCheckbox;
@@ -33,7 +33,7 @@ function(Episode, $http, $rootScope) {
         requestDetails : function(searchResult){
             if(searchResult.description && searchResult.latestEpisodes)
                 return false;
-            var url = 'api/?entity=search&action=details' +
+            var url = '../../api/?entity=search&action=details' +
                 '&src=' + searchResult.src;
             return $http.get(url);                
         }

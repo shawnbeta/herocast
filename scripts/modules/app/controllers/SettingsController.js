@@ -6,7 +6,9 @@ hcApp.controller('SettingsController', [
 	$scope.currentView = 'Settings';
     $rootScope.viewTitle = "Application Settings";
     $rootScope.actionPane = 'settings';
+
 	$scope.flushLocalStorage = function(){
+		alert('hi')
 	    localStorage.clear();
 	    location.reload();
 	};

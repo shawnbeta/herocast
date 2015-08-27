@@ -60,16 +60,22 @@
   "navBar": {
     "links": [
       {
-        "href": "#",
+        "href": "episodes",
         "target": false,
         "title": "episodes",
         "text": "episodes"
       },
       {
-        "href": "#",
+        "href": "subscriptions",
         "target": false,
         "title": "subscriptions",
         "text": "subscriptions"
+      },
+      {
+        "href": "settings",
+        "target": false,
+        "title": "settings",
+        "text": "settings"
       }
     ],
     "addField": {
@@ -84,5 +90,30 @@
         }
       ]
     }
+  },
+
+  "settings": {
+    "links": [
+      {
+        "action" : "flushLocalStorage",
+        "title": "flush local storage"
+      },
+      {
+        "action" : "fetchBulk",
+        "title": "fetch bulk"
+      },
+      {
+        "action" : "purgeRemote",
+        "title": "purge remote data"
+      },
+      {
+        "action" : "fetchNew",
+        "title": "fetch new"
+      }
+    ]
   }
+
+
+
+
 }

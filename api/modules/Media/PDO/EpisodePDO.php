@@ -12,6 +12,7 @@ class EpisodePDO{
 				description, src, img, create_date, modified_date';		
 		try{
 			$dbc = new DBConn();
+			$dbc->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$dbc->beginTransaction();
 			$stmt = $dbc->prepare("INSERT INTO episodes ($fields) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			

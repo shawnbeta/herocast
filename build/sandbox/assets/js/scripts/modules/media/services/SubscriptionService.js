@@ -173,7 +173,7 @@ hcMedia.factory('SubscriptionService', [
         // @params: Subscription subscription object model.
         // @return: Promise indicating success or failure.
         removeRemote : function(subscription) {
-            var url = 'api/?entity=subscription&action=delete&id=' + subscription.id;
+            var url = '../../api/?entity=subscription&action=delete&id=' + subscription.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -204,7 +204,7 @@ hcMedia.factory('SubscriptionService', [
         // @params: Subscription object model.
         // @return: Promise indicating success/failure
         updateDownloadRemote : function(subscription) {
-            var url = 'api/?entity=subscription&action=update&val=' + 
+            var url = '../../api/?entity=subscription&action=update&val=' +
                 subscription.auto_download + '&id=' + subscription.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously

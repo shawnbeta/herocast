@@ -29,6 +29,11 @@ module.exports = function (grunt) {
                         data: 'data/dev.json',
                         template: 'mustache_templates/app/main.mustache',
                         dest: 'build/sandbox/index.html'
+                    },
+                    {
+                        data: 'data/dev.json',
+                        template: 'mustache_templates/app/settings.mustache',
+                        dest: 'scripts/modules/app/templates/settings.html'
                     }
 
                 ]
