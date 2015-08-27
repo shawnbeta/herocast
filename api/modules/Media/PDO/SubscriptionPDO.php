@@ -12,6 +12,7 @@ class SubscriptionPDO {
 		unset ( $subscription ['id'] );
 		$subscription = array_values ( $subscription );
 
+		//extract($subscription);
 		//var_dump($subscription);
 		
 		$fields = 'subscription_type, machine_name, home_page, auto_download, 
@@ -20,15 +21,26 @@ class SubscriptionPDO {
 		try {
 			
 			$dbc = new DBConn ();
-			var_dump($dbc);
+			$dbc->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$stmt = "INSERT INTO subscriptions ($fields) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			$query = $dbc->prepare ($stmt);
-			
+
+//			$query->bindParam(1, $subscription_type);
+//			$query->bindParam(2, $machine_name);
+//			$query->bindParam(3, $home_page);
+//			$query->bindParam(4, $auto_download);
+//			$query->bindParam(5, $title);
+//			$query->bindParam(6, $description);
+//			$query->bindParam(7, $src);
+//			$query->bindParam(8, $img);
+//			$query->bindParam(9, $create_date);
+//			$query->bindParam(10, $modified_date);
+
 			try {
-				//$dbc->beginTransaction ();
-				$query->execute ( $subscription );
+				$dbc->beginTransaction ();
+				$query->execute($subscription);
+				$dbc->commit ();
 				$sid = $dbc->lastInsertId ();
-				//$dbc->commit ();
 				print "Last ID: " . $sid;
 				return $sid;
 			} catch ( \PDOException $e ) {
