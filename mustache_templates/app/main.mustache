@@ -1,0 +1,35 @@
+<!--
+{{=<% %>=}}
+-->
+<!doctype html>
+<html lang="en" ng-app="hcApp" ng-controller="AppController">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Herocast</title>
+    <%# assets %>
+        <%# css %>
+            <%# remote %> <link href="<% . %>" rel='stylesheet' type='text/css'> <%/ remote %>
+            <%# contrib %> <link href="<% . %>" rel='stylesheet' type='text/css'> <%/ contrib %>
+            <%# libs %> <link href="<% . %>" rel='stylesheet' type='text/css'> <%/ libs %>
+        <%/ css %>
+    <%/ assets %>
+</head>
+
+<body>
+
+<% > media/episodes %>
+<% > media/subscriptions %>
+<% > media/add %>
+<% > player/audio %>
+
+<%# assets %>
+    <%# js %>
+        <%# remote %> <script src="<% . %>"></script> <%/ remote %>
+        <%# contrib %> <script src="<% . %>"></script> <%/ contrib %>
+        <%# libs %> <script src="<% . %>"></script> <%/ libs %>
+    <%/ js %>
+<%/ assets %>
+</body>
+
+</html>
