@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Apache@GigaOne">
+    <serverData>
+      <paths name="Apache@GigaOne">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="herocast" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
