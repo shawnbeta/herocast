@@ -1,10 +1,55 @@
 {
   "assets": {
-    "css" : {
+    "js" : {
       "contrib" : [
-
+        "angular",
+        "angular-mocks",
+        "angular-route",
+        "angular-sanitize",
+        "angular-touch",
+        "jquery",
+        "underscore"
       ],
       "libs": [
+        "app",
+        "routes",
+        "app/controllers/AppController",
+        "app/controllers/SettingsController",
+        "app/directives/SettingsActionsDirective",
+
+        "media/controllers/EpisodeController",
+        "media/controllers/SearchController",
+        "media/controllers/SubscriptionController",
+        "media/directives/EpisodeViewDirective",
+        "media/directives/SearchDirective",
+        "media/directives/SubscriptionAddDirective",
+        "media/directives/SubscriptionNavDirective",
+        "media/directives/SubscriptionViewDirective",
+        "media/filters/EpisodeFilters",
+        "media/filters/SubscriptionFilters",
+
+        "media/models/Episode",
+        "media/models/Subscription",
+
+        "media/services/EpisodeService",
+        "media/services/SubscriptionService",
+        "media/services/SearchService",
+        "media/services/MediaService",
+
+        "player/controllers/PlayerController",
+        "player/directives/NowPlayingDirective",
+        "player/services/PlayerService",
+        "ui/controller/NavController",
+        "ui/directives/ActionBarDirective",
+        "ui/directives/NavDirectives",
+
+        "utility/models/Departures",
+        "utility/services/DepartureService",
+        "utility/services/HelperService",
+        "utility/services/PersistenceService",
+
+        "vendors/services/UnderscoreService"
+
 
       ],
       "remote": [

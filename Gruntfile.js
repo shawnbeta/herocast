@@ -74,7 +74,31 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: 'bower_components/jquery/dist/jquery.js',
+                        src: 'bower_components/angular/angular.js',
+                        dest: 'build/sandbox/assets/js/contrib/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: 'bower_components/angular-mocks/angular-mocks.js',
+                        dest: 'build/sandbox/assets/js/contrib/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: 'bower_components/angular-route/angular-route.js',
+                        dest: 'build/sandbox/assets/js/contrib/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: 'bower_components/angular-sanitize/angular-sanitize.js',
+                        dest: 'build/sandbox/assets/js/contrib/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: 'bower_components/angular-touch/angular-touch.js',
                         dest: 'build/sandbox/assets/js/contrib/'
                     },
                     {
