@@ -4,23 +4,23 @@ function($routeProvider) {
 	$routeProvider
 	.when('/', {
 		controller : 'EpisodeController',
-		templateUrl : 'js/modules/media/templates/episodes.html'
+		templateUrl : 'assets/js/scripts/modules/media/templates/episodes.html'
 	})
 	.when('/episodes', {
 		controller : 'EpisodeController',
-		templateUrl : 'js/modules/media/templates/episodes.html'
+		templateUrl : 'assets/js/scripts/modules/media/templates/episodes.html'
 	})	
 	.when('/subscriptions', {
 		controller : 'SubscriptionController',
-		templateUrl : 'js/modules/media/templates/subscriptions.html'
+		templateUrl : 'assets/js/scripts/modules/media/templates/subscriptions.html'
 	})
     .when('/search', {
         controller : 'SearchController',
-        templateUrl : 'js/modules/media/templates/search.html'
+        templateUrl : 'assets/js/scripts/modules/media/templates/search.html'
     })  	
 	.when('/settings', {
 		controller : 'SettingsController',
-		templateUrl : 'js/modules/app/templates/settings.html'
+		templateUrl : 'assets/js/scripts/modules/app/templates/settings.html'
 	})		
 	.otherwise({
 		redirectTo : '/'

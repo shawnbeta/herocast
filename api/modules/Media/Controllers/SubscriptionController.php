@@ -14,7 +14,7 @@ class SubscriptionController extends BaseController {
             case 'add' :
               $rsp = SubscriptionService::addSubscription($get);
               break;
-						case 'raw' :
+			case 'raw' :
             	$rsp = SubscriptionService::getRaw($get);
              	break;              
             case 'get':

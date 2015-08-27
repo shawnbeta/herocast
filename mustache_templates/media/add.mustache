@@ -1,1 +1,16 @@
-Add
+<!--
+{{=<% %>=}}
+-->
+
+<%# addField %>
+<span ng-controller="SubscriptionController">
+    <input type="text" ng-model="src">
+    <select ng-model="subscriptionType">
+        <%# options %>
+            <option value="<% value %>"><% text %></option>
+        <%/ options %>
+    </select>
+    <a ng-click="add()">+</a>
+
+    <%/ addField %>
+</span>

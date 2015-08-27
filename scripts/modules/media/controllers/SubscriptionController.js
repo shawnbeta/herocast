@@ -13,6 +13,7 @@ hcMedia.controller('SubscriptionController', [
 	//$rootScope.subscriptionList, $rootScope.subscriptionNav
 	   //= angular.copy($rootScope.subscriptions);	
     $rootScope.actionPane = 'subscriptions';
+    $scope.subscriptionType = 'audio';
     $scope.add = function(){
         var rsp = SubscriptionService.add($scope.src, $scope.subscriptionType);
         

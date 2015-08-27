@@ -1,5 +1,5 @@
 hcMedia.directive('subscriptionAdd', function($rootScope) {
-    var tpl = 
+    var tpl =
     '<input type="text" ng-model="src">' +
     '<select ng-model="subscriptionType" ng-options="item as item for item in options">' +
     '</select>' +

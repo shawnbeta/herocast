@@ -13,7 +13,7 @@ hcMedia.factory('SubscriptionService', [
         //          String subscriptionType: audio or video
         // @return: Promise of JSON Data from server. 
         add : function(src, subscriptionType) {
-            var url = 'api/?entity=subscription&action=add&src=' + src + '&subscriptionType=' + subscriptionType;
+            var url = '../../api/?entity=subscription&action=add&src=' + src + '&subscriptionType=' + subscriptionType;
 
             return $http.get(url).success(function(data, status, headers, config) {
                 return data;

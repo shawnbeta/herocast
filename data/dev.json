@@ -56,6 +56,33 @@
         "http://fonts.googleapis.com/css?family=Quicksand:300,400,700"
       ]
     }
+  },
+  "navBar": {
+    "links": [
+      {
+        "href": "#",
+        "target": false,
+        "title": "episodes",
+        "text": "episodes"
+      },
+      {
+        "href": "#",
+        "target": false,
+        "title": "subscriptions",
+        "text": "subscriptions"
+      }
+    ],
+    "addField": {
+      "options": [
+        {
+          "value": "audio",
+          "text": "audio"
+        },
+        {
+          "value": "video",
+          "text": "video"
+        }
+      ]
+    }
   }
-
 }

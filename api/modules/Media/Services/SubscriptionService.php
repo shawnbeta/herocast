@@ -10,6 +10,7 @@ use ShawnBeta\Utility\Services\UtilityService;
 use ShawnBeta\Media\Models\Subscription;
 
 class SubscriptionService extends BaseService {
+
 	public static function addSubscription($g) {
 		if (empty ( $g ['src'] ))
 			return print 'You need to enter a URL';
