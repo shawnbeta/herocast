@@ -6,8 +6,8 @@ hcApp.controller('PlayerController', [
         $rootScope.audioElement = document.getElementsByTagName("audio")[0];
         $rootScope.videoElement = document.getElementsByTagName("video")[0];
 
-        $rootScope.nowPlaying = {};
-        $rootScope.currentPlayer = {
+        $rootScope.nowPlaying = $rootScope.nowPlaying || {};
+        $rootScope.currentPlayer = $rootScope.currentPlayer || {
             element: '',
             type: '',
             status: 0, // 0: off, 1: playing, 2: paused
@@ -16,8 +16,20 @@ hcApp.controller('PlayerController', [
             showDetails: false
         };
 
-        var currentPlayer = $rootScope.currentPlayer;
-        var nowPlaying = $rootScope.nowPlaying;
+        var currentPlayer = currentPlayer || $rootScope.currentPlayer;
+
+
+
+
+        //$rootScope.audioElement = document.getElementsByTagName("audio")[0];
+        //$rootScope.currentFile = $rootScope.currentFile || '';
+        //$rootScope.nowPlaying = $rootScope.nowPlaying || '';
+        //$rootScope.playerStatus = $rootScope.playerStatus || 'off';
+        //$rootScope.playPauseToggle = $rootScope.playPauseToggle || 'play';
+
+
+
+
 
 
 
@@ -33,7 +45,9 @@ hcApp.controller('PlayerController', [
         // @params: Single Episode object model. 
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
-          var currentTime = currentPlayer.currentTime;
+          var currentTime = currentPlayer.element.currentTime;
+            console.log('episode')
+            console.log(episode);
           PlayerService.updateBookmark(episode, currentTime);
         };
         
@@ -56,7 +70,7 @@ hcApp.controller('PlayerController', [
         
         initializeAction = function(episode){
             currentPlayer.file = $sce.trustAsResourceUrl(episode.src);
-            nowPlaying = PlayerService.setNowPlaying(episode);
+            $rootScope.nowPlaying = episode;
             var playerStyle = getPlayerStyle(episode);
             currentPlayer.type = playerStyle;
             currentPlayer.element = jQuery(playerStyle)[0];
@@ -67,7 +81,7 @@ hcApp.controller('PlayerController', [
                 // Start the player from the models
                 // bookmarked time defaults to 0 of course.
                 currentPlayer.element.play();
-                currentPlayer.element.currentTime = parseFloat(nowPlaying.bookmark);
+                currentPlayer.element.currentTime = parseFloat($rootScope.nowPlaying.bookmark);
                 return playAction();
             }, 300);
         };
@@ -111,7 +125,7 @@ hcApp.controller('PlayerController', [
         };        
         
         $rootScope.jumpBack = function(){
-            var currentTime = parseInt(currentPlayer.currentTime);
+            var currentTime = parseInt(currentPlayer.element.currentTime);
             currentPlayer.element.currentTime = currentTime - 300;
         };   
         

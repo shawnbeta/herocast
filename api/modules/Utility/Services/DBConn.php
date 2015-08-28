@@ -20,6 +20,9 @@ class DBConn extends \PDO {
 		$this->password = $db['password'];
 		$dns = $this->engine . ':dbname=' . $this->database . ";host=" . $this->host;
 		parent::__construct ( $dns, $this->user, $this->password );
+		$this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+
 	}
 	
 }

@@ -151,8 +151,8 @@ class EpisodePDO{
 			$stmt->bindParam ( ':id', $g['id'] );
 			$stmt->bindParam ( ':val', $g['val'] );
 			$stmt->execute ();
-			$result = $stmt->fetch();
-			return $result;
+			$rows = $stmt->rowCount();
+			return $rows;
 		} catch ( Exception $e ) {
 			return 'Error: ' . $e->getMessage ();
 		}

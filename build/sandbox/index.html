@@ -9,10 +9,8 @@
 </head>
 
 <body>
-<!--
--->
 
-<div  ng-controller="PlayerController" >
+<div ng-if="nowPlaying" ng-controller="PlayerController" >
     Now Playing: {{nowPlaying.title}} - {{subscription}}
     <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
     <button ng-click="setBookmark(nowPlaying)">bookmark</button>

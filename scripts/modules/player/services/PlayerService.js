@@ -30,10 +30,6 @@ hcMedia.factory('PlayerService',
             counter.hours = pad(parseInt(sec / 3600, 10)); 
             $rootScope.counter = counter;
         },
-        
-        setNowPlaying: function(model){
-           return model;
-        },
 
         getExtension: function(filename){
             console.log(filename);
