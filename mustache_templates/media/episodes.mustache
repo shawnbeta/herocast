@@ -19,8 +19,7 @@ Episodes
         <span>{{e.title}}</span>
         <span>{{e.pub_date | date:"medium"}}</span>
         <span>{{e.id}}</span>
-        <span>{{e.duration}}</span>
-        <span><img src="{{e.img}}"</span>
+        <span><img src="{{e.img}}"></span>
         <%# PlayerControls %>
             <span ng-controller="PlayerController">
                 <%# links %>
@@ -30,5 +29,4 @@ Episodes
         <%/ PlayerControls %>
         </li>
     </ul>
-    <div ng-if="actionPane == 'episodes'" subscription-action></div>
 </div>

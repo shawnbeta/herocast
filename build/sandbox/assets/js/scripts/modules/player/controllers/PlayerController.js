@@ -1,162 +1,107 @@
 hcApp.controller('PlayerController', [
-    '$rootScope', '$scope', '$sce', '$timeout', '$interval', 'PlayerService',
+    '$rootScope', '$scope', '$sce', '$routeParams', '$timeout', '$interval', 'PlayerService',
     'EpisodeService',
-    function($rootScope, $scope, $sce, $timeout, $interval, PlayerService,
+    function($rootScope, $scope, $sce, $routeParams, $timeout, $interval, PlayerService,
         EpisodeService){
-        $rootScope.audioElement = document.getElementsByTagName("audio")[0];
-        $rootScope.videoElement = document.getElementsByTagName("video")[0];
 
-        $rootScope.nowPlaying = $rootScope.nowPlaying || {};
-        $rootScope.currentPlayer = $rootScope.currentPlayer || {
-            element: '',
-            type: '',
-            status: 0, // 0: off, 1: playing, 2: paused
-            file: null,
-            toggle: false,
-            showDetails: false
-        };
-
-        var currentPlayer = currentPlayer || $rootScope.currentPlayer;
+        $rootScope.player = PlayerService.defaultPlayer('audio');
+        var player = $rootScope.player;
 
 
-
-
-        //$rootScope.audioElement = document.getElementsByTagName("audio")[0];
-        //$rootScope.currentFile = $rootScope.currentFile || '';
-        //$rootScope.nowPlaying = $rootScope.nowPlaying || '';
-        //$rootScope.playerStatus = $rootScope.playerStatus || 'off';
-        //$rootScope.playPauseToggle = $rootScope.playPauseToggle || 'play';
-
-
-
-
-
-
-
-        $scope.nowPlayingDetails = false;
-        
         // Hide or show the details of Now Playing.
         // Test running
         $scope.toggleNowPlayingDetails = function(){
-            currentPlayer.showDetails = !currentPlayer.showDetails;
+            player.showDetails = !player.showDetails;
         };
-          
+
         // Update the bookmark time for the target episode.
-        // @params: Single Episode object model. 
+        // @params: Single Episode object model.
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
-          var currentTime = currentPlayer.element.currentTime;
-            console.log('episode')
-            console.log(episode);
-          PlayerService.updateBookmark(episode, currentTime);
+            var currentTime = player.element.currentTime;
+            PlayerService.updateBookmark(episode, currentTime);
         };
-        
+
         // Toggle the player
         // @params: Single Episode object model.
         // @return: off: load the episode and start from bookmark
         //          playing: pause playback
-        //          resume playback from currentTime.    
-        $rootScope.playPause = function(episode){
-            if(currentPlayer.status == 0)
-                return initializeAction(episode);
-            if(currentPlayer.status == 1)
+        //          resume playback from currentTime.
+        $rootScope.engageAudio = function(episode){
+            if(player.status == 0)
+                return loadPlayer(episode);
+            if(player.status == 1)
                 return pauseAction();
-            return resumeAction(episode);
-        };
-        
-        //$rootScope.counter = $rootScope.counter || 0;
-
-        $rootScope.counter = 0;
-        
-        initializeAction = function(episode){
-            currentPlayer.file = $sce.trustAsResourceUrl(episode.src);
-            $rootScope.nowPlaying = episode;
-            var playerStyle = getPlayerStyle(episode);
-            currentPlayer.type = playerStyle;
-            currentPlayer.element = jQuery(playerStyle)[0];
-
-            // Run the time out only on the initial
-            // file load so js has time to read it.
-            $timeout(function(){
-                // Start the player from the models
-                // bookmarked time defaults to 0 of course.
-                currentPlayer.element.play();
-                currentPlayer.element.currentTime = parseFloat($rootScope.nowPlaying.bookmark);
-                return playAction();
-            }, 300);
+            return PlayerService.playAction(player);
         };
 
-        getPlayerStyle = function(episode){
-            // Set the player type
-            if(PlayerService.isAudio(episode.src)){
-                return 'audio';
+        $rootScope.counter =  0;
+
+        loadPlayer = function(episode){
+
+            player.file = $sce.trustAsResourceUrl(episode.src);
+            player.activeEpisode = episode;
+
+            // Continue the p
+            player.element.oncanplay = function(){
+                alert('can playback');
+
+                // Start playback
+                PlayerService.playAction(player);
+                // Move the pointer to bookmark. Defaults to 0.
+                player.element.currentTime = parseFloat(episode.bookmark);
             }
-            if(PlayerService.isVideo(episode.src)){
-                return 'video';
-            }
-            else{
-                return alert('Cannot play this file type.');
-            }
-        };
-        
-        resumeAction = function(){
-            currentPlayer.element.play();
-            return playAction();
+
         };
 
-        playAction = function(){
-            currentPlayer.status = 1;
-            currentPlayer.toggle = 'pause';
-            return PlayerService.startCounter();
-        };
-        
+
         $rootScope.isPlaying = function(model){
-            if(model.id == $rootScope.nowPlaying.id &&
-                currentPlayer.status == 1)
-                    return 0;
-            return 1;
+            if(model.id == player.activeEpisode.id && player.status == 1)
+                return 'pause';
+            return 'play';
         };
-        
+
         pauseAction = function(){
             PlayerService.stopCounter();
-            currentPlayer.element.pause();
-            currentPlayer.status = 2;
-            currentPlayer.toggle = 'playing';
-        };        
-        
+            player.element.pause();
+            player.status = 3;
+            player.toggle = 'play';
+        };
+
         $rootScope.jumpBack = function(){
-            var currentTime = parseInt(currentPlayer.element.currentTime);
-            currentPlayer.element.currentTime = currentTime - 300;
-        };   
-        
+            alert('working')
+            var currentTime = parseInt(player.element.currentTime);
+            player.element.currentTime = currentTime - 300;
+        };
+
         $rootScope.rewind = function(){
-            var currentTime = parseInt(currentPlayer.element.currentTime);
-            currentPlayer.element.currentTime = currentTime - 20;
-        };               
-        
+            var currentTime = parseInt(player.element.currentTime);
+            player.element.currentTime = currentTime - 20;
+        };
+
         $rootScope.forward = function(){
-            var currentTime = parseInt(currentPlayer.element.currentTime);
-            currentPlayer.element.currentTime = currentTime + 20;
-        };  
-                
+            var currentTime = parseInt(player.element.currentTime);
+            player.element.currentTime = currentTime + 20;
+        };
+
         $rootScope.jumpAhead = function(){
-            var currentTime = parseInt(currentPlayer.element.currentTime);
-            currentPlayer.element.currentTime = currentTime + 300;
-        };            
-        
+            var currentTime = parseInt(player.element.currentTime);
+            player.element.currentTime = currentTime + 300;
+        };
+
         $scope.volumeDown = function(){
-            console.log('volume down');
-            currentPlayer.element.volume-=0.1;
+            player.element.volume-=0.1;
         };
-        
+
         $scope.volumeUp = function(){
-            console.log('volume up');
-            currentPlayer.element.volume+=0.1;
-        };     
-        
-        $scope.setVolumeTo = function(val){
-            currentPlayer.element.volume=val;
+            player.element.volume+=0.1;
         };
+
+        $scope.setVolumeTo = function(val){
+            player.element.volume=val;
+        };
+
+
                    
     }]);
 

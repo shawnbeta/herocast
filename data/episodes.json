@@ -3,7 +3,7 @@
   {
     "links": [
       {
-        "action": "playPause",
+        "action": "engageAudio",
         "text": "{{isPlaying(e)}}"
       },
       {

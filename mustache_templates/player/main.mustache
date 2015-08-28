@@ -24,6 +24,6 @@
     <button ng-click="setVolumeTo(1)">D</button>
     <button ng-click="volumeUp()">+</button>
     <audio ng-show="subscription.type == 'audio'" src="{{currentPlayer.file}}"></audio>Audio
-    <video ng-show="subscription.type == 'video'" src="{{currentPlayer.file}}"></video>Video
+    <video ng-show="subscription.type == 'video'" src="{{currentPlayer.file}}" width="320" height="240"></video>Video
 </div>
 

@@ -2,9 +2,31 @@
 {{=<% %>=}}
 -->
 
-<div ng-if="nowPlaying" ng-controller="PlayerController" now-playing>
-    <now-playing></now-playing>
-    <volume-action></volume-action>
-    <audio ng-show="subscription.type == 'audio'" src="">Audio</audio>
+<div ng-controller="PlayerController">
+            Now Playing: {{player.activeEpisode.title}} - {{subscription}}
+            <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
+            <button ng-click="setBookmark(player.activeEpisode)">bookmark</button>
+            <button ng-click="engageAudio(player.activeEpisode)">{{player.toggleText}}</button>
+            <button ng-click="jumpBack()">Jump Back</button>
+            <button ng-click="rewind()">RR</button>
+            <button ng-click="forward()">FF</button>
+            <button ng-click="jumpAhead()">Jump Ahead</button>
+            <button ng-click="toggleNowPlayingDetails()">description</button>
+    <span ng-if="currentPlayer.showDetails">
+        {{player.activeEpisode.description}}
+        '{{player.activeEpisode.pub_date}}
+    </span>
+            <div slider class="slider" min="0" max="9001" step="100">
+                <span></span>
+            </div>
+            <button ng-click="volumeDown()">-</button>
+            <button ng-click="setVolumeTo(.1)">A</button>
+            <button ng-click="setVolumeTo(.4)">B</button>
+            <button ng-click="setVolumeTo(.6)">C</button>
+            <button ng-click="setVolumeTo(1)">D</button>
+            <button ng-click="volumeUp()">+</button>
+
+        </div>
+ <audio src="{{player.file}}"></audio>
 </div>
 

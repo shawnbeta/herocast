@@ -9,8 +9,12 @@ function($routeProvider) {
 	.when('/episodes', {
 		controller : 'EpisodeController',
 		templateUrl : 'assets/js/scripts/modules/media/templates/episodes.html'
-	})	
-	.when('/subscriptions', {
+	})
+		.when('/video-player/:id', {
+			controller : 'PlayerController',
+			templateUrl : 'assets/js/scripts/modules/player/templates/video.html'
+		})
+		.when('/subscriptions', {
 		controller : 'SubscriptionController',
 		templateUrl : 'assets/js/scripts/modules/media/templates/subscriptions.html'
 	})

@@ -18,10 +18,9 @@ Episodes
         <span>{{e.title}}</span>
         <span>{{e.pub_date | date:"medium"}}</span>
         <span>{{e.id}}</span>
-        <span>{{e.duration}}</span>
-        <span><img src="{{e.img}}"</span>
+        <span><img src="{{e.img}}"></span>
             <span ng-controller="PlayerController">
-                    <button ng-click="playPause(e)">{{isPlaying(e)}}</button>
+                    <button ng-click="engageAudio(e)">{{isPlaying(e)}}</button>
                     <button ng-click="updateWatched(e)">{{isWatched(e)}}</button>
                     <button ng-click="playPause(e)">download</button>
                     <button ng-click="toggleDetails(e)">details</button>
@@ -29,5 +28,4 @@ Episodes
             </span>
         </li>
     </ul>
-    <div ng-if="actionPane == 'episodes'" subscription-action></div>
 </div>

@@ -1,8 +1,7 @@
 <!--
 {{=<% %>=}}
 -->
-
-
 <div ng-if="nowPlaying" ng-controller="PlayerController" now-playing></div>
-<div ng-if="nowPlaying" ng-controller="PlayerController" volume-action></div>
-<video ng-if="subscription.type == 'video'" src="">VIDEO</video>
+<div ng-if="nowPlaying" ng-controller="VideoController" volume-action>
+    <video ng-if="subscription.type == 'video'" src=""></video>
+</div>
