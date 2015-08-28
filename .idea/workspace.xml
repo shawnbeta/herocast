@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38069551-0617-4d32-b60e-9352532b3e09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/modules/player/services/AudioService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/controllers/PlayerController.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/controllers/PlayerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js" afterPath="$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/services/PlayerService.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/services/PlayerService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/player/services/PlayerService.js" afterPath="$PROJECT_DIR$/scripts/modules/player/services/PlayerService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mustache_templates/player/audio.mustache" afterPath="$PROJECT_DIR$/mustache_templates/player/audio.mustache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/dev.json" afterPath="$PROJECT_DIR$/data/dev.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/templates/episodes.html" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/templates/episodes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/media/templates/episodes.html" afterPath="$PROJECT_DIR$/scripts/modules/media/templates/episodes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/episodes.json" afterPath="$PROJECT_DIR$/data/episodes.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mustache_templates/media/episodes.mustache" afterPath="$PROJECT_DIR$/mustache_templates/media/episodes.mustache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/herocast.iml" afterPath="$PROJECT_DIR$/.idea/herocast.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/index.html" afterPath="$PROJECT_DIR$/build/sandbox/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mustache_templates/app/main.mustache" afterPath="$PROJECT_DIR$/mustache_templates/app/main.mustache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mustache_templates/player/main.mustache" afterPath="$PROJECT_DIR$/mustache_templates/player/main.mustache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/routes.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/routes.js" afterPath="$PROJECT_DIR$/scripts/modules/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mustache_templates/player/video.mustache" afterPath="$PROJECT_DIR$/mustache_templates/player/video.mustache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9f36e334-43aa-43f0-8479-6d04c3803849" name="New changelist" comment="" />
@@ -45,8 +29,8 @@
             <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.20792079">
-                    <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+                  <state vertical-scroll-proportion="0.7425743">
+                    <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
                     <folding />
                   </state>
                 </provider>
@@ -961,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20792079">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.7425743">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
           <folding />
         </state>
       </provider>
