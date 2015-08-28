@@ -2,6 +2,9 @@
 {{=<% %>=}}
 -->
 
-Audio
-<div ng-if="nowPlaying" ng-controller="PlayerController" now-playing></div>
-<div ng-if="nowPlaying" ng-controller="PlayerController" volume-action></div>
+<div ng-if="nowPlaying" ng-controller="PlayerController" now-playing>
+    <now-playing></now-playing>
+    <volume-action></volume-action>
+    <audio ng-show="subscription.type == 'audio'" src="">Audio</audio>
+</div>
+

@@ -1,0 +1,31 @@
+<!--
+{{=<% %>=}}
+-->
+
+<div  ng-controller="PlayerController" >
+    Now Playing: {{nowPlaying.title}} - {{subscription}}
+    <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
+    <button ng-click="setBookmark(nowPlaying)">bookmark</button>
+    <button ng-click="playPause(nowPlaying)">{{playPauseToggle}}</button>
+    <button ng-click="jumpBack()">Jump Back</button>
+    <button ng-click="rewind()">RR</button>
+    <button ng-click="forward()">FF</button>
+    <button ng-click="jumpAhead()">Jump Ahead</button>
+    <button ng-click="toggleNowPlayingDetails()">description</button>
+    <span ng-if="currentPlayer.showDetails">
+        {{nowPlaying.description}}
+        '{{nowPlaying.pub_date}}
+    </span>
+    <div slider class="slider" min="0" max="9001" step="100">
+    <span></span>
+    </div>
+    <button ng-click="volumeDown()">-</button>
+    <button ng-click="setVolumeTo(.1)">A</button>
+    <button ng-click="setVolumeTo(.4)">B</button>
+    <button ng-click="setVolumeTo(.6)">C</button>
+    <button ng-click="setVolumeTo(1)">D</button>
+    <button ng-click="volumeUp()">+</button>
+    <audio ng-show="subscription.type == 'audio'" src="{{currentPlayer.file}}"></audio>Audio
+    <video ng-show="subscription.type == 'video'" src=""></video>Video
+</div>
+

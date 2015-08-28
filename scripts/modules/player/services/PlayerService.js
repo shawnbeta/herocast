@@ -34,16 +34,53 @@ hcMedia.factory('PlayerService',
         setNowPlaying: function(model){
            return model;
         },
+
+        getExtension: function(filename){
+            console.log(filename);
+          var parts = filename.split('.');
+            console.log('parts length');
+            console.log(parts.length);
+            console.log('parts');
+            console.log(parts);
+            console.log(parts[parts.length - 1]);
+            return parts[parts.length - 1];
+        },
+
+        isAudio: function(filename) {
+            var ext = this.getExtension(filename);
+            console.log(ext);
+            switch (ext.toLowerCase()) {
+                case 'mp3':
+                case 'ogg':
+                    return true;
+            }
+            return false;
+        },
+        isVideo: function(filename) {
+            var ext = this.getExtension(filename);
+            console.log(ext);
+
+            switch (ext.toLowerCase()) {
+                case 'm4v':
+                case 'avi':
+                case 'mpg':
+                case 'mp4':
+                    return true;
+            }
+            return false;
+        },
  
-        setResume: function(){
+        setResume: function(data){
+            var resume;
             var check = $interval(function(){
-                if($rootScope.audioElement.currentTime){
+                if(data.time){
                     $interval.cancel(check);
-                    var resume = parseFloat($rootScope.nowPlaying.bookmark);
-                    $rootScope.audioElement.currentTime = resume;
+                    resume = parseFloat(data.bookmark);
+                    //$rootScope.audioElement.currentTime = resume;
                 }
                     
             }, 20);
+            return resume;
         },
         
         updateBookmark: function(episode, currentTime){
