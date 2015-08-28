@@ -1,8 +1,10 @@
 hcApp.directive('nowPlaying', ['PlayerService', function(PlayerService) {
     
     var tpl = 'Now Playing: {{nowPlaying.title}}'+
+        '{{subscription}}' +
     '<div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>' +
-    '<audio src="{{currentFile}}"></audio>' +
+        //'<audio ng-if="type == \'audio\'" src="{{currentFile}}"></audio>' +
+        //'<video ng-if="type == \'video\'" src="{{currentFile}}"></video>' +
     '<button ng-click="setBookmark(nowPlaying)">bookmark</button>' +
     '<button ng-click="playPause(nowPlaying)">{{playPauseToggle}}</button>' +
     '<button ng-click="jumpBack()">Jump Back</button>' + 
