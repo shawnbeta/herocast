@@ -1,0 +1,27 @@
+{
+  "PlayerControls":
+  {
+    "links": [
+      {
+        "action": "playPause",
+        "text": "{{isPlaying(e)}}"
+      },
+      {
+        "action": "updateWatched",
+        "text": "{{isWatched(e)}}"
+      },
+      {
+        "action": "playPause",
+        "text": "download"
+      },
+      {
+        "action": "toggleDetails",
+        "text": "details"
+      },
+      {
+        "action": "copyToServer",
+        "text": "copy"
+      }
+    ]
+  }
+}

@@ -4,5 +4,31 @@
 
 Episodes
 <div ng-controller="SubscriptionController">
+    <span class="episodeDetails" ng-if="showDetails">
+           <span><label>Title: </label>{{episodeDetailer.title}}</span>
+           <span><label>description: </label>
+           <span ng-bind-html="episodeDetailer.description"></span></span>
+           <span><label>watched: </label>{{episodeDetailer.watched}}</span>
+           <span><label>bookmark: </label>{{episodeDetailer.bookmark}}</span>
+           <span><label>Pub Date: </label>{{episodeDetailer.pub_date}}</span>
+           <span><label>Create Date: </label>{{episodeDetailer.create_date}}</span>
+           <span><label>Modified Date: </label>{{episodeDetailer.modified_date}}</span>
+       </span>
+<ul>
+    <li class="episodeItem" ng-repeat="e in episodes|orderByPubDate" >
+        <span>{{e.title}}</span>
+        <span>{{e.pub_date | date:"medium"}}</span>
+        <span>{{e.id}}</span>
+        <span>{{e.duration}}</span>
+        <span><img src="{{e.img}}"</span>
+        <%# PlayerControls %>
+            <span ng-controller="PlayerController">
+                <%# links %>
+                    <button ng-click="<% action %>(e)"><% text %></button>
+                <%/ links %>
+            </span>
+        <%/ PlayerControls %>
+        </li>
+    </ul>
     <div ng-if="actionPane == 'episodes'" subscription-action></div>
 </div>

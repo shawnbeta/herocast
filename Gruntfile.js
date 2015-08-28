@@ -34,6 +34,11 @@ module.exports = function (grunt) {
                         data: 'data/dev.json',
                         template: 'mustache_templates/app/settings.mustache',
                         dest: 'scripts/modules/app/templates/settings.html'
+                    },
+                    {
+                        data: 'data/episodes.json',
+                        template: 'mustache_templates/media/episodes.mustache',
+                        dest: 'scripts/modules/media/templates/episodes.html'
                     }
 
                 ]

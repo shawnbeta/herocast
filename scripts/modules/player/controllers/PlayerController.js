@@ -5,26 +5,20 @@ hcApp.controller('PlayerController', [
         EpisodeService){
         $rootScope.audioElement = document.getElementsByTagName("audio")[0];
         $rootScope.videoElement = document.getElementsByTagName("video")[0];
-        //$rootScope.currentFile = $rootScope.currentFile || '';
-        //$rootScope.nowPlaying = $rootScope.nowPlaying || '';
-        //$rootScope.playerStatus = $rootScope.playerStatus || 'off';
-        //$rootScope.playPauseToggle = $rootScope.playPauseToggle || 'play';
-        //var currentFile;
-        //var nowPlaying;
-        //var playerStatus;
-        //var playPauseToggle;
 
         $rootScope.nowPlaying = {};
         $rootScope.currentPlayer = {
             element: '',
             type: '',
-            status: 0,
+            status: 0, // 0: off, 1: playing, 2: paused
             file: null,
             toggle: false,
             showDetails: false
         };
 
         var currentPlayer = $rootScope.currentPlayer;
+        var nowPlaying = $rootScope.nowPlaying;
+
 
 
         $scope.nowPlayingDetails = false;
@@ -32,14 +26,14 @@ hcApp.controller('PlayerController', [
         // Hide or show the details of Now Playing.
         // Test running
         $scope.toggleNowPlayingDetails = function(){
-            $rootScope.currentPlayer.showDetails = !$rootScope.currentPlayer.showDetails;
+            currentPlayer.showDetails = !currentPlayer.showDetails;
         };
           
         // Update the bookmark time for the target episode.
         // @params: Single Episode object model. 
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
-          var currentTime = $rootScope.currentPlayer.currentTime;
+          var currentTime = currentPlayer.currentTime;
           PlayerService.updateBookmark(episode, currentTime);
         };
         
@@ -49,9 +43,9 @@ hcApp.controller('PlayerController', [
         //          playing: pause playback
         //          resume playback from currentTime.    
         $rootScope.playPause = function(episode){
-            if($rootScope.currentPlayer.status == 0)
+            if(currentPlayer.status == 0)
                 return initializeAction(episode);
-            if($rootScope.currentPlayer.status == 1)
+            if(currentPlayer.status == 1)
                 return pauseAction();
             return resumeAction(episode);
         };
@@ -61,31 +55,20 @@ hcApp.controller('PlayerController', [
         $rootScope.counter = 0;
         
         initializeAction = function(episode){
-            $rootScope.currentPlayer.file = $sce.trustAsResourceUrl(episode.src);
-            $rootScope.nowPlaying = PlayerService.setNowPlaying(episode);
+            currentPlayer.file = $sce.trustAsResourceUrl(episode.src);
+            nowPlaying = PlayerService.setNowPlaying(episode);
             var playerStyle = getPlayerStyle(episode);
-            console.log(jQuery(playerStyle));
-
-            $rootScope.currentPlayer.type = playerStyle;
-            $rootScope.currentPlayer.element = jQuery(playerStyle)[0];
-
-
-
-            console.log('element');
-            console.log($rootScope.currentPlayer);
+            currentPlayer.type = playerStyle;
+            currentPlayer.element = jQuery(playerStyle)[0];
 
             // Run the time out only on the initial
             // file load so js has time to read it.
             $timeout(function(){
                 // Start the player from the models
                 // bookmarked time defaults to 0 of course.
-                var data = {
-                    time: $rootScope.currentPlayer.currentTime,
-                    bookmark: $rootScope.nowPlaying.bookmark
-                };
-                $rootScope.currentPlayer.element.play();
-                $rootScope.currentPlayer.element.currentTime = PlayerService.setResume(data);
-                return $rootScope.playAction();
+                currentPlayer.element.play();
+                currentPlayer.element.currentTime = parseFloat(nowPlaying.bookmark);
+                return playAction();
             }, 300);
         };
 
@@ -102,63 +85,63 @@ hcApp.controller('PlayerController', [
             }
         };
         
-        $rootScope.resumeAction = function(model){
-            $rootScope.currentPlayer.element.play();
-            return $rootScope.playAction();
+        resumeAction = function(){
+            currentPlayer.element.play();
+            return playAction();
         };
-        
-        $rootScope.playAction = function(){
-            $rootScope.currentPlayer.status = 'playing';
-            $rootScope.currentPlayer.toggle = 'pause';
+
+        playAction = function(){
+            currentPlayer.status = 1;
+            currentPlayer.toggle = 'pause';
             return PlayerService.startCounter();
         };
         
         $rootScope.isPlaying = function(model){
             if(model.id == $rootScope.nowPlaying.id &&
-                $rootScope.currentPlayer.status == 'playing')
-                    return 'pause';
-            return 'play';
+                currentPlayer.status == 1)
+                    return 0;
+            return 1;
         };
         
-        $rootScope.pauseAction = function(){
+        pauseAction = function(){
             PlayerService.stopCounter();
-            $rootScope.currentPlayer.element.pause();
-            $rootScope.playerStatus = 'paused';
-            $rootScope.playPauseToggle = 'play';
+            currentPlayer.element.pause();
+            currentPlayer.status = 2;
+            currentPlayer.toggle = 'playing';
         };        
         
         $rootScope.jumpBack = function(){
-            var currentTime = parseInt($rootScope.$rootScope.currentPlayer.currentTime);
-            $rootScope.currentPlayer.element.currentTime = currentTime - 300;
+            var currentTime = parseInt(currentPlayer.currentTime);
+            currentPlayer.element.currentTime = currentTime - 300;
         };   
         
         $rootScope.rewind = function(){
-            var currentTime = parseInt($rootScope.currentPlayer.element.currentTime);
-            $rootScope.currentPlayer.element.currentTime = currentTime - 20;
+            var currentTime = parseInt(currentPlayer.element.currentTime);
+            currentPlayer.element.currentTime = currentTime - 20;
         };               
         
         $rootScope.forward = function(){
-            var currentTime = parseInt($rootScope.currentPlayer.element.currentTime);
-            $rootScope.currentPlayer.element.currentTime = currentTime + 20;
+            var currentTime = parseInt(currentPlayer.element.currentTime);
+            currentPlayer.element.currentTime = currentTime + 20;
         };  
                 
         $rootScope.jumpAhead = function(){
-            var currentTime = parseInt($rootScope.currentPlayer.element.currentTime);
-            $rootScope.currentPlayer.element.currentTime = currentTime + 300;
+            var currentTime = parseInt(currentPlayer.element.currentTime);
+            currentPlayer.element.currentTime = currentTime + 300;
         };            
         
         $scope.volumeDown = function(){
             console.log('volume down');
-            $rootScope.currentPlayer.element.volume-=0.1;
+            currentPlayer.element.volume-=0.1;
         };
         
         $scope.volumeUp = function(){
             console.log('volume up');
-            $rootScope.currentPlayer.element.volume+=0.1;
+            currentPlayer.element.volume+=0.1;
         };     
         
         $scope.setVolumeTo = function(val){
-            $rootScope.currentPlayer.element.volume=val;
+            currentPlayer.element.volume=val;
         };
                    
     }]);

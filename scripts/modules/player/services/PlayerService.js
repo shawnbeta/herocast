@@ -69,19 +69,7 @@ hcMedia.factory('PlayerService',
             }
             return false;
         },
- 
-        setResume: function(data){
-            var resume;
-            var check = $interval(function(){
-                if(data.time){
-                    $interval.cancel(check);
-                    resume = parseFloat(data.bookmark);
-                    //$rootScope.audioElement.currentTime = resume;
-                }
-                    
-            }, 20);
-            return resume;
-        },
+
         
         updateBookmark: function(episode, currentTime){
             episode.bookmark = currentTime;
