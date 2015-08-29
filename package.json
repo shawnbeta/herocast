@@ -1,6 +1,6 @@
 {
   "name": "herocast",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Web based podcast manager",
   "main": "Gruntfile.js",
   "dependencies": {
@@ -13,7 +13,7 @@
     "karma-safari-launcher": "~0.1.1"
   },
   "devDependencies": {
-    "grunt-bump": "~0.3.2",
+    "grunt-bump": "~0.5.0",
     "grunt-contrib-copy": "~0.8.1",
     "grunt-contrib-concat": "~0.5.1",
     "load-grunt-tasks": "~3.2.0",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shawnbeta/herocast.git"
+    "url": "ssh://shawn@78.74.14.2:2278/home/shawn/Gitbase/herocast.git"
   },
   "author": "Shawn Williams",
   "license": "BSD-2-Clause",
