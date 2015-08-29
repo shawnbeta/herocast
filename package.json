@@ -1,6 +1,6 @@
 {
   "name": "herocast",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web based podcast manager",
   "main": "Gruntfile.js",
   "dependencies": {
