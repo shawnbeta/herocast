@@ -5,7 +5,7 @@ namespace ShawnBeta\Media\Services;
 use ShawnBeta\App\Services\BaseService;
 use ShawnBeta\Utility\Services\FileService;
 
-class EpisodeService extends PHPUnit_Framework_TestCase{
+class EpisodeService extends \PHPUnit_Framework_TestCase{
 
   public static function getAllEpisodes() {
   	$episodes = self::getEM()

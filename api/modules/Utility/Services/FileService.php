@@ -48,12 +48,16 @@ class FileService extends BaseService{
     }
     
     private static function getLocation($paths, $file){
-    	$rsp['file_path'] =  
+    	$rsp['file_path'] =
     		$paths['file_root'] . '/' . $file['type'] . '/' . $file['machine_name'] . '/';
     	$rsp['web_path'] = 
     		$paths['web_root'] . '/' . $file['type'] . '/' . $file['machine_name'] . '/' . $file['name'];
-    	if (!file_exists($rsp['file_path']))
-    		mkdir($rsp['file_path'], 0777, true);
+    	if (!file_exists($rsp['file_path'])){
+		  $oldmask = umask(0);
+		  mkdir($rsp['file_path'], 0777, true);
+		  umask($oldmask);
+		}
+
     	$rsp['file_path'] = $rsp['file_path'] . $file['name'];
     	return $rsp;    	
     }
@@ -102,6 +106,13 @@ class FileService extends BaseService{
 			curl_close($ch);
 			
 			fclose( $file );
+
+		  $paths = self::getSettings()['parameters']['paths'];
+		  $oldmask = umask(0);
+
+		  chmod($location, 0777);
+		  umask($oldmask);
+
 			
 		}
 
@@ -111,10 +122,11 @@ class FileService extends BaseService{
 			
 			$paths = self::getSettings()['parameters']['paths'];
 			$rsp = self::getLocation($paths, $file);
+		  var_dump($paths);
 			//var_dump($rsp);
 			$fileName = $rsp['file_path'];
 			//CurlTool::downloadFile($src, $fileName);	
-			self::makeCopy($src, $fileName);	
+			self::makeCopy($src, $fileName);
 			return $rsp['web_path'];
 			
 		}

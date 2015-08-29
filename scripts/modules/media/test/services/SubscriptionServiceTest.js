@@ -8,9 +8,7 @@ describe('SubscriptionService', function() {
         module('hcVendors');
     });
 
-    beforeEach(inject(function(_SubscriptionMockService_, _SubscriptionService_, $httpBackend, _Subscription_) {
-        SubscriptionMockService = _SubscriptionMockService_;
-        mockery = new SubscriptionMockService();
+    beforeEach(inject(function(_SubscriptionService_, $httpBackend, _Subscription_) {
         Subscription = _Subscription_;
         SubscriptionService = _SubscriptionService_;
         httpBackend = $httpBackend;

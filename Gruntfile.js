@@ -22,9 +22,7 @@ module.exports = function (grunt) {
             assets: [
                 'themes/portland/assets'
             ],
-            dev: [
-                'build/sandbox'
-            ]
+            dev: [ 'build/sandbox']
         },
 
         mustache_render: {
@@ -84,6 +82,13 @@ module.exports = function (grunt) {
         copy: {
             dev: {
                 files : [
+                    {
+
+                        expand: true,
+                        flatten: false,
+                        src: 'api/**',
+                        dest: 'build/sandbox/'
+                    },
                     {
                         expand: true,
                         flatten: false,
@@ -158,8 +163,8 @@ module.exports = function (grunt) {
 
     //Custom Build
     grunt.registerTask('build', ['clean:main', 'less', 'copy:main']);
-    grunt.registerTask('test', ['copy:dev', 'karma']);
-    grunt.registerTask('dev', ['clean:dev', 'mustache_render:dev', 'less:dev',  'copy:dev']);
+    grunt.registerTask('test', ['clean:dev', 'copy:dev', 'karma']);
+    grunt.registerTask('dev', ['clean:dev', 'mustache_render:dev', 'less:dev',  'copy:dev', 'karma']);
 
 
 };

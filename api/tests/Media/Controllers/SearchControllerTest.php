@@ -2,8 +2,8 @@
 
 namespace Media\Controllers;
 
-use modules\media\services\SearchService;
-use modules\app\controllers\BaseController;
+use ShawnBeta\Media\Services\SearchService;
+use ShawnBeta\App\Controllers\BaseController;
 
 
 class SearchController extends BaseController {

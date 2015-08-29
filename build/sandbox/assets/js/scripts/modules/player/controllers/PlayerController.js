@@ -4,7 +4,8 @@ hcApp.controller('PlayerController', [
     function($rootScope, $scope, $sce, $routeParams, $timeout, $interval, PlayerService,
         EpisodeService){
 
-        $rootScope.player = $rootScope.player || PlayerService.defaultPlayer('audio');
+        $rootScope.player = $rootScope.player ||
+            PlayerService.defaultPlayer(document.getElementsByTagName('audio')[0], 'audio');
         var player = $rootScope.player;
 
         $rootScope.showAudio = false;

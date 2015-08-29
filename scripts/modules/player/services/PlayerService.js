@@ -14,9 +14,9 @@ hcMedia.factory('PlayerService',
             this.startCounter(player);
         },
 
-        defaultPlayer: function(type){
+        defaultPlayer: function(ele, type){
             return {
-                element: document.getElementsByTagName(type)[0],
+                element: ele ,
                 status: 0,
                 file: null,
                 showDetails: false,

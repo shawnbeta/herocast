@@ -1,8 +1,8 @@
 <?php
 namespace Media\Controllers;
 
-use modules\media\services\EpisodeService;
-use modules\app\controllers\BaseController;
+use ShawnBeta\Media\Services\EpisodeService;
+use ShawnBeta\App\Controllers\BaseController;
 
 class EpisodeController extends BaseController {
 

@@ -13,10 +13,10 @@ describe('PlayerController', function() {
 
     
     // toggleNowPlayingDetails()
-    it('should set now playing details to visible', function() {
-        $scope.toggleNowPlayingDetails();
-        expect($scope.nowPlayingDetails).toEqual(true);
-    });
+    //it('should set now playing details to visible', function() {
+    //    $scope.toggleNowPlayingDetails();
+    //    expect($scope.nowPlayingDetails).toEqual(true);
+    //});
     
     
 });

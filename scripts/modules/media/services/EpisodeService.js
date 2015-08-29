@@ -5,7 +5,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
     var lifespan = 30;
 
-    var soc;
+    //var soc;
 
     return {
 
@@ -111,6 +111,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // @params: Array of subscription models objects,
         //          an array of SEC arrays.
         persistBulkSEC : function(subscriptions, sec) {
+
             var self = this;
             _.each(subscriptions, function(subscription) {
                 self.persistSEC(sec, subscription);
@@ -120,6 +121,8 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // Save an individual Subscription Episode Collection in localStorage
         // TESTING BY PROXY from persistBulkSEC()
         persistSEC : function(sec, subscription) {
+            console.log(subscription);
+            console.log(sec);
             persistService.save('sec' + subscription.id, sec[subscription.id]);
         },
         
@@ -151,7 +154,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // @return: Asyc promise 
         updateRemote : function(model, field, val) {
             // Update server
-            var url = '../../api/?entity=episode&action=update' +
+            var url = 'api/?entity=episode&action=update' +
                 '&field=' + field + '&val=' + val + '&id=' + model.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
@@ -252,7 +255,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
         // Copy the episode from remote to local
         copyToServer : function(episode) {
-            var url = '../../api/?entity=episode&action=copy' + '&id=' + episode.id;
+            var url = 'api/?entity=episode&action=copy' + '&id=' + episode.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -266,10 +269,6 @@ function(PersistenceService, Episode, $http, $rootScope) {
                     departureService.makeTicket(rpt, episode);
                 };
             }).error(function(data, status, headers, config) {
-                //console.log(data);
-                //console.log(status);
-                //console.log(headers);
-                //console.log(config);
             });
         }
     };
