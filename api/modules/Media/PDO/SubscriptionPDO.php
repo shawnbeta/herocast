@@ -42,7 +42,7 @@ class SubscriptionPDO {
 			  	$sid = $dbc->lastInsertId();
 				$dbc->commit ();
 
-				print "Last ID: " . $sid;
+				//print "Last ID: " . $sid;
 				return $sid;
 			} catch ( \PDOException $e ) {
 				echo 'Error: ' . $e->getMessage ();
