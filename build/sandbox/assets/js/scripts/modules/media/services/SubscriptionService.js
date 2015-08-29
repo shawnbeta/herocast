@@ -155,6 +155,10 @@ hcMedia.factory('SubscriptionService', [
             localStorage.removeItem('sec' + subscription.id);
             // Save the new episode collection
             EpisodeService.persistBulkCollection(episodes);
+            // Remove episodes from Episode Date Collection
+            var epdc = ps.loadData('EPISODE_PUB_DATE_COLLECTION');
+            var revisedCollection = EpisodeService.removeFromEPDC(epdc, sec);
+            ps.save('EPISODE_PUB_DATE_COLLECTION', revisedCollection);
             rsp['episodes'] = episodes;
             rsp['subscriptions'] = subscriptions;
             return rsp;

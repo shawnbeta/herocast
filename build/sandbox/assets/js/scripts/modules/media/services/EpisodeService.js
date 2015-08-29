@@ -198,7 +198,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
             date.setDate(date.getDate() - lifespan);
             var timeAgo = Math.floor(date);
             //timeAgo = 1426723260;
-            
+
             var epdc = persistService.loadData('EPISODE_PUB_DATE_COLLECTION');
             
             //console.log(epdc);
@@ -218,8 +218,10 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // Test running
         // @param: An array of episode models
         removeFromLocalStorage : function(episodeModels) {
+            console.log(episodeModels);
             _.each(episodeModels, function(episode, i, l) {
-                localStorage.removeItem('e' + i);
+                console.log(episode);
+                localStorage.removeItem('e' + episode);
             });
         },
 
@@ -253,6 +255,10 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
         // Not testing
         removeFromEPDC : function(epdc, removalCollection){
+            console.log('edpc');
+            console.log(epdc);
+            console.log('removalCollection');
+            console.log(removalCollection);
             return _.omit(epdc, removalCollection);
         },
 

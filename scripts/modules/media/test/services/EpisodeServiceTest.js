@@ -123,17 +123,9 @@ describe('EpisodeService', function() {
         localStorage.setItem('e2', 'test2');
         localStorage.setItem('e3', 'test3');
 
-        var episodeModels = {
-            '1' : {
-                'title' : 'one'
-            },
-            '2' : {
-                'title' : 'two'
-            },
-            '3' : {
-                'title' : 'three'
-            },
-        };
+
+
+        var episodeModels = ["1", "2", "3"];
 
         // Check the values before execution
         expect(localStorage.getItem('e1')).not.toBeNull();

@@ -4,13 +4,10 @@
     <list default="true" id="38069551-0617-4d32-b60e-9352532b3e09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/services/EpisodeService.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/services/EpisodeService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js" afterPath="$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/modules/Media/Services/EpisodeService.php" afterPath="$PROJECT_DIR$/api/modules/Media/Services/EpisodeService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/controllers/PlayerController.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/player/controllers/PlayerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js" afterPath="$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/app/controllers/SettingsController.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/app/controllers/SettingsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/app/controllers/SettingsController.js" afterPath="$PROJECT_DIR$/scripts/modules/app/controllers/SettingsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/modules/Media/PDO/SubscriptionPDO.php" afterPath="$PROJECT_DIR$/api/modules/Media/PDO/SubscriptionPDO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php" afterPath="$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/test/services/EpisodeServiceTest.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/test/services/EpisodeServiceTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js" afterPath="$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/services/SubscriptionService.js" afterPath="$PROJECT_DIR$/build/sandbox/assets/js/scripts/modules/media/services/SubscriptionService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js" afterPath="$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9f36e334-43aa-43f0-8479-6d04c3803849" name="New changelist" comment="" />
@@ -36,8 +33,8 @@
             <file leaf-file-name="EpisodeService.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6877637">
-                    <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+                  <state vertical-scroll-proportion="0.74472576">
+                    <caret line="209" column="15" selection-start-line="209" selection-start-column="15" selection-end-line="209" selection-end-column="15" />
                     <folding>
                       <element signature="e#2927#3322#0" expanded="false" />
                     </folding>
@@ -59,8 +56,28 @@
       <file leaf-file-name="SubscriptionService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.981133">
+            <state vertical-scroll-proportion="-37.35849">
               <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subscription.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/modules/media/models/Subscription.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubscriptionService.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.56442416">
+              <caret line="162" column="24" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -88,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubscriptionPDO.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SubscriptionPDO.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/modules/Media/PDO/SubscriptionPDO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22413793">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="36" selection-end-column="50" />
+            <state vertical-scroll-proportion="-3.1132076">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <marker date="1440826311485" expanded="true" signature="641:714" placeholder="INSERT INTO ..." />
                 <marker date="1440826311485" expanded="true" signature="1631:1666" placeholder="SELECT (id, ..subscriptions..." />
@@ -106,6 +123,16 @@
                 <marker date="1440826311485" expanded="true" signature="5786:5833" placeholder="SELECT * FRO..subscriptions..." />
                 <marker date="1440826311485" expanded="true" signature="6191:6289" placeholder="UPDATE subsc..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EpisodeServiceTest.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.193548">
+              <caret line="127" column="44" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mustache_templates/media/search.mustache" />
         <option value="$PROJECT_DIR$/scripts/modules/app/templates/action-bar.html" />
         <option value="$PROJECT_DIR$/scripts/modules/media/directives/SubscriptionAddDirective.js" />
         <option value="$PROJECT_DIR$/mustache_templates/media/add.mustache" />
@@ -176,7 +202,6 @@
         <option value="$PROJECT_DIR$/scripts/modules/player/test/controllers/PlayerControllerTest.js" />
         <option value="$PROJECT_DIR$/scripts/modules/media/services/MediaService.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js" />
         <option value="$PROJECT_DIR$/scripts/modules/media/test/services/SubscriptionServiceTest.js" />
         <option value="$PROJECT_DIR$/scripts/modules/player/services/PlayerService.js" />
         <option value="$PROJECT_DIR$/scripts/modules/player/test/services/PlayerServiceTest.js" />
@@ -187,10 +212,12 @@
         <option value="$PROJECT_DIR$/api/config/settings.yaml" />
         <option value="$PROJECT_DIR$/scripts/modules/player/controllers/PlayerController.js" />
         <option value="$PROJECT_DIR$/scripts/modules/app/controllers/SettingsController.js" />
-        <option value="$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js" />
         <option value="$PROJECT_DIR$/api/modules/Media/Services/EpisodeService.php" />
         <option value="$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php" />
         <option value="$PROJECT_DIR$/api/modules/Media/PDO/SubscriptionPDO.php" />
+        <option value="$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js" />
+        <option value="$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js" />
+        <option value="$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js" />
       </list>
     </option>
   </component>
@@ -269,21 +296,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -301,7 +314,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -309,11 +322,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Services" />
+              <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -327,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -335,111 +344,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Media" />
+              <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PDO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="herocast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -574,14 +483,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/modules/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03346347">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/modules/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.724138">
@@ -704,14 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/modules/media/templates/episodes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5">
@@ -748,14 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.935484">
-          <caret line="151" column="31" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -824,18 +709,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#46#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/tests/Media/Services/EpisodeServiceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19446015">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#83#0#PHP" expanded="true" />
-            <marker date="1440818004727" expanded="true" signature="-1:-1" placeholder="SELECT s FRO..modules..." />
-            <marker date="1440818004727" expanded="true" signature="-1:-1" placeholder="SELECT s FRO..modules..." />
           </folding>
         </state>
       </provider>
@@ -1002,18 +875,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php">
+    <entry file="file://$PROJECT_DIR$/api/tests/Media/Services/EpisodeServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.981133">
-          <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
-          <folding />
+        <state vertical-scroll-proportion="0.08803222">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="e#44#83#0#PHP" expanded="true" />
+            <marker date="1440818004727" expanded="true" signature="-1:-1" placeholder="SELECT s FRO..modules..." />
+            <marker date="1440818004727" expanded="true" signature="-1:-1" placeholder="SELECT s FRO..modules..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/modules/Media/PDO/SubscriptionPDO.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22413793">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="36" selection-end-column="50" />
+        <state vertical-scroll-proportion="-3.1132076">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <marker date="1440826311485" expanded="true" signature="641:714" placeholder="INSERT INTO ..." />
             <marker date="1440826311485" expanded="true" signature="1631:1666" placeholder="SELECT (id, ..subscriptions..." />
@@ -1030,13 +907,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/modules/media/test/services/EpisodeServiceTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.193548">
+          <caret line="127" column="44" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/modules/Media/Services/SubscriptionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.35849">
+          <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/modules/media/models/Subscription.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/modules/media/services/EpisodeService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6877637">
-          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.74472576">
+          <caret line="209" column="15" selection-start-line="209" selection-start-column="15" selection-end-line="209" selection-end-column="15" />
           <folding>
             <element signature="e#2927#3322#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/modules/media/services/SubscriptionService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56442416">
+          <caret line="162" column="24" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
