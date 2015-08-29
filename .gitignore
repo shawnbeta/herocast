@@ -1,1 +1,6 @@
 package.json
+bower_components
+build
+database
+node_modules
+.project
