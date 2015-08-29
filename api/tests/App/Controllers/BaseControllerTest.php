@@ -5,11 +5,8 @@ namespace ShawnBeta\App\Controllers;
 
 use ShawnBeta\Utility\Services\UtilityService;
 
-class BaseController {
+class BaseControllerTest extends \PHPUnit_Framework_TestCase {
 
-  public static function jsonResponse($rsp)
-  {
-  	print_r( UtilityService::isJSON($rsp) ? $rsp : json_encode($rsp));
 
-  }
+
 }

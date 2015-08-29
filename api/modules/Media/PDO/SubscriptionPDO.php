@@ -230,16 +230,22 @@ LIMIT 0 , 30"
 		}
 	}
 	
-    /*$string = "'CREATE TABLE IF NOT EXISTS `subscriptions` (
+    /*
+     * DROP TABLE IF EXISTS `subscriptions`;
+CREATE TABLE IF NOT EXISTS `subscriptions` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
+  `machine_name` varchar(120) NOT NULL,
   `description` text NOT NULL,
   `src` text NOT NULL,
-  `image` text NOT NULL,
-  `type` varchar(80) NOT NULL,
+  `home_page` longtext NOT NULL,
+  `img` text NOT NULL,
+  `subscription_type` varchar(80) NOT NULL,
   `auto_download` tinyint(1) NOT NULL,
   `create_date` datetime NOT NULL,
   `modified_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;' "; */
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+     *
+     *  */
 }

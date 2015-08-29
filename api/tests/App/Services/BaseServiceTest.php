@@ -3,16 +3,8 @@
 namespace ShawnBeta\App\Services;
 
 
-class BaseService {
+class BaseServiceTest extends \PHPUnit_Framework_TestCase {
 
-  protected static function buildArray($input)
-  {
-  	$output = array();
 
-  	foreach ($input as $value) {
-  		array_push($output, (array) $value);
-  	}
-  	return $output;
-  }
 
 }

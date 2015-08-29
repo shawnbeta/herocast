@@ -206,24 +206,31 @@ class EpisodePDO{
 			$stmt->execute ();
 		} catch ( Exception $e ) {
 			return 'Error: ' . $e->getMessage ();
+
 		}
 	}	
-    /*public function makeTable()
-    {
-        $string = " 'CREATE TABLE IF NOT EXISTS episodes (
-  id int(11) NOT NULL AUTO_INCREMENT,
+    /*
+     *
+     * DROP TABLE IF EXISTS `episodes`;
+CREATE TABLE IF NOT EXISTS `episodes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `description` text NOT NULL,
-  `src` text NOT NULL,
+  `src` text,
   `img` text,
   `watched` tinyint(1) DEFAULT NULL,
   `bookmark` float DEFAULT NULL,
-  `pub_date` datetime NOT NULL,
+  `pub_date` bigint(20) NOT NULL,
+  `duration` bigint(20) DEFAULT NULL,
   `create_date` datetime NOT NULL,
   `modified_date` datetime DEFAULT NULL,
-  `subscription` int(4) NOT NULL,
+  `subscription_id` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1806 ;
+     *
+     *
+     *
+     *
     }*/
 
 }
