@@ -94,13 +94,14 @@ function(PersistenceService, Episode, $http, $rootScope) {
             _.each(episodes, function(episode, id, list) {
                 var subID = episode.subscription_id;
                 var id = episode.id;
-                if (!sec[subID])
+                if (!sec[subID]){
                     sec[subID] = [];
-                    
+                }
                 epdc[id] = episode.pub_date;
                 sec[subID].push(JSON.stringify(episode.id));
                 persistService.save('e' + episode.id, episode);
             });
+
             var rsp = { sec: sec, epdc: epdc};
             return rsp;
         }, 
@@ -111,6 +112,8 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // @params: Array of subscription models objects,
         //          an array of SEC arrays.
         persistBulkSEC : function(subscriptions, sec) {
+            console.log(sec);
+            console.log(subscriptions);
 
             var self = this;
             _.each(subscriptions, function(subscription) {

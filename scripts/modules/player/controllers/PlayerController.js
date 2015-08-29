@@ -33,8 +33,16 @@ hcApp.controller('PlayerController', [
         $rootScope.engageAudio = function(episode){
             if(player.status == 0)
                 return loadPlayer(episode);
-            if(player.status == 1)
+            if(player.status == 1 && player.activeEpisode == episode)
                 return pauseAction();
+            // Player is currently playing a different episode.
+            if(player.status == 1){
+                // So set a temporary bookmark in memory.
+
+                return pauseAction();
+            }
+
+
             return PlayerService.playAction(player);
         };
 

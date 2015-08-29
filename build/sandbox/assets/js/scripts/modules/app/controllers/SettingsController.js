@@ -20,11 +20,11 @@ hcApp.controller('SettingsController', [
 		
 		// returns subscription collection
 	    f.then(function(rsp) {
-			console.log(rsp);
+
 	       var subscriptionObjCollection = 
 	           SubscriptionService.executeBulkRetrieval(rsp.data.subscriptions);
 	           $rootScope.subscriptions = subscriptionObjCollection;
-			$rootScope.episodes = 
+			$rootScope.episodes =
 			 EpisodeService.executeBulkRetrieval(
 			     subscriptionObjCollection, rsp.data.episodes);
 	    });

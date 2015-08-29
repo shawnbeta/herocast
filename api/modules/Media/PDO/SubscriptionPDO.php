@@ -39,9 +39,10 @@ class SubscriptionPDO {
 			try {
 				$dbc->beginTransaction ();
 				$query->execute($subscription);
+			  	$sid = $dbc->lastInsertId();
 				$dbc->commit ();
-				$sid = $dbc->lastInsertId ();
-				//print "Last ID: " . $sid;
+
+				print "Last ID: " . $sid;
 				return $sid;
 			} catch ( \PDOException $e ) {
 				echo 'Error: ' . $e->getMessage ();

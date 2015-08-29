@@ -136,6 +136,7 @@ class SubscriptionService extends BaseService {
 		
 		$subscriptionId = SubscriptionPDO::persistSubscription($subscription);
 		$subscription->setId($subscriptionId);
+	  print_r($subscriptionId);
 		return $subscription;
 	}
 	

@@ -85,7 +85,8 @@ class EpisodeService  {
   	return EpisodePDO::deleteAll();
   }
   public static function makeEpisodes($episodes, $subscription) {
-  	  	
+
+
     $subscriptionMachineName = $subscription->getMachineName();
     $episodesCollection = array();
     
