@@ -15,32 +15,51 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-   	  'bower_components/angular/angular.js',
-   	  'bower_components/angular-mocks/angular-mocks.js',   	  	
-      'bower_components/angular-route/angular-route.js',   
-      'bower_components/angular-sanitize/angular-sanitize.js',   
-      'bower_components/underscore/underscore.js',
-      /*'js/modules/app/controllers/AppController.js',
-      'js/modules/app/controllers/SettingsCtrl.js',      
-      'js/modules/app/app.js',
-      'js/modules/app/routes.js',
-      'js/modules/media/controllers/EpisodeCtrl.js',
-      'js/modules/media/controllers/SubscriptionCtrl.js',
-      
-      'js/modules/media/test/controllers/SubscriptionTest.js',*/
-   	  	  	
-   	  	  	
-      'js/modules/app/app.js',
-      //'js/modules/app/demo.js',
-      'js/modules/app/routes.js',
-      'js/modules/**/**/*.js',
-      'js/modules/**/test/**/*.js'
+      //'build/sandbox/assets/js/contrib/*.js',
+
+
+      'build/sandbox/assets/js/contrib/angular.js',
+      'build/sandbox/assets/js/contrib/angular-mocks.js',
+      'build/sandbox/assets/js/contrib/angular-route.js',
+      'build/sandbox/assets/js/contrib/angular-sanitize.js',
+      'build/sandbox/assets/js/contrib/angular-touch.js',
+      'build/sandbox/assets/js/contrib/jquery.js',
+      'build/sandbox/assets/js/contrib/underscore.js',
+      //
+      'build/sandbox/assets/js/scripts/modules/*.js',
+      'build/sandbox/assets/js/scripts/modules/*.js',
+      'build/sandbox/assets/js/scripts/modules/**/**/*.js',
+      'build/sandbox/assets/js/scripts/modules/**/test/**/*.js'
+      //'build/sandbox/assets/js/scripts/modules/app.js',
+      //'build/sandbox/assets/js/scripts/modules/routes.js',
+      //
+      //
+      //// Media Services
+      //'build/sandbox/assets/js/scripts/modules/media/services/EpisodeService.js',
+      //'build/sandbox/assets/js/scripts/modules/media/services/MediaService.js',
+      //'build/sandbox/assets/js/scripts/modules/media/services/SearchService.js',
+      //'build/sandbox/assets/js/scripts/modules/media/services/SubscriptionService.js',
+      //
+      //  // Player Service
+      //'build/sandbox/assets/js/scripts/modules/player/services/PlayerService.js',
+      //
+      //// Utility Services
+      //'build/sandbox/assets/js/scripts/modules/utility/services/DepartureService.js',
+      //'build/sandbox/assets/js/scripts/modules/utility/services/HelperService.js',
+      //'build/sandbox/assets/js/scripts/modules/utility/services/PersistenceService.js',
+      //
+      //  // Vendors Services
+      //'build/sandbox/assets/js/scripts/modules/vendors/services/UnderscoreService.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-    'js/modules/app/demo.js'
+      //'build/sandbox/assets/js/contrib/angular-mocks.js',
+      //'build/sandbox/assets/js/contrib/angular-route.js',
+      //'build/sandbox/assets/js/contrib/angular-sanitize.js',
+      //'build/sandbox/assets/js/contrib/angular-touch.js'
+
     ],
 
 

@@ -7,6 +7,8 @@ hcApp.controller('PlayerController', [
         $rootScope.player = $rootScope.player || PlayerService.defaultPlayer('audio');
         var player = $rootScope.player;
 
+        $rootScope.showAudio = false;
+
 
         // Hide or show the details of Now Playing.
         // Test running
@@ -38,14 +40,14 @@ hcApp.controller('PlayerController', [
         $rootScope.counter =  0;
 
         loadPlayer = function(episode){
-
+            $rootScope.showLoading = true;
             player.file = $sce.trustAsResourceUrl(episode.src);
             player.activeEpisode = episode;
-
+            //
             // Continue the p
             player.element.oncanplay = function(){
-                alert('can playback');
-
+                $rootScope.showAudio = true;
+                $rootScope.showLoading = false;
                 // Start playback
                 PlayerService.playAction(player);
                 // Move the pointer to bookmark. Defaults to 0.

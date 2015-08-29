@@ -39,7 +39,6 @@
         "player/controllers/PlayerController",
         "player/directives/NowPlayingDirective",
         "player/services/PlayerService",
-        "player/services/AudioService",
         "ui/controller/NavController",
         "ui/directives/ActionBarDirective",
         "ui/directives/NavDirectives",

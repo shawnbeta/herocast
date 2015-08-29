@@ -1,9 +1,11 @@
-<!--
 {{=<% %>=}}
--->
 
-<div ng-controller="PlayerController">
-            Now Playing: {{player.activeEpisode.title}} - {{subscription}}
+<div ng-show="showLoading">
+    <i class="fa fa-loading"></i>loading
+</div>
+
+<div ng-controller="PlayerController" ng-show="showAudio">
+            Now Playing: {{player.activeEpisode.title}}   {{subscription}}
             <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
             <button ng-click="setBookmark(player.activeEpisode)">bookmark</button>
             <button ng-click="engageAudio(player.activeEpisode)">{{player.toggleText}}</button>

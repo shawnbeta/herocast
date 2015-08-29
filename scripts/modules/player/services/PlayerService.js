@@ -21,7 +21,8 @@ hcMedia.factory('PlayerService',
                 file: null,
                 showDetails: false,
                 activeEpisode: '',
-                toggleText: null
+                toggleText: null,
+                type: type
             }
         },
                 

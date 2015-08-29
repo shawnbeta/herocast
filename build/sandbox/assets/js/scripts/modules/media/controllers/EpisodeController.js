@@ -1,5 +1,6 @@
 hcMedia.controller('EpisodeController', [
-	'$scope', '$rootScope', '$sce', function($scope, $rootScope, $sce){
+	'$scope', '$rootScope', '$sce', 'EpisodeService',
+	function($scope, $rootScope, $sce, EpisodeService){
 	$rootScope.viewTitle = "Episodes";
 		$scope.toggleDetails = function(model){
 			if($scope.showDetails && $scope.episodeDetailer == model)
@@ -11,6 +12,7 @@ hcMedia.controller('EpisodeController', [
 			$scope.episodeDetailer = {};
 			$scope.showDetails = false;
 		};
+		$rootScope.viewTitle = 'Episodes';
 
 		$scope.updateWatched = function(model){
 			model.watched = model.watched == 0 ? 1 : 0;

@@ -6,6 +6,15 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
 
+        karma: {
+            unit: {
+                configFile: 'karma.test.js',
+                //runnerPort: 9876,
+                //singleRun: true,
+                //browsers: ['chrome']
+            }
+        },
+
 
 
         // Task configuration.
@@ -149,6 +158,7 @@ module.exports = function (grunt) {
 
     //Custom Build
     grunt.registerTask('build', ['clean:main', 'less', 'copy:main']);
+    grunt.registerTask('test', ['copy:dev', 'karma']);
     grunt.registerTask('dev', ['clean:dev', 'mustache_render:dev', 'less:dev',  'copy:dev']);
 
 
