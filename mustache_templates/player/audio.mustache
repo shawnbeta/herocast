@@ -7,13 +7,13 @@
 <div ng-controller="PlayerController" ng-show="showAudio">
             Now Playing: {{player.activeEpisode.title}}   {{subscription}}
             <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
-            <button ng-click="setBookmark(player.activeEpisode)">bookmark</button>
+            <button ng-click="setBookmark(player.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
             <button ng-click="engageAudio(player.activeEpisode)">{{player.toggleText}}</button>
-            <button ng-click="jumpBack()">Jump Back</button>
-            <button ng-click="rewind()">RR</button>
-            <button ng-click="forward()">FF</button>
-            <button ng-click="jumpAhead()">Jump Ahead</button>
-            <button ng-click="toggleNowPlayingDetails()">description</button>
+            <button ng-click="jumpBack()"><i class="fa fa-angle-double-left">Jump Back</i></button>
+            <button ng-click="rewind()"><i class="fa fa-angle-right">RR</i></button>
+            <button ng-click="forward()"><i class="fa fa-angle-right">FF</i></button>
+            <button ng-click="jumpAhead()"><i class="fa fa-angle-double-right">Jump Ahead</i></button>
+            <button ng-click="toggleNowPlayingDetails()"><i class="fa fa-angle-double-right">description</i></button>
     <span ng-if="currentPlayer.showDetails">
         {{player.activeEpisode.description}}
         '{{player.activeEpisode.pub_date}}

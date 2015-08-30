@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Herocast</title>
+             <link href="https:&#x2F;&#x2F;maxcdn.bootstrapcdn.com&#x2F;font-awesome&#x2F;4.4.0&#x2F;css&#x2F;font-awesome.min.css" rel='stylesheet' type='text/css'> 
+             <link href="assets/css/bootstrap-lite.css" rel='stylesheet' type='text/css'>  <link href="assets/css/fa.css" rel='stylesheet' type='text/css'> 
+             <link href="assets/css/globals.css" rel='stylesheet' type='text/css'>  <link href="assets/css/navBar.css" rel='stylesheet' type='text/css'>  <link href="assets/css/player.css" rel='stylesheet' type='text/css'>  <link href="assets/css/grid.css" rel='stylesheet' type='text/css'>  <link href="assets/css/list.css" rel='stylesheet' type='text/css'>  <link href="assets/css/footer.css" rel='stylesheet' type='text/css'> 
 </head>
 
 <body>
@@ -17,13 +20,13 @@
 <div ng-controller="PlayerController" ng-show="showAudio">
             Now Playing: {{player.activeEpisode.title}}   {{subscription}}
             <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
-            <button ng-click="setBookmark(player.activeEpisode)">bookmark</button>
+            <button ng-click="setBookmark(player.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
             <button ng-click="engageAudio(player.activeEpisode)">{{player.toggleText}}</button>
-            <button ng-click="jumpBack()">Jump Back</button>
-            <button ng-click="rewind()">RR</button>
-            <button ng-click="forward()">FF</button>
-            <button ng-click="jumpAhead()">Jump Ahead</button>
-            <button ng-click="toggleNowPlayingDetails()">description</button>
+            <button ng-click="jumpBack()"><i class="fa fa-angle-double-left">Jump Back</i></button>
+            <button ng-click="rewind()"><i class="fa fa-angle-right">RR</i></button>
+            <button ng-click="forward()"><i class="fa fa-angle-right">FF</i></button>
+            <button ng-click="jumpAhead()"><i class="fa fa-angle-double-right">Jump Ahead</i></button>
+            <button ng-click="toggleNowPlayingDetails()"><i class="fa fa-angle-double-right">description</i></button>
     <span ng-if="currentPlayer.showDetails">
         {{player.activeEpisode.description}}
         '{{player.activeEpisode.pub_date}}
@@ -44,25 +47,48 @@
 
 <!--
 -->
+    <div class="swNavBar clearfix">
 
-        <a href="#/episodes" title="episodes">episodes</a>
-        <a href="#/subscriptions" title="subscriptions">subscriptions</a>
-        <a href="#/settings" title="settings">settings</a>
+    <div class="swContainer">
+        <div class="col-md-2 logoWrap">
+            <a class="swLogo" href="/" title="Episodes">h</a>
+        </div>
 
+        <div class="col-md-9 searchWrap">
 <!--
 -->
 
-<span ng-controller="SubscriptionController">
-    <input type="text" ng-model="src">
+<span ng-controller="SubscriptionController" class="addField">
+    <label>Feed URL or Youtube Channel ID</label>
+    <input type="text" ng-model="src" placeholder="Feed URL or Youtube Channel ID">
     <select ng-model="subscriptionType">
             <option value="audio">audio</option>
             <option value="video">video</option>
     </select>
-    <a ng-click="add()">+</a>
+    <a ng-click="add()"><i class="fa fa-plus"></i></a>
 
-</span>
+</span>        </div>
+
+        <nav class="col-md-2">
+            <a href="#/episodes" title="episodes">
+                e
+                
+            </a>
+            <a href="#/subscriptions" title="subscriptions">
+                s
+                
+            </a>
+            <a href="#/settings" title="settings">
+                
+                <i class="fa fa-main"></i>
+            </a>
+        </nav>
+    </div>
 
 
+
+
+    </div>
 
 <h1>{{viewTitle}}</h1>
 <div ng-view></div>

@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
     'use strict';
 
-
+    // Force use of Unix newlines
+    grunt.util.linefeed = '\n';
 
     // Project configuration.
     grunt.initConfig({
@@ -80,8 +81,14 @@ module.exports = function (grunt) {
                     outputSourceFiles: true
                 },
                 files: {
-                    'build/sandbox/assets/css/bootstrap.css': 'bower_components/bootstrap/less/bootstrap.less',
-                    'build/sandbox/assets/css/styles.css': 'less/styles.css'
+                    //'build/sandbox/assets/css/bootstrap.css': 'bower_components/bootstrap/less/bootstrap.less',
+                    'build/sandbox/assets/css/bootstrap-lite.css': 'less/bootstrap-lite.less',
+                    'build/sandbox/assets/css/main.css': 'less/main.less',
+                    'build/sandbox/assets/css/navBar.css': 'less/navBar.less',
+                    'build/sandbox/assets/css/player.css': 'less/player.less',
+                    'build/sandbox/assets/css/footer.css': 'less/footer.less',
+                    'build/sandbox/assets/css/grid.css': 'less/grid.less',
+                    'build/sandbox/assets/css/list.css': 'less/list.less'
                 }
             },
             staging: {
@@ -106,6 +113,12 @@ module.exports = function (grunt) {
                         expand: true,
                         flatten: false,
                         src: 'api/**',
+                        dest: 'build/sandbox/'
+                    },
+                    {
+                        expand: true,
+                        flatten: false,
+                        src: 'assets/**',
                         dest: 'build/sandbox/'
                     },
                     {

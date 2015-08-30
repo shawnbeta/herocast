@@ -3,14 +3,15 @@
 -->
 
 <%# addField %>
-<span ng-controller="SubscriptionController">
-    <input type="text" ng-model="src">
+<span ng-controller="SubscriptionController" class="addField">
+    <label>Feed URL or Youtube Channel ID</label>
+    <input type="text" ng-model="src" placeholder="Feed URL or Youtube Channel ID">
     <select ng-model="subscriptionType">
         <%# options %>
             <option value="<% value %>"><% text %></option>
         <%/ options %>
     </select>
-    <a ng-click="add()">+</a>
+    <a ng-click="add()"><i class="fa fa-plus"></i></a>
 
     <%/ addField %>
 </span>

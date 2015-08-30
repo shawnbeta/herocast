@@ -1,0 +1,84 @@
+@import (reference) 'bootstrap-lite.less';
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.swContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media(min-width: @screen-md-min) {
+  .largeOnly {
+    display: block !important;
+  }
+  .smallOnly {
+    display: none !important;
+  }
+}
+
+@media(max-width: @screen-sm-max) {
+  .largeOnly {
+    display: none !important;
+  }
+  .smallOnly {
+    display: block !important;
+  }
+}
+
+// Links and Buttons
+.swTextLink {
+  color: @blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.swButtonLink {
+  color: @white1;
+  background: @blue;
+  padding: 10px;
+  &:hover {
+    background: @red;
+  }
+}
+
+.swEclipse {
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
+  line-height:30px;
+  text-align:center;
+  background: transparent;
+}
+
+
+// Links and Buttons
+.swButton {
+  margin: 20px auto;
+  display: block;
+  max-width: 400px;
+  padding: 10px;
+  background: red;
+  color: @white1;
+  span,
+  i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  i{
+    padding-right: 10px;
+  }
+}
+
+
+
+
+
+//@media(max-width: @screen-xs-max){}
+//@media(min-width: @screen-sm-min){} /* deprecated: @screen-tablet, or @screen-sm */
+//@media(min-width: @screen-md-min){} /* deprecated: @screen-desktop, or @screen-md */
+//@media(min-width: @screen-lg-min){} /* deprecated: @screen-lg-desktop, or @screen-lg */

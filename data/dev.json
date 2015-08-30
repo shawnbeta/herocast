@@ -1,5 +1,22 @@
 {
   "assets": {
+    "css": {
+      "remote": [
+        "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+      ],
+      "contrib": [
+        "bootstrap-lite",
+        "fa"
+      ],
+      "libs": [
+        "globals",
+        "navBar",
+        "player",
+        "grid",
+        "list",
+        "footer"
+      ]
+    },
     "js" : {
       "contrib" : [
         "angular",
@@ -63,19 +80,19 @@
         "href": "episodes",
         "target": false,
         "title": "episodes",
-        "text": "episodes"
+        "text": "e"
       },
       {
         "href": "subscriptions",
         "target": false,
         "title": "subscriptions",
-        "text": "subscriptions"
+        "text": "s"
       },
       {
         "href": "settings",
         "target": false,
         "title": "settings",
-        "text": "settings"
+        "icon": "main"
       }
     ],
     "addField": {

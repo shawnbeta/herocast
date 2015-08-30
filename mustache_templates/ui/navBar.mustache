@@ -2,13 +2,29 @@
 {{=<% %>=}}
 -->
 <%# navBar %>
+    <div class="swNavBar clearfix">
 
-    <%# links %>
-        <a href="#/<% href %>" title="<% title %>"><% text %></a>
-    <%/ links %>
+    <div class="swContainer">
+        <div class="col-md-2 logoWrap">
+            <a class="swLogo" href="/" title="Episodes">h</a>
+        </div>
 
-    <% > media/add %>
+        <div class="col-md-9 searchWrap">
+            <% > media/add %>
+        </div>
+
+        <nav class="col-md-2">
+            <%# links %>
+            <a href="#/<% href %>" title="<% title %>">
+                <%# text %><% text %><%/ text %>
+                <%# icon %><i class="fa fa-<% icon %>"></i><%/ icon %>
+            </a>
+            <%/ links %>
+        </nav>
+    </div>
 
 
 
+
+    </div>
 <%/ navBar %>
