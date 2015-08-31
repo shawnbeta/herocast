@@ -23,7 +23,9 @@
         </nav>
 
         <div class="col-md-2 playerToggle" ng-controller="PlayerController">
-            <a href="#" ng-click="togglePlayerVisibility()"> <i ng-class="player.visible ? 'fa fa-play-close' : 'fa fa-play-circle'"></i></a>
+            <a id="toggleAudio" ng-click="toggleVisible()">
+                <i class="fa {{player.toggleStyle}}"></i>
+            </a>
         </div>
     </div>
     </div>

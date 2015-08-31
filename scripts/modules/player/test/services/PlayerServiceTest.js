@@ -23,7 +23,6 @@ describe('PlayerService', function() {
         audioElement.setAttribute('src', 'http://www.noiseaddicts.com/samples_1w72b820/274.mp3');
         var player = PlayerService.defaultPlayer(audioElement, 'audio');
         PlayerService.playAction(player);
-        console.log(player.element.readyState);
 
         // Is the Audio playing?
         // Player not being tested.

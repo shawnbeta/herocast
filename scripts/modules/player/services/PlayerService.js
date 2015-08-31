@@ -1,18 +1,34 @@
 hcMedia.factory('PlayerService', 
-    ['$rootScope', 'EpisodeService', '$interval', '$sce',
-    function($rootScope, EpisodeService, $interval, $sce){
+    ['$rootScope', '$interval', '$sce', 'EpisodeService', 'HelperService',
+    function($rootScope, $interval, $sce, EpisodeService, HelperService){
             
     var counter = {};
     var ticker;
         var player;
     
     return {
+        defaultPlayer: function(data, type){
+            return {
+                element: data.player,
+                wrapper: data.wrapper,
+                viewToggle: data.viewToggle,
+                status: 0,
+                file: null,
+                showDetails: false,
+                activeEpisode: '',
+                toggleText: null,
+                visible: false,
+                height: 0,
+                type: type,
+                loading: true,
+                toggleStyle: 'fa-bars'
+            }
+        },
+
         initializePlayer: function(ele, type){
             player = this.defaultPlayer(ele, type);
             this.setPlayerStyles(player);
-
             var self = this;
-
 
             // Use resize to get the height of the player if the user adjust the screen size.
             jQuery(window).on('resize', function(){
@@ -26,13 +42,27 @@ hcMedia.factory('PlayerService',
 
         setPlayerStyles: function(player){
             // So js doesn't have to check the element each time.
-            player.height  = - + jQuery(player.wrapper).height();
+            player.height  = jQuery(player.wrapper).height();
             //console.log(player.height);
             // Player should be moved to margin equal to elements height
             jQuery(player.wrapper).css({
                 'display':  'block',
                 'height': 0
             });
+        },
+
+        toggleVisible: function(player){
+            if(player.visible == false){
+                console.log(player.height)
+                jQuery(player.wrapper).animate({
+                    height: player.height
+                });
+            }else {
+                jQuery(player.wrapper).animate({
+                    height: 0
+                });
+            }
+            player.visible = !player.visible;
         },
 
         adjustPlayerHeight: function(height, wrapper){
@@ -43,19 +73,19 @@ hcMedia.factory('PlayerService',
 
         engageAudio: function(episode, player){
             if(player.status == 0){
+                HelperService.addClass('loading', player.viewToggle);
                 this.loadPlayer(episode, player);
                 return 1;
             }
 
             if(player.status == 1 && player.activeEpisode == episode){
-                console.log(2)
+
                 this.pauseAction();
                 return 1;
             }
 
             // Player is currently playing a different episode.
             if(player.status == 1){
-                console.log(player.activeEpisode.id)
                 // So set a temporary bookmark in memory.
                 // Send back the currently playing episode and the current time.
                 return {
@@ -63,18 +93,29 @@ hcMedia.factory('PlayerService',
                     currentTime: player.element.currentTime
                 }
             }
-            ///this.playAction(player);
+            //var rsp;
+            //if(player.status == 0){
+            //    $rootScope.playerToggle.icon = 'spinner';
+            //    PlayerService.loadPlayer(episode);
+            //};
+            //if(player.status == 1 && player.activeEpisode == episode){
+            //    $rootScope.playerToggle.icon = 'spinner';
+            //    PlayerService.pauseAction();
+            //};
+            //// Player is currently playing a different episode.
+            //if(player.status == 1) {
+            //    $rootScope.playerToggle.icon = 'spinner';
+            //    // Pause the current media
+            //    player.element.pause();
+            //    // So set a temporary bookmark in memory.
+            //    $rootScope.episodes[player.activeEpisode.id].bookmark = player.currentTime;
+            //    PlayerService.loadPlayer(episode, $rootScope.player);
+            //}
         },
 
         loadPlayer: function(episode, player){
-            // if the player is already active kill it
-            if(player.status == 1){
-                player.loading = true;
-                player.element.pause();
-                player.file = $sce.trustAsResourceUrl(episode.src);
-                player.element.load();
-            }
             player.file = $sce.trustAsResourceUrl(episode.src);
+            player.element.load();
             player.activeEpisode = episode;
             var self = this;
             // Continue the p
@@ -84,6 +125,7 @@ hcMedia.factory('PlayerService',
                 self.playAction(player);
                 // Move the pointer to bookmark. Defaults to 0.
                 player.element.currentTime = parseFloat(episode.bookmark);
+
             }
         },
 
@@ -139,21 +181,7 @@ hcMedia.factory('PlayerService',
             player.element.volume=val;
         },
 
-        defaultPlayer: function(ele, type){
-            return {
-                element: ele.player,
-                wrapper: ele.wrapper,
-                status: 0,
-                file: null,
-                showDetails: false,
-                activeEpisode: '',
-                toggleText: null,
-                visible: false,
-                height: 0,
-                type: type,
-                loading: true
-            }
-        },
+
                 
         startCounter: function(){
             if(angular.isDefined(ticker)) return;

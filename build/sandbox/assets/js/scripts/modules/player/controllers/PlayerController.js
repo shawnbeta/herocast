@@ -9,10 +9,18 @@ hcApp.controller('PlayerController', [
             wrapper: jQuery('#audioPlayer')
         };
 
+        $rootScope.toggleVisible = function(){
+            PlayerService.toggleVisible(player);
+        };
+
+        $rootScope.playerToggleIcon = PlayerService.playerToggleIcon();
+
+
         $rootScope.player = $rootScope.player ||
             PlayerService.initializePlayer(element, 'audio');
 
         var player = $rootScope.player;
+        var pti = $rootScope.playerToggleIcon;
 
         console.log($rootScope.episodes);
 
@@ -30,7 +38,7 @@ hcApp.controller('PlayerController', [
         //          playing: pause playback
         //          resume playback from currentTime.
         $rootScope.engageAudio = function(episode){
-            var rsp = PlayerService.engageAudio(episode, $rootScope.player);
+            var rsp = PlayerService.engageAudio(episode, $rootScope.player, pti);
             if(rsp!= 1){
                 // there is another episode already playing so that needs
                 // to be bookmarked in memory

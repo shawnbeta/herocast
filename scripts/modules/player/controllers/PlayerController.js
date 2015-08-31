@@ -4,44 +4,37 @@ hcApp.controller('PlayerController', [
     function($rootScope, $scope, $sce, $routeParams, $timeout, $interval, PlayerService,
         EpisodeService){
 
-        var element = {
+        var data = {
             player: document.getElementsByTagName('audio')[0],
-            wrapper: jQuery('#audioPlayer')
+            wrapper: jQuery('#audioPlayer'),
+            viewToggle: jQuery('#toggleAudio')
         };
 
-        $rootScope.player = $rootScope.player ||
-            PlayerService.initializePlayer(element, 'audio');
-
+        $rootScope.player = $rootScope.player || PlayerService.initializePlayer(data, 'audio');
         var player = $rootScope.player;
-
-        console.log($rootScope.episodes);
 
         // Update the bookmark time for the target episode.
         // @params: Single Episode object model.
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
             var currentTime = $rootScope.player.element.currentTime;
-            PlayerService.updateBookmark(episode, currentTime);
+            var rsp = PlayerService.updateBookmark(episode, currentTime);
         };
 
         // Toggle the player
-        // @params: Single Episode object model.
+        // @params: Single Episode object.
         // @return: off: load the episode and start from bookmark
         //          playing: pause playback
         //          resume playback from currentTime.
         $rootScope.engageAudio = function(episode){
-            var rsp = PlayerService.engageAudio(episode, $rootScope.player);
-            if(rsp!= 1){
-                // there is another episode already playing so that needs
-                // to be bookmarked in memory
-                console.log($rootScope.episodes[rsp.previousEpisode].bookmark);
-                $rootScope.episodes[rsp.previousEpisode].bookmark = rsp.currentTime
-                console.log($rootScope.episodes[rsp.previousEpisode].bookmark);
-                PlayerService.loadPlayer(episode, $rootScope.player);
-            }
-
+            PlayerService.engageAudio(episode);
         };
 
+
+
+        $rootScope.toggleVisible = function(){
+            PlayerService.toggleVisible(player);
+        };
 
         $rootScope.isPlaying = function(model){
             return PlayerService.isPlaying(model);

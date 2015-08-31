@@ -12,9 +12,7 @@
 
 <body>
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
-<div>
-    <i class="fa fa-loading"></i>loading
-</div>
+
 
 <div ng-controller="PlayerController" id="audioPlayer">
             Now Playing: {{player.activeEpisode.title}}   {{subscription}}
@@ -77,7 +75,7 @@
         </nav>
 
         <div class="col-md-2 playerToggle" ng-controller="PlayerController">
-            <a href="#" ng-click="togglePlayerVisibility()"> <i ng-class="player.visible ? 'fa fa-play-close' : 'fa fa-play-circle'"></i></a>
+            <a ng-click="toggleVisible()"> <i class="fa fa-{{playerToggleIcon}}"></i></a>
         </div>
     </div>
     </div>

@@ -7,6 +7,11 @@ hcMedia.factory('PlayerService',
         var player;
     
     return {
+
+        playerToggleIcon: function(){
+            return 'bars';
+        },
+
         initializePlayer: function(ele, type){
             player = this.defaultPlayer(ele, type);
             this.setPlayerStyles(player);
@@ -26,7 +31,7 @@ hcMedia.factory('PlayerService',
 
         setPlayerStyles: function(player){
             // So js doesn't have to check the element each time.
-            player.height  = - + jQuery(player.wrapper).height();
+            player.height  = jQuery(player.wrapper).height();
             //console.log(player.height);
             // Player should be moved to margin equal to elements height
             jQuery(player.wrapper).css({
@@ -35,21 +40,37 @@ hcMedia.factory('PlayerService',
             });
         },
 
+        toggleVisible: function(player){
+            if(player.visible == false){
+                console.log(player.height)
+                jQuery(player.wrapper).animate({
+                    height: player.height
+                });
+            }else {
+                jQuery(player.wrapper).animate({
+                    height: 0
+                });
+            }
+            player.visible = !player.visible;
+
+        },
+
         adjustPlayerHeight: function(height, wrapper){
             jQuery(wrapper).animate({
                 'height': height
             })
         },
 
-        engageAudio: function(episode, player){
+        engageAudio: function(episode, player, pti){
             if(player.status == 0){
-                this.loadPlayer(episode, player);
+                this.loadPlayer(episode, player, pti);
+                pti = 'spinner';
                 return 1;
             }
 
             if(player.status == 1 && player.activeEpisode == episode){
-                console.log(2)
                 this.pauseAction();
+                pti = 'play-circle';
                 return 1;
             }
 
@@ -66,10 +87,11 @@ hcMedia.factory('PlayerService',
             ///this.playAction(player);
         },
 
-        loadPlayer: function(episode, player){
+        loadPlayer: function(episode, player, pti){
+            player.loading = true;
             // if the player is already active kill it
             if(player.status == 1){
-                player.loading = true;
+
                 player.element.pause();
                 player.file = $sce.trustAsResourceUrl(episode.src);
                 player.element.load();
