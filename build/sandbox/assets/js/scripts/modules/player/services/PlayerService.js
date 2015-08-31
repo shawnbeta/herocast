@@ -11,7 +11,7 @@ hcMedia.factory('PlayerService',
         playerObj: {},
 
         // Returns Player Object.
-        createPlayerObj: function(){
+        createPlayerObj: function(updateToggleStyle){
             return {
                 element: document.getElementsByTagName('audio')[0],
                 wrapper: jQuery('#audioPlayer'),
@@ -26,15 +26,18 @@ hcMedia.factory('PlayerService',
                 type: 'audio',
                 loading: true,
                 toggleStyle: 'fa-bars',
-                counter: 0
+                counter: 0,
+                updateStyle: updateToggleStyle,
+                setToggleStyle: function(newStyle){
+                    this.toggleStyle = newStyle;
+                    return this.updateToggleStyle(newStyle);
+                }
             }
         },
 
-        initialize: function(){
-            this.playerObj = this.createPlayerObj();
-            console.log(this.playerObj);
-            console.log(this.playerObj);
-            this.setPlayerStyles(this.playerObj);
+        initialize: function(updateToggleStyle){
+            this.playerObj = this.createPlayerObj(updateToggleStyle);
+            this.setPlayerStyles();
             var self = this;
 
             // Use resize to get the height of the player if the user adjust the screen size.
@@ -58,7 +61,6 @@ hcMedia.factory('PlayerService',
 
         toggleVisible: function(){
             if(this.playerObj.visible == false){
-                console.log(playerObj.height)
                 jQuery(this.playerObj.wrapper).animate({
                     height: this.playerObj.height
                 });
@@ -70,10 +72,10 @@ hcMedia.factory('PlayerService',
             this.playerObj.visible = !this.playerObj.visible;
         },
 
-        adjustPlayerHeight: function(height, wrapper){
+        adjustPlayerHeight: function(wrapper, height){
             jQuery(wrapper).animate({
                 'height': height
-            })
+            });
         },
 
         engageAudio: function(episode, updateActiveBookmark){
@@ -102,7 +104,7 @@ hcMedia.factory('PlayerService',
         loadPlayer: function(episode){
 
 
-            this.playerObj.toggleStyle = 'loading';
+            this.playerObj.updateStyle('loading');
             this.playerObj.element.src = $sce.trustAsResourceUrl(episode.src);
             if(this.playerObj.status == 1){
                 this.playerObj.element.load();
@@ -113,15 +115,14 @@ hcMedia.factory('PlayerService',
             var self = this;
             // Continue the p
             this.playerObj.element.oncanplay = function(){
-                console.log('kkkkkk')
-
                 self.playerObj.toggleStyle = 'active';
                 self.playerObj.loading = false;
                 // Start playback
                 self.playAction();
                 // Move the pointer to bookmark. Defaults to 0.
                 self.playerObj.element.currentTime = parseFloat(episode.bookmark);
-                //console.log(this.playerObj);
+                // Finally resize the player wrapper
+                self.adjustPlayerHeight(self.playerObj.wrapper, self.playerObj.height);
             }
             //return {
             //    playerObj: this.playerObj,
@@ -184,7 +185,10 @@ hcMedia.factory('PlayerService',
 
         startCounter: function(){
             if(angular.isDefined(ticker)) return;
-            ticker = $interval(this.updateCounter, 1000);
+            var self = this;
+            ticker = $interval(function(){
+                self.updateCounter(self.playerObj);
+            }, 1000);
         },
         
         stopCounter: function(){
@@ -194,16 +198,17 @@ hcMedia.factory('PlayerService',
             }
         },
         
-        updateCounter: function(){
+        updateCounter: function(playerObj){
+            var time = playerObj.element.currentTime;
             pad = function(val){
                 return val > 9 ? val : "0" + val; 
             };
-            sec = Math.floor(this.playerObj.element.currentTime);
+            sec = Math.floor(time);
             var counter = {};
             counter.seconds = pad(++sec % 60);
             counter.minutes = pad(pad(parseInt(sec / 60, 10) % 60));
             counter.hours = pad(parseInt(sec / 3600, 10));
-            this.playerObj.counter = counter;
+            playerObj.counter = counter;
         },
 
         getExtension: function(filename){

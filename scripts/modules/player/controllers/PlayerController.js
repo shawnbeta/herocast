@@ -10,7 +10,7 @@ hcApp.controller('PlayerController', [
         //    wrapper: jQuery('#audioPlayer'),
         //    viewToggle: jQuery('#toggleAudio')
         //};
-        PlayerService.initialize();
+        $rootScope.toggleStyle = {};
 
         //$rootScope.playerObj = $rootScope.playerObj || PlayerService.initialize(data, 'audio');
         //var playerObj = $rootScope.playerObj;
@@ -29,6 +29,10 @@ hcApp.controller('PlayerController', [
             // send the episode and player
             PlayerService.engageAudio(episode, updateActiveBookmark);
 
+        };
+
+        updateToggleStyle = function(toggleStyle){
+            $rootScope.toggleStyle = toggleStyle;
         };
 
         updateActiveBookmark = function(episode, playerObj){
@@ -74,6 +78,7 @@ hcApp.controller('PlayerController', [
             PlayerService.setVolumeTo(val);
         };
 
+        PlayerService.initialize(updateToggleStyle);
 
 
                    

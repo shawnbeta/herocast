@@ -4,7 +4,9 @@
     <div class="swNavBar ">
 
     <div class="swContainer clearfix">
-
+        12345
+        {{playerObj.toggleStyle}}
+        678910
         <div class="col-xs-2 menuToggle smallOnly">
             <a href="#"> <i class="fa fa-bars"></i></a>
         </div>
@@ -24,7 +26,7 @@
 
         <div class="col-md-2 playerToggle" ng-controller="PlayerController">
             <a id="toggleAudio" ng-click="toggleVisible()">
-                <i class="fa {{player.toggleStyle}}"></i>
+                <i class="fa {{playerObj.toggleStyle}}"></i>
             </a>
         </div>
     </div>
