@@ -7,13 +7,21 @@ hcMedia.controller('SubscriptionController', [
 	    var persistenceService = new PersistenceService();
 	
 	$scope.activeSubscription = 0;
+
+        $scope.activeAddView = 0;
+        $scope.toggleAddView = function(val){
+            $scope.activeAddView = val;
+        }
 	    
 	// Make a copy of the subscriptions to work with.
 	//$rootScope.subscriptionList, $rootScope.subscriptionNav
 	   //= angular.copy($rootScope.subscriptions);	
-    $scope.subscriptionType = 'audio';
+    $scope.addForm = {
+        src: '',
+        type: 'audio'
+    };
     $scope.add = function(){
-        var rsp = SubscriptionService.add($scope.src, $scope.subscriptionType);
+        var rsp = SubscriptionService.add($scope.addForm.src, $scope.addForm.type);
         rsp.then(function(rsp){
             
             SubscriptionService.insertNewMedia(

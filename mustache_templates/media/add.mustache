@@ -4,28 +4,30 @@
 <%# addField %>
 <div ng-controller="SubscriptionController" class="addField">
 
+    <a  ng-click="toggleAddView(0)"><i class="fa fa-bars"></i></a>
+    <a  ng-click="toggleAddView(1)"><i class="fa fa-search"></i></a>
+
     <h1>Add Subscription</h1>
 
-    <div class="srcForm" ng-if="activeAddView(0)">
+    <div class="srcForm" ng-if="activeAddView == 0">
         <label>Feed URL or Youtube Channel ID</label>
-        <input type="text" ng-model="src" placeholder="Feed URL or Youtube Channel ID">
-        <select ng-model="subscriptionType">
+        <input type="text" ng-model="addForm.src" placeholder="Feed URL or Youtube Channel ID">
+        <select ng-model="addForm.type">
             <%# options %>
                 <option value="<% value %>"><% text %></option>
             <%/ options %>
         </select>
         <a ng-click="add()"><i class="fa fa-plus"></i></a>
-        <%/ addField %>
     </div>
 
-    <div class="searchForm" ng-if="search.activeAddView(1)">
-        <div ng-if="actionPane == 'search'" search-action></div>
-        <div ng-if="actionPane == 'search' && actionToggle == 'details'" search-detail></div>
-        <div ng-if="actionPane == 'search' && actionToggle == 'subscribe'" search-subscribe></div>
+    <div class="searchForm" ng-if="activeAddView == 1">
+        <div search-action></div>
+        <div search-detail></div>
+        <div search-subscribe></div>
     </div>
 
 </div>
-
+<%/ addField %>
 
 
 

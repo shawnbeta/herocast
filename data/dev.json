@@ -101,19 +101,7 @@
         "title": "settings",
         "icon": "cog"
       }
-    ],
-    "addField": {
-      "options": [
-        {
-          "value": "audio",
-          "text": "audio"
-        },
-        {
-          "value": "video",
-          "text": "video"
-        }
-      ]
-    }
+    ]
   },
 
   "settings": {

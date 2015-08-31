@@ -1,27 +1,15 @@
 {
-  "PlayerControls":
-  {
-    "links": [
-      {
-        "action": "engageAudio",
-        "text": "{{isPlaying(e)}}"
-      },
-      {
-        "action": "updateWatched",
-        "text": "{{isWatched(e)}}"
-      },
-      {
-        "action": "playPause",
-        "text": "download"
-      },
-      {
-        "action": "toggleDetails",
-        "text": "details"
-      },
-      {
-        "action": "copyToServer",
-        "text": "copy"
-      }
-    ]
-  }
+
+"addField": {
+"options": [
+{
+"value": "audio",
+"text": "audio"
+},
+{
+"value": "video",
+"text": "video"
+}
+]
+}
 }

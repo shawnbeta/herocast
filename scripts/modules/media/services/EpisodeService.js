@@ -49,6 +49,11 @@ function(PersistenceService, Episode, $http, $rootScope) {
             return currentEpisodes;
         },
 
+        // Update a episode field in memory
+        updateMemory: function(episode, field, value){
+            return episode[field] = value;
+        },
+
         /*
          * Responsible for running bulk functions
          */

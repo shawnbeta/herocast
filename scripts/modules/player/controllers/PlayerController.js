@@ -4,29 +4,23 @@ hcApp.controller('PlayerController', [
     function($rootScope, $scope, $sce, $routeParams, $timeout, $interval, PlayerService,
         EpisodeService){
 
+        var element = {
+            player: document.getElementsByTagName('audio')[0],
+            wrapper: jQuery('#audioPlayer')
+        };
+
         $rootScope.player = $rootScope.player ||
-            PlayerService.initializePlayer(document.getElementsByTagName('audio')[0], 'audio');
+            PlayerService.initializePlayer(element, 'audio');
+
         var player = $rootScope.player;
 
-        $rootScope.showAudio = false;
-
-        togglePlayerView = function(){
-            PlayerService.togglePlayerView(player);
-        }
-
-
-
-        // Hide or show the details of Now Playing.
-        // Test running
-        $scope.toggleNowPlayingDetails = function(){
-            player.showDetails = !player.showDetails;
-        };
+        console.log($rootScope.episodes);
 
         // Update the bookmark time for the target episode.
         // @params: Single Episode object model.
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
-            var currentTime = player.element.currentTime;
+            var currentTime = $rootScope.player.element.currentTime;
             PlayerService.updateBookmark(episode, currentTime);
         };
 
@@ -36,85 +30,49 @@ hcApp.controller('PlayerController', [
         //          playing: pause playback
         //          resume playback from currentTime.
         $rootScope.engageAudio = function(episode){
-            if(player.status == 0)
-                return loadPlayer(episode);
-            if(player.status == 1 && player.activeEpisode == episode)
-                return pauseAction();
-            // Player is currently playing a different episode.
-            if(player.status == 1){
-                // So set a temporary bookmark in memory.
-
-                return pauseAction();
-            }
-
-
-            return PlayerService.playAction(player);
-        };
-
-        $rootScope.counter =  0;
-
-        loadPlayer = function(episode){
-            $rootScope.showLoading = true;
-            player.file = $sce.trustAsResourceUrl(episode.src);
-            player.activeEpisode = episode;
-            //
-            // Continue the p
-            player.element.oncanplay = function(){
-                $rootScope.showAudio = true;
-                $rootScope.showLoading = false;
-                // Start playback
-                PlayerService.playAction(player);
-                // Move the pointer to bookmark. Defaults to 0.
-                player.element.currentTime = parseFloat(episode.bookmark);
+            var rsp = PlayerService.engageAudio(episode, $rootScope.player);
+            if(rsp!= 1){
+                // there is another episode already playing so that needs
+                // to be bookmarked in memory
+                console.log($rootScope.episodes[rsp.previousEpisode].bookmark);
+                $rootScope.episodes[rsp.previousEpisode].bookmark = rsp.currentTime
+                console.log($rootScope.episodes[rsp.previousEpisode].bookmark);
+                PlayerService.loadPlayer(episode, $rootScope.player);
             }
 
         };
 
 
         $rootScope.isPlaying = function(model){
-            if(model.id == player.activeEpisode.id && player.status == 1)
-                return 'pause';
-            return 'play';
-        };
-
-        pauseAction = function(){
-            PlayerService.stopCounter();
-            player.element.pause();
-            player.status = 3;
-            player.toggle = 'play';
+            return PlayerService.isPlaying(model);
         };
 
         $rootScope.jumpBack = function(){
-            alert('working')
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime - 300;
+            PlayerService.jumpBack();
         };
 
         $rootScope.rewind = function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime - 20;
+            PlayerService.rewind();
         };
 
         $rootScope.forward = function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime + 20;
+            PlayerService.forward();
         };
 
         $rootScope.jumpAhead = function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime + 300;
+            PlayerService.jumpAhead();
         };
 
         $scope.volumeDown = function(){
-            player.element.volume-=0.1;
+            PlayerService.volumeDown();
         };
 
         $scope.volumeUp = function(){
-            player.element.volume+=0.1;
+            PlayerService.volumeUp();
         };
 
         $scope.setVolumeTo = function(val){
-            player.element.volume=val;
+            PlayerService.setVolumeTo(val);
         };
 
 
