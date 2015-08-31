@@ -17,7 +17,7 @@ hcUtilities.service('HelperService', function(){
 	}; 
 
 
-	HelperService.prototype.addClass = function(style, ele){
+	HelperService.addClass = function(style, ele){
 		var myEl = angular.element( document.querySelector( ele ) );
 		myEl.addClass(style);
 	};

@@ -1,58 +1,73 @@
 hcMedia.factory('PlayerService', 
-    ['$rootScope', 'EpisodeService', '$interval', '$sce',
-    function($rootScope, EpisodeService, $interval, $sce){
-            
-    var counter = {};
-    var ticker;
-        var player;
+    ['$rootScope', '$interval', '$sce', 'EpisodeService', 'HelperService',
+    function($rootScope, $interval, $sce, EpisodeService, HelperService){
+        
+        // This needs to be global so it's accessable from everywhere.
+        var ticker;
+
     
     return {
 
-        playerToggleIcon: function(){
-            return 'bars';
+        playerObj: {},
+
+        // Returns Player Object.
+        createPlayerObj: function(){
+            return {
+                element: document.getElementsByTagName('audio')[0],
+                wrapper: jQuery('#audioPlayer'),
+                viewToggle: jQuery('#toggleAudio'),
+                status: 0,
+                src: null,
+                showDetails: false,
+                activeEpisode: {},
+                toggleText: null,
+                visible: false,
+                height: 0,
+                type: 'audio',
+                loading: true,
+                toggleStyle: 'fa-bars',
+                counter: 0
+            }
         },
 
-        initializePlayer: function(ele, type){
-            player = this.defaultPlayer(ele, type);
-            this.setPlayerStyles(player);
-
+        initialize: function(){
+            this.playerObj = this.createPlayerObj();
+            console.log(this.playerObj);
+            console.log(this.playerObj);
+            this.setPlayerStyles(this.playerObj);
             var self = this;
-
 
             // Use resize to get the height of the player if the user adjust the screen size.
             jQuery(window).on('resize', function(){
                 // Just collapse the player for now
-                jQuery(player.wrapper).css({'display': 'none', 'height': ''});
-                self.setPlayerStyles(player);
+                jQuery(this.playerObj.wrapper).css({'display': 'none', 'height': ''});
+                self.setPlayerStyles(playerObj);
             });
-
-            return player;
         },
 
-        setPlayerStyles: function(player){
+        setPlayerStyles: function(){
             // So js doesn't have to check the element each time.
-            player.height  = jQuery(player.wrapper).height();
+            this.playerObj.height  = jQuery(this.playerObj.wrapper).height();
             //console.log(player.height);
             // Player should be moved to margin equal to elements height
-            jQuery(player.wrapper).css({
+            jQuery(this.playerObj.wrapper).css({
                 'display':  'block',
                 'height': 0
             });
         },
 
-        toggleVisible: function(player){
-            if(player.visible == false){
-                console.log(player.height)
-                jQuery(player.wrapper).animate({
-                    height: player.height
+        toggleVisible: function(){
+            if(this.playerObj.visible == false){
+                console.log(playerObj.height)
+                jQuery(this.playerObj.wrapper).animate({
+                    height: this.playerObj.height
                 });
             }else {
-                jQuery(player.wrapper).animate({
+                jQuery(this.playerObj.wrapper).animate({
                     height: 0
                 });
             }
-            player.visible = !player.visible;
-
+            this.playerObj.visible = !this.playerObj.visible;
         },
 
         adjustPlayerHeight: function(height, wrapper){
@@ -61,122 +76,112 @@ hcMedia.factory('PlayerService',
             })
         },
 
-        engageAudio: function(episode, player, pti){
-            if(player.status == 0){
-                this.loadPlayer(episode, player, pti);
-                pti = 'spinner';
-                return 1;
+        engageAudio: function(episode, updateActiveBookmark){
+
+            if(this.playerObj.status == 0){
+                console.log('aaaa')
+                return this.loadPlayer(episode);
             }
 
-            if(player.status == 1 && player.activeEpisode == episode){
+            if(this.playerObj.status == 1 && this.playerObj.activeEpisode == episode){
+                console.log('dddd')
                 this.pauseAction();
-                pti = 'play-circle';
-                return 1;
+                return {success: true}
             }
 
             // Player is currently playing a different episode.
-            if(player.status == 1){
-                console.log(player.activeEpisode.id)
-                // So set a temporary bookmark in memory.
-                // Send back the currently playing episode and the current time.
-                return {
-                    previousEpisode: player.activeEpisode.id,
-                    currentTime: player.element.currentTime
-                }
+            if(this.playerObj.status == 1){
+                console.log('12351')
+                console.log(this.playerObj.activeEpisode.id)
+                // Run the callback;
+                updateActiveBookmark(this.playerObj.activeEpisode.id, this.playerObj);
+                this.loadPlayer(episode);
             }
-            ///this.playAction(player);
         },
 
-        loadPlayer: function(episode, player, pti){
-            player.loading = true;
-            // if the player is already active kill it
-            if(player.status == 1){
+        loadPlayer: function(episode){
 
-                player.element.pause();
-                player.file = $sce.trustAsResourceUrl(episode.src);
-                player.element.load();
+
+            this.playerObj.toggleStyle = 'loading';
+            this.playerObj.element.src = $sce.trustAsResourceUrl(episode.src);
+            if(this.playerObj.status == 1){
+                this.playerObj.element.load();
             }
-            player.file = $sce.trustAsResourceUrl(episode.src);
-            player.activeEpisode = episode;
+            // Change status after running check
+            this.playerObj.status = 1;
+            this.playerObj.activeEpisode = episode;
             var self = this;
             // Continue the p
-            player.element.oncanplay = function(){
-                player.loading = false;
+            this.playerObj.element.oncanplay = function(){
+                console.log('kkkkkk')
+
+                self.playerObj.toggleStyle = 'active';
+                self.playerObj.loading = false;
                 // Start playback
-                self.playAction(player);
+                self.playAction();
                 // Move the pointer to bookmark. Defaults to 0.
-                player.element.currentTime = parseFloat(episode.bookmark);
+                self.playerObj.element.currentTime = parseFloat(episode.bookmark);
+                //console.log(this.playerObj);
             }
+            //return {
+            //    playerObj: this.playerObj,
+            //    success: true
+            //};
+
         },
 
-        isPlaying: function(model){
-            if(model.id == player.activeEpisode.id && player.status == 1)
+        isPlaying: function(obj){
+            if(obj.id == this.playerObj.activeEpisode.id && this.playerObj.status == 1)
                 return 'pause';
             return 'play';
         },
 
-        playAction: function(player){
-            player.element.play();
-            player.status = 1;
-            player.toggleText = 'pause';
-            this.startCounter(player);
+        playAction: function(){
+            this.playerObj.element.play();
+            this.playerObj.status = 1;
+            this.playerObj.toggleText = 'pause';
+            this.startCounter();
         },
 
         pauseAction: function(){
             this.stopCounter();
-            player.element.pause();
-            player.status = 3;
-            player.toggle = 'play';
+            this.playerObj.element.pause();
+            this.playerObj.status = 3;
+            this.playerObj.toggle = 'play';
         },
 
         rewind: function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime - 20;
+            var currentTime = parseInt(this.playerObj.element.currentTime);
+            this.playerObj.element.currentTime = currentTime - 20;
         },
 
         forward: function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime + 20;
+            var currentTime = parseInt(this.playerObj.element.currentTime);
+            this.playerObj.element.currentTime = currentTime + 20;
         },
 
         jumpBack: function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime - 300;
+            var currentTime = parseInt(playerObj.element.currentTime);
+            playerObj.element.currentTime = currentTime - 300;
         },
 
         jumpAhead: function(){
-            var currentTime = parseInt(player.element.currentTime);
-            player.element.currentTime = currentTime + 300;
+            var currentTime = parseInt(playerObj.element.currentTime);
+            playerObj.element.currentTime = currentTime + 300;
         },
 
         volumeDown: function(){
-            player.element.volume-=0.1;
+            playerObj.element.volume-=0.1;
         },
 
         volumeUp: function(){
-            player.element.volume+=0.1;
+            playerObj.element.volume+=0.1;
         },
 
         setVolumeTo: function(){
-            player.element.volume=val;
+            playerObj.element.volume=val;
         },
 
-        defaultPlayer: function(ele, type){
-            return {
-                element: ele.player,
-                wrapper: ele.wrapper,
-                status: 0,
-                file: null,
-                showDetails: false,
-                activeEpisode: '',
-                toggleText: null,
-                visible: false,
-                height: 0,
-                type: type,
-                loading: true
-            }
-        },
-                
         startCounter: function(){
             if(angular.isDefined(ticker)) return;
             ticker = $interval(this.updateCounter, 1000);
@@ -193,11 +198,12 @@ hcMedia.factory('PlayerService',
             pad = function(val){
                 return val > 9 ? val : "0" + val; 
             };
-            sec = Math.floor($rootScope.player.element.currentTime);
+            sec = Math.floor(this.playerObj.element.currentTime);
+            var counter = {};
             counter.seconds = pad(++sec % 60);
             counter.minutes = pad(pad(parseInt(sec / 60, 10) % 60));
             counter.hours = pad(parseInt(sec / 3600, 10));
-            $rootScope.counter = counter;
+            this.playerObj.counter = counter;
         },
 
         getExtension: function(filename){
@@ -207,7 +213,6 @@ hcMedia.factory('PlayerService',
 
         isAudio: function(filename) {
             var ext = this.getExtension(filename);
-            console.log(ext);
             switch (ext.toLowerCase()) {
                 case 'mp3':
                 case 'ogg':
@@ -215,9 +220,9 @@ hcMedia.factory('PlayerService',
             }
             return false;
         },
+
         isVideo: function(filename) {
             var ext = this.getExtension(filename);
-            console.log(ext);
 
             switch (ext.toLowerCase()) {
                 case 'm4v':
@@ -229,7 +234,6 @@ hcMedia.factory('PlayerService',
             return false;
         },
 
-        
         updateBookmark: function(episode, currentTime){
             episode.bookmark = currentTime;
             EpisodeService.updateLocal(episode);

@@ -3,18 +3,18 @@
 
 
 <div ng-controller="PlayerController" id="audioPlayer">
-            Now Playing: {{player.activeEpisode.title}}   {{subscription}}
-            <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
-            <button ng-click="setBookmark(player.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
-            <button ng-click="engageAudio(player.activeEpisode)">{{player.toggleText}}</button>
+            Now Playing: {{playerObj.activeEpisode.title}}   {{subscription}}
+            <div>Time:{{playerObj.counter.hours}}:{{playerObj.counter.minutes}}:{{playerObj.counter.seconds}}</div>
+            <button ng-click="setBookmark(playerObj.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
+            <button ng-click="engageAudio(playerObj.activeEpisode)">{{playerObj.toggleText}}</button>
             <button ng-click="jumpBack()"><i class="fa fa-angle-double-left">Jump Back</i></button>
             <button ng-click="rewind()"><i class="fa fa-angle-right">RR</i></button>
             <button ng-click="forward()"><i class="fa fa-angle-right">FF</i></button>
             <button ng-click="jumpAhead()"><i class="fa fa-angle-double-right">Jump Ahead</i></button>
             <button ng-click="toggleNowPlayingDetails()"><i class="fa fa-angle-double-right">description</i></button>
-    <span ng-if="currentPlayer.showDetails">
-        {{player.activeEpisode.description}}
-        '{{player.activeEpisode.pub_date}}
+    <span ng-if="playerObj.showDetails">
+        {{playerObj.activeEpisode.description}}
+        '{{playerObj.activeEpisode.pub_date}}
     </span>
             <div slider class="slider" min="0" max="9001" step="100">
                 <span></span>
@@ -27,6 +27,6 @@
             <button ng-click="volumeUp()">+</button>
 
         </div>
- <audio src="{{player.file}}"></audio>
+ <audio src="{{playerObj.file}}"></audio>
 </div>
 <!-- End Generated Code: mustache_templates/player/audio.mustache -->

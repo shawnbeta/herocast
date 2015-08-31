@@ -4,36 +4,42 @@ hcApp.controller('PlayerController', [
     function($rootScope, $scope, $sce, $routeParams, $timeout, $interval, PlayerService,
         EpisodeService){
 
-        var data = {
-            player: document.getElementsByTagName('audio')[0],
-            wrapper: jQuery('#audioPlayer'),
-            viewToggle: jQuery('#toggleAudio')
-        };
+        //var data = {
+        //    element: ,
+        //    //element: angular.element( document.querySelector('audio')[0]),
+        //    wrapper: jQuery('#audioPlayer'),
+        //    viewToggle: jQuery('#toggleAudio')
+        //};
+        PlayerService.initialize();
 
-        $rootScope.player = $rootScope.player || PlayerService.initializePlayer(data, 'audio');
-        var player = $rootScope.player;
+        //$rootScope.playerObj = $rootScope.playerObj || PlayerService.initialize(data, 'audio');
+        //var playerObj = $rootScope.playerObj;
 
         // Update the bookmark time for the target episode.
         // @params: Single Episode object model.
         // Testing by Proxy in PlayerServiceTest: updateBookmark()
         $scope.setBookmark = function(episode){
-            var currentTime = $rootScope.player.element.currentTime;
+            var currentTime = $rootScope.playerObj.element.currentTime;
             var rsp = PlayerService.updateBookmark(episode, currentTime);
         };
 
-        // Toggle the player
-        // @params: Single Episode object.
-        // @return: off: load the episode and start from bookmark
-        //          playing: pause playback
-        //          resume playback from currentTime.
+        // Play or Pause audio playback.
+        // @params: Single episode object.
         $rootScope.engageAudio = function(episode){
-            PlayerService.engageAudio(episode);
+            // send the episode and player
+            PlayerService.engageAudio(episode, updateActiveBookmark);
+
         };
 
-
+        updateActiveBookmark = function(episode, playerObj){
+            //console.log('episodes');
+            //console.log($rootScope.episodes);
+            //console.log(playerObj.activeEpisode.id);
+            $rootScope.episodes[playerObj.activeEpisode.id].bookmark = playerObj.element.currentTime;
+        };
 
         $rootScope.toggleVisible = function(){
-            PlayerService.toggleVisible(player);
+            PlayerService.toggleVisible();
         };
 
         $rootScope.isPlaying = function(model){

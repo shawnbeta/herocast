@@ -15,9 +15,17 @@ hcUtilities.service('HelperService', function(){
 	        
 	    return text;
 	}; 
-	
-	// Function to return json data from
-	// localStorage string.
+
+
+	HelperService.addClass = function(style, ele){
+		var myEl = angular.element( document.querySelector( ele ) );
+		myEl.addClass(style);
+	};
+
+	HelperService.prototype.removeClass = function(style, ele){
+		var myEl = angular.element( document.querySelector( ele ) );
+		myEl.addClass(style);
+	};
 
 	
 	HelperService.prototype.spillBeans = function(element, iteration, list){
