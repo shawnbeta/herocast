@@ -9,8 +9,6 @@ class FileService extends BaseService{
     public static function copyToServerOLD($remote_file, $file_type, $machine_name)
     {
 
-        //echo "SBImage2: ";
-        print_r($remote_file);
 
         $file_name = self::getFileName($remote_file);
 
@@ -122,7 +120,6 @@ class FileService extends BaseService{
 			
 			$paths = self::getSettings()['parameters']['paths'];
 			$rsp = self::getLocation($paths, $file);
-		  var_dump($paths);
 			//var_dump($rsp);
 			$fileName = $rsp['file_path'];
 			//CurlTool::downloadFile($src, $fileName);	
