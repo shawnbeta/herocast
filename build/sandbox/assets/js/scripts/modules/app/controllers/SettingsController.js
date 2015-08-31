@@ -3,9 +3,6 @@ hcApp.controller('SettingsController', [
 	'EpisodeService', 'HelperService', 'MediaService',
 	function($scope, $rootScope, SubscriptionService, 
 		EpisodeService, HelperService, MediaService){
-	$scope.currentView = 'Settings';
-    $rootScope.viewTitle = "Application Settings";
-    $rootScope.actionPane = 'settings';
 
 	$scope.flushLocalStorage = function(){
 	    localStorage.clear();

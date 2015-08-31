@@ -5,10 +5,15 @@ hcApp.controller('PlayerController', [
         EpisodeService){
 
         $rootScope.player = $rootScope.player ||
-            PlayerService.defaultPlayer(document.getElementsByTagName('audio')[0], 'audio');
+            PlayerService.initializePlayer(document.getElementsByTagName('audio')[0], 'audio');
         var player = $rootScope.player;
 
         $rootScope.showAudio = false;
+
+        togglePlayerView = function(){
+            PlayerService.togglePlayerView(player);
+        }
+
 
 
         // Hide or show the details of Now Playing.
@@ -111,6 +116,7 @@ hcApp.controller('PlayerController', [
         $scope.setVolumeTo = function(val){
             player.element.volume=val;
         };
+
 
 
                    

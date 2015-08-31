@@ -63,9 +63,19 @@ module.exports = function (grunt) {
                         dest: 'scripts/modules/app/templates/settings.html'
                     },
                     {
+                        data: 'data/subscriptions.json',
+                        template: 'mustache_templates/media/subscriptions.mustache',
+                        dest: 'scripts/modules/media/templates/subscriptions.html'
+                    },
+                    {
                         data: 'data/episodes.json',
                         template: 'mustache_templates/media/episodes.mustache',
                         dest: 'scripts/modules/media/templates/episodes.html'
+                    },
+                    {
+                        data: 'data/add.json',
+                        template: 'mustache_templates/media/add.mustache',
+                        dest: 'scripts/modules/media/templates/add.html'
                     }
 
                 ]
@@ -82,13 +92,15 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //'build/sandbox/assets/css/bootstrap.css': 'bower_components/bootstrap/less/bootstrap.less',
-                    'build/sandbox/assets/css/bootstrap-lite.css': 'less/bootstrap-lite.less',
-                    'build/sandbox/assets/css/main.css': 'less/main.less',
-                    'build/sandbox/assets/css/navBar.css': 'less/navBar.less',
-                    'build/sandbox/assets/css/player.css': 'less/player.less',
-                    'build/sandbox/assets/css/footer.css': 'less/footer.less',
-                    'build/sandbox/assets/css/grid.css': 'less/grid.less',
-                    'build/sandbox/assets/css/list.css': 'less/list.less'
+                    'build/sandbox/assets/css/contrib/bootstrap-lite.css': 'less/contrib/bootstrap-lite.less',
+                    'build/sandbox/assets/css/libs/media/grid.css': 'less/media/grid.less',
+                    'build/sandbox/assets/css/libs/media/list.css': 'less/media/list.less',
+                    'build/sandbox/assets/css/libs/footer.css': 'less/footer.less',
+                    'build/sandbox/assets/css/libs/globals.css': 'less/globals.less',
+                    'build/sandbox/assets/css/libs/main.css': 'less/main.less',
+                    'build/sandbox/assets/css/libs/navBar.css': 'less/navBar.less',
+                    'build/sandbox/assets/css/libs/player.css': 'less/player.less',
+                    'build/sandbox/assets/css/libs/variables.css': 'less/variables.less'
                 }
             },
             staging: {

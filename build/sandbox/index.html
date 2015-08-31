@@ -1,5 +1,4 @@
-<!--
--->
+<!--Generated Code: mustache_templates/app/main.mustache -->
 <!doctype html>
 <html lang="en" ng-app="hcApp" ng-controller="AppController">
 <head>
@@ -7,17 +6,17 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Herocast</title>
              <link href="https:&#x2F;&#x2F;maxcdn.bootstrapcdn.com&#x2F;font-awesome&#x2F;4.4.0&#x2F;css&#x2F;font-awesome.min.css" rel='stylesheet' type='text/css'> 
-             <link href="assets/css/bootstrap-lite.css" rel='stylesheet' type='text/css'>  <link href="assets/css/fa.css" rel='stylesheet' type='text/css'> 
-             <link href="assets/css/globals.css" rel='stylesheet' type='text/css'>  <link href="assets/css/navBar.css" rel='stylesheet' type='text/css'>  <link href="assets/css/player.css" rel='stylesheet' type='text/css'>  <link href="assets/css/grid.css" rel='stylesheet' type='text/css'>  <link href="assets/css/list.css" rel='stylesheet' type='text/css'>  <link href="assets/css/footer.css" rel='stylesheet' type='text/css'> 
+             <link href="assets/css/contrib/bootstrap-lite.css" rel='stylesheet' type='text/css'> 
+             <link href="assets/css/libs/media&#x2F;grid.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/media&#x2F;list.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/footer.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/globals.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/main.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/navBar.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/player.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/variables.css" rel='stylesheet' type='text/css'> 
 </head>
 
 <body>
-
-<div ng-show="showLoading">
+<!-- Generated Code: mustache_templates/player/audio.mustache -->
+<div>
     <i class="fa fa-loading"></i>loading
 </div>
 
-<div ng-controller="PlayerController" ng-show="showAudio">
+<div ng-controller="PlayerController" id="audioPlayer">
             Now Playing: {{player.activeEpisode.title}}   {{subscription}}
             <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
             <button ng-click="setBookmark(player.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
@@ -44,51 +43,50 @@
         </div>
  <audio src="{{player.file}}"></audio>
 </div>
+<!-- End Generated Code: mustache_templates/player/audio.mustache -->
+<!-- Generated Code: mustache_templates/ui/navBar.mustache -->
+    <div class="swNavBar ">
 
-<!--
--->
-    <div class="swNavBar clearfix">
+    <div class="swContainer clearfix">
 
-    <div class="swContainer">
-        <div class="col-md-2 logoWrap">
-            <a class="swLogo" href="/" title="Episodes">h</a>
+        <div class="col-xs-2 menuToggle smallOnly">
+            <a href="#"> <i class="fa fa-bars"></i></a>
         </div>
 
-        <div class="col-md-9 searchWrap">
-<!--
--->
+        <div class="col-md-2 logoWrap">
+            <div class="swLogo" href="/" title="Episodes">herocast</div>
+        </div>
 
-<span ng-controller="SubscriptionController" class="addField">
-    <label>Feed URL or Youtube Channel ID</label>
-    <input type="text" ng-model="src" placeholder="Feed URL or Youtube Channel ID">
-    <select ng-model="subscriptionType">
-            <option value="audio">audio</option>
-            <option value="video">video</option>
-    </select>
-    <a ng-click="add()"><i class="fa fa-plus"></i></a>
-
-</span>        </div>
-
-        <nav class="col-md-2">
+        <nav class="col-md-8">
             <a href="#/episodes" title="episodes">
-                e
+                episodes
                 
             </a>
             <a href="#/subscriptions" title="subscriptions">
-                s
+                subscriptions
                 
+            </a>
+            <a href="#/add" title="add">
+                
+                <i class="fa fa-plus"></i>
             </a>
             <a href="#/settings" title="settings">
                 
-                <i class="fa fa-main"></i>
+                <i class="fa fa-cog"></i>
             </a>
         </nav>
+
+        <div class="col-md-2 playerToggle" ng-controller="PlayerController">
+            <a href="#" ng-click="togglePlayerVisibility()"> <i ng-class="player.visible ? 'fa fa-play-close' : 'fa fa-play-circle'"></i></a>
+        </div>
     </div>
-
-
-
-
     </div>
+<!-- End Generated Code: mustache_templates/ui/navBar.mustache -->
+<!-- Generated Code: mustache_templates/player/plabackBubble.mustache -->
+<a class="playbackBubble" ng-if="player.status != 0">
+    <i  ng-class="player.status == 1 ? 'fa fa-play-circle' : 'fa- fa-play'"></i>
+</a>
+<!-- End Generated Code: mustache_templates/player/main.mustache -->
 
 <h1>{{viewTitle}}</h1>
 <div ng-view></div>
@@ -99,3 +97,4 @@
 </body>
 
 </html>
+<!-- End Generated Code: mustache_templates/app/main.mustache -->

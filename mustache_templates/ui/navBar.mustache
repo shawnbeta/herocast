@@ -1,19 +1,19 @@
-<!--
 {{=<% %>=}}
--->
+<!-- Generated Code: mustache_templates/ui/navBar.mustache -->
 <%# navBar %>
-    <div class="swNavBar clearfix">
+    <div class="swNavBar ">
 
-    <div class="swContainer">
+    <div class="swContainer clearfix">
+
+        <div class="col-xs-2 menuToggle smallOnly">
+            <a href="#"> <i class="fa fa-bars"></i></a>
+        </div>
+
         <div class="col-md-2 logoWrap">
-            <a class="swLogo" href="/" title="Episodes">h</a>
+            <div class="swLogo" href="/" title="Episodes">herocast</div>
         </div>
 
-        <div class="col-md-9 searchWrap">
-            <% > media/add %>
-        </div>
-
-        <nav class="col-md-2">
+        <nav class="col-md-8">
             <%# links %>
             <a href="#/<% href %>" title="<% title %>">
                 <%# text %><% text %><%/ text %>
@@ -21,10 +21,11 @@
             </a>
             <%/ links %>
         </nav>
+
+        <div class="col-md-2 playerToggle" ng-controller="PlayerController">
+            <a href="#" ng-click="togglePlayerVisibility()"> <i ng-class="player.visible ? 'fa fa-play-close' : 'fa fa-play-circle'"></i></a>
+        </div>
     </div>
-
-
-
-
     </div>
 <%/ navBar %>
+<!-- End Generated Code: mustache_templates/ui/navBar.mustache -->

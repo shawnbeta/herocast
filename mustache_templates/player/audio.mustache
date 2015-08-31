@@ -1,10 +1,10 @@
 {{=<% %>=}}
-
-<div ng-show="showLoading">
+<!-- Generated Code: mustache_templates/player/audio.mustache -->
+<div>
     <i class="fa fa-loading"></i>loading
 </div>
 
-<div ng-controller="PlayerController" ng-show="showAudio">
+<div ng-controller="PlayerController" id="audioPlayer">
             Now Playing: {{player.activeEpisode.title}}   {{subscription}}
             <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
             <button ng-click="setBookmark(player.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
@@ -31,4 +31,4 @@
         </div>
  <audio src="{{player.file}}"></audio>
 </div>
-
+<!-- End Generated Code: mustache_templates/player/audio.mustache -->

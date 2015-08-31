@@ -5,16 +5,17 @@
         "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
       ],
       "contrib": [
-        "bootstrap-lite",
-        "fa"
+        "bootstrap-lite"
       ],
       "libs": [
+        "media/grid",
+        "media/list",
+        "footer",
         "globals",
+        "main",
         "navBar",
         "player",
-        "grid",
-        "list",
-        "footer"
+        "variables"
       ]
     },
     "js" : {
@@ -80,19 +81,25 @@
         "href": "episodes",
         "target": false,
         "title": "episodes",
-        "text": "e"
+        "text": "episodes"
       },
       {
         "href": "subscriptions",
         "target": false,
         "title": "subscriptions",
-        "text": "s"
+        "text": "subscriptions"
+      },
+      {
+        "href": "add",
+        "target": false,
+        "title": "add",
+        "icon": "plus"
       },
       {
         "href": "settings",
         "target": false,
         "title": "settings",
-        "icon": "main"
+        "icon": "cog"
       }
     ],
     "addField": {

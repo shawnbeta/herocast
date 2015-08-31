@@ -4,8 +4,40 @@ hcMedia.factory('PlayerService',
             
     var counter = {};
     var ticker;
+        var player;
     
     return {
+        initializePlayer: function(ele, type){
+            player = this.defaultPlayer(ele, type);
+
+            this.setPlayerStyles(player);
+
+            var self = this;
+
+
+            // Use resize to get the height of the player if the user adjust the screen size.
+            jQuery(window).on('resize', function(){
+                self.setPlayerStyles(player);
+            });
+
+
+        },
+
+        setPlayerStyles: function(player){
+            // So js doesn't have to check the element each time.
+            player.height  = player.element.height();
+            // Player should be moved to margin equal to elements height
+            jQuery(player.element).css({
+                'margin-top': - + player.height
+            });
+        },
+
+
+
+        togglePlayerVisibility: function(player){
+
+
+        },
 
         playAction: function(player){
             player.element.play();
@@ -22,6 +54,8 @@ hcMedia.factory('PlayerService',
                 showDetails: false,
                 activeEpisode: '',
                 toggleText: null,
+                visible: false,
+                height: 0,
                 type: type
             }
         },
@@ -84,7 +118,9 @@ hcMedia.factory('PlayerService',
             EpisodeService.updateLocal(episode);
             EpisodeService.updateRemote(episode, 'bookmark', episode.bookmark);
         },
-               
+
+
+
         
         
     };

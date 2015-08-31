@@ -18,9 +18,9 @@ function($routeProvider) {
 		controller : 'SubscriptionController',
 		templateUrl : 'assets/js/scripts/modules/media/templates/subscriptions.html'
 	})
-    .when('/search', {
-        controller : 'SearchController',
-        templateUrl : 'assets/js/scripts/modules/media/templates/search.html'
+    .when('/add', {
+        controller : 'SubscriptionController',
+        templateUrl : 'assets/js/scripts/modules/media/templates/add.html'
     })  	
 	.when('/settings', {
 		controller : 'SettingsController',

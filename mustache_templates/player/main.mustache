@@ -1,5 +1,5 @@
 {{=<% %>=}}
-
+<!-- Generated Code: mustache_templates/player/main.mustache -->
 <div ng-if="nowPlaying" ng-controller="PlayerController" >
     Now Playing: {{nowPlaying.title}} - {{subscription}}
     <div>Time:{{counter.hours}}:{{counter.minutes}}:{{counter.seconds}}</div>
@@ -26,4 +26,5 @@
     <audio ng-show="subscription.type == 'audio'" src="{{currentPlayer.file}}"></audio>Audio
     <video ng-show="subscription.type == 'video'" src="{{currentPlayer.file}}" width="320" height="240"></video>Video
 </div>
+<!-- End Generated Code: mustache_templates/player/main.mustache -->
 
