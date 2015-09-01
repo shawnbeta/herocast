@@ -38,4 +38,6 @@ hcApp.controller('AppController', [
 		// from localStorage to application memory.
 		$rootScope.subscriptions = SubscriptionService.load(sc);
 		$rootScope.episodes = EpisodeService.load(ec);
+
+
 	}]);

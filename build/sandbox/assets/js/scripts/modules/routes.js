@@ -18,6 +18,10 @@ function($routeProvider) {
 		controller : 'SubscriptionController',
 		templateUrl : 'assets/js/scripts/modules/media/templates/subscriptions.html'
 	})
+		.when('/subscriptions/:id', {
+			controller : 'SubscriptionController',
+			templateUrl : 'assets/js/scripts/modules/media/templates/subscriptions.html'
+		})
     .when('/add', {
         controller : 'SubscriptionController',
         templateUrl : 'assets/js/scripts/modules/media/templates/add.html'

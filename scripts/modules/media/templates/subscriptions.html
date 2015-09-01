@@ -1,6 +1,20 @@
 <!--Generated Code: mustache_templates/media/subscriptions.mustache -->
 <div ng-controller="SubscriptionController">
     <h1>Subscriptions</h1>
-    <div subscription-action></div>
+
+
+    <div class="subscriptions">
+        <ul>
+            <li class="subscriptionItem" ng-repeat="s in subscriptions|orderByTitle">
+                <span>{{s.title}}</span></span>
+                <span><img src="{{s.img}}"></span>
+                <span>
+                    <button ng-click="setAutoDownload(s)">{{downloadToggle(s)}}</button>
+                    <button ng-click="doRemove(s)">Remove</button>
+                </span>
+            </li>
+        </ul>
+    </div>
+
 </div>
 <!-- End Generated Code: mustache_templates/media/subscriptions.mustache -->

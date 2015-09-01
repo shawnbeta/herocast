@@ -47,13 +47,6 @@ hcMedia.factory('PlayerService',
             this.playerObj.updateStyle(' fa-amazon ');
         },
 
-        //hidePlayer: function(wrapper){
-        //    // Player should be moved to margin equal to elements height
-        //    jQuery(wrapper).css({
-        //        'display':  'block',
-        //        'height': 0
-        //    });
-        //},
         setPlayerStyles: function(){
             // So js doesn't have to check the element each time.
             this.playerObj.height  = jQuery(this.playerObj.wrapper).height();

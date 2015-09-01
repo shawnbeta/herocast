@@ -9,7 +9,7 @@
 
     <h1>Add Subscription</h1>
 
-    <div class="srcForm" ng-if="activeAddView == 0">
+    <div class="srcForm" ng-if="submgr.active.views.add == 0">
         <label>Feed URL or Youtube Channel ID</label>
         <input type="text" ng-model="addForm.src" placeholder="Feed URL or Youtube Channel ID">
         <select ng-model="addForm.type">
@@ -20,7 +20,7 @@
         <a ng-click="add()"><i class="fa fa-plus"></i></a>
     </div>
 
-    <div class="searchForm" ng-if="activeAddView == 1">
+    <div class="searchForm" ng-if="submgr.active.views.add == 1">
         <div search-action></div>
         <div search-detail></div>
         <div search-subscribe></div>

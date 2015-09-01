@@ -2,7 +2,20 @@
 
 <div ng-controller="EpisodeController">
     <h1>Episodes</h1>
-
+    <div class="subscriptionNavbar">
+        <ul class="subscriptionMenu">
+            <li>
+                <a ng-class="{'selected': EpisodeManager.active.menu == 0}" ng-click="allEpisodes()">
+                    All Episodes
+                </a>
+            </li>
+            <li ng-repeat="s in subscriptions| orderByTitle">
+                <a ng-class="{'selected': EpisodeManager.active.menu == s.id}" ng-click="episodesBySubscription(s)">
+                    {{s.title}}
+                </a>
+            </li>
+        </ul>
+    </div>
     <span class="episodeDetails" ng-if="showDetails">
            <span><label>Title: </label>{{episodeDetailer.title}}</span>
            <span><label>description: </label>
@@ -14,7 +27,7 @@
            <span><label>Modified Date: </label>{{episodeDetailer.modified_date}}</span>
        </span>
 <ul>
-    <li class="episodeItem" ng-repeat="e in episodes|orderByPubDate" >
+    <li class="episodeItem" ng-repeat="e in episodes| orderByPubDate" >
         <span>{{e.title}}</span>
         <span>{{e.pub_date | date:"medium"}}</span>
         <span>{{e.id}}</span>

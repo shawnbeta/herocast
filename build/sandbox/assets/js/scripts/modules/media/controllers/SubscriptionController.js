@@ -1,14 +1,11 @@
 hcMedia.controller('SubscriptionController', [
-    '$scope', '$rootScope', 'PersistenceService', 
+    '$scope', '$rootScope', '$routeParams', 'PersistenceService',
     'SubscriptionService', 'EpisodeService', 'SearchService',
-	function($scope, $rootScope, PersistenceService, 
+	function($scope, $rootScope, $routeParams, PersistenceService,
 	    SubscriptionService, EpisodeService, SearchService){
-	    
-	    var persistenceService = new PersistenceService();
-	
-	$scope.activeSubscription = 0;
 
-        $scope.activeAddView = 0;
+        $rootScope.submgr = $rootScope.submgr || {};
+
         $scope.toggleAddView = function(val){
             $scope.activeAddView = val;
         }
@@ -46,6 +43,14 @@ hcMedia.controller('SubscriptionController', [
                 $rootScope.searchDetails = searchResult;
             });
         };
+
+        function setSubscriptionManager(subscriptionManager){
+            //$rootScope.subscriptions = subscriptionManager.subscriptions;
+            $rootScope.submgr = subscriptionManager;
+        }
+
+
+        //SubscriptionService.initializeManager(setSubscriptionManager, $rootScope.subscriptions);
 
     
     

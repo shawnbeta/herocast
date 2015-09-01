@@ -6,6 +6,27 @@ hcMedia.factory('SubscriptionService', [
     var ps = ps || new PersistenceService();
     var departureService = new DepartureService();
     return {
+
+        initializeManager: function(setSubscriptionManager, subscriptions){
+            var submgr = this.SubscriptionManager();
+            submgr.subscriptions = subscriptions;
+            setSubscriptionManager(submgr);
+
+        },
+
+        SubscriptionManager: function(){
+          return {
+              subscriptions: [],
+              active:{
+                  views: {
+                      add: 0
+                  },
+                  menu: 0
+              }
+          }
+        },
+
+
         
         // Test running
         // 
@@ -22,7 +43,6 @@ hcMedia.factory('SubscriptionService', [
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
-
         },
         
         // This updates all the models and collections

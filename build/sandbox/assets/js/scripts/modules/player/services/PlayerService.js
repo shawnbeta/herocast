@@ -47,13 +47,6 @@ hcMedia.factory('PlayerService',
             this.playerObj.updateStyle(' fa-amazon ');
         },
 
-        //hidePlayer: function(wrapper){
-        //    // Player should be moved to margin equal to elements height
-        //    jQuery(wrapper).css({
-        //        'display':  'block',
-        //        'height': 0
-        //    });
-        //},
         setPlayerStyles: function(){
             // So js doesn't have to check the element each time.
             this.playerObj.height  = jQuery(this.playerObj.wrapper).height();
@@ -135,7 +128,7 @@ hcMedia.factory('PlayerService',
                 self.playAction();
                 // Move the pointer to bookmark. Defaults to 0.
                 self.playerObj.element.currentTime = parseFloat(episode.bookmark);
-                // On run toggleVisible if the playerObj isn't visible
+                // Only run on initial load.
                 if(self.playerObj.visible == 0)
                     self.toggleVisible();
                 //console.log(self.playerObj.wrapper);
