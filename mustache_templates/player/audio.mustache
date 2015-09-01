@@ -1,8 +1,12 @@
 {{=<% %>=}}
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
+<div ng-controller="PlayerController">
 
+    <a id="playbackBubble" ng-click="toggleVisible()" >
+        <i class="fa {{playerObj.buttonStyle}}"></i>
+    </a>
 
-<div ng-controller="PlayerController" id="audioPlayer">
+<div id="audioPlayer">
             Now Playing: {{playerObj.activeEpisode.title}}   {{subscription}}
             <div>Time:{{playerObj.counter.hours}}:{{playerObj.counter.minutes}}:{{playerObj.counter.seconds}}</div>
             <button ng-click="setBookmark(playerObj.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
@@ -28,5 +32,6 @@
 
         </div>
  <audio src="{{playerObj.file}}"></audio>
+</div>
 </div>
 <!-- End Generated Code: mustache_templates/player/audio.mustache -->

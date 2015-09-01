@@ -21,8 +21,8 @@
             <%/ links %>
         </nav>
 
-        <div class="col-sm-2 playerToggle" ng-controller="PlayerController">
-            <a id="toggleAudio" ng-click="toggleVisible()">
+        <div class="col-sm-1 playerToggle" ng-controller="PlayerController">
+            <a id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
                 <i class="fa {{toggleStyle}}"></i>
             </a>
         </div>

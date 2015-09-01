@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Herocast</title>
-             <link href="https:&#x2F;&#x2F;maxcdn.bootstrapcdn.com&#x2F;font-awesome&#x2F;4.4.0&#x2F;css&#x2F;font-awesome.min.css" rel='stylesheet' type='text/css'> 
+             <link href="https:&#x2F;&#x2F;maxcdn.bootstrapcdn.com&#x2F;font-awesome&#x2F;4.4.0&#x2F;css&#x2F;font-awesome.min.css" rel='stylesheet' type='text/css'>  <link href="https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,700italic,900italic|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800|Open+Sans+Condensed:300,700,300italic" rel='stylesheet' type='text/css'> 
              <link href="assets/css/contrib/bootstrap-lite.css" rel='stylesheet' type='text/css'> 
              <link href="assets/css/libs/media&#x2F;grid.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/media&#x2F;list.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/footer.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/globals.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/main.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/navBar.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/player.css" rel='stylesheet' type='text/css'>  <link href="assets/css/libs/variables.css" rel='stylesheet' type='text/css'> 
 </head>
 
 <body>
+<!-- Generated Code: mustache_templates/player/plabackBubble.mustache -->
+<div ng-controller="PlayerController">
+    <a id="playbackBubble" ng-click="toggleVisible()" >
+        <i class="fa "></i>
+    </a>
+</div>
+<!-- End Generated Code: mustache_templates/player/main.mustache -->
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
+<div ng-controller="PlayerController">
 
+    <a id="playbackBubble" ng-click="toggleVisible()" >
+        <i class="fa {{playerObj.buttonStyle}}"></i>
+    </a>
 
-<div ng-controller="PlayerController" id="audioPlayer">
+<div id="audioPlayer">
             Now Playing: {{playerObj.activeEpisode.title}}   {{subscription}}
             <div>Time:{{playerObj.counter.hours}}:{{playerObj.counter.minutes}}:{{playerObj.counter.seconds}}</div>
             <button ng-click="setBookmark(playerObj.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>
@@ -40,6 +51,7 @@
 
         </div>
  <audio src="{{playerObj.file}}"></audio>
+</div>
 </div>
 <!-- End Generated Code: mustache_templates/player/audio.mustache -->
 <!-- Generated Code: mustache_templates/ui/navBar.mustache -->
@@ -73,22 +85,17 @@
             </a>
         </nav>
 
-        <div class="col-sm-2 playerToggle" ng-controller="PlayerController">
-            <a id="toggleAudio" ng-click="toggleVisible()">
+        <div class="col-sm-1 playerToggle" ng-controller="PlayerController">
+            <a id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
                 <i class="fa {{toggleStyle}}"></i>
             </a>
         </div>
     </div>
     </div>
 <!-- End Generated Code: mustache_templates/ui/navBar.mustache -->
-<!-- Generated Code: mustache_templates/player/plabackBubble.mustache -->
-<a class="playbackBubble" ng-if="player.status == 0" ng-controller="PlayerController">
-    <i  ng-class="player.status == 1 ? 'fa fa-play-circle' : 'fa- fa-play'"></i>
-</a>
-<!-- End Generated Code: mustache_templates/player/main.mustache -->
 
 <h1>{{viewTitle}}</h1>
-<div ng-view></div>
+<div ng-view></div>s
 
          <script src="http:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Quicksand:300,400,700"></script> 
          <script src="assets/js/contrib/angular.js"></script>  <script src="assets/js/contrib/angular-mocks.js"></script>  <script src="assets/js/contrib/angular-route.js"></script>  <script src="assets/js/contrib/angular-sanitize.js"></script>  <script src="assets/js/contrib/angular-touch.js"></script>  <script src="assets/js/contrib/jquery.js"></script>  <script src="assets/js/contrib/underscore.js"></script> 

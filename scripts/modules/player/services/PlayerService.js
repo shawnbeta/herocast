@@ -11,7 +11,7 @@ hcMedia.factory('PlayerService',
         playerObj: {},
 
         // Returns Player Object.
-        createPlayerObj: function(updateToggleStyle){
+        createPlayerObj: function(updateToggleStyle, updateBubbleStyle){
             return {
                 element: document.getElementsByTagName('audio')[0],
                 wrapper: jQuery('#audioPlayer'),
@@ -30,21 +30,19 @@ hcMedia.factory('PlayerService',
                 loading: true,
                 toggleStyle: 'fa-bars',
                 counter: 0,
-                updateStyle: updateToggleStyle
+                updateToggleStyle: updateToggleStyle,
+                updateBubbleStyle: updateBubbleStyle
             }
         },
 
-        initialize: function(updateToggleStyle){
-            this.playerObj = this.createPlayerObj(updateToggleStyle);
-            this.playerObj.updateStyle(' fa-amazon ');
+        initialize: function(updateToggleStyle, updateBubbleStyle){
+            this.playerObj = this.createPlayerObj(updateToggleStyle, updateBubbleStyle);
             this.setPlayerStyles();
             var self = this;
-
             // Use resize to get the height of the player if the user adjust the screen size.
             jQuery(window).on('resize load', function(){
                 self.setPlayerStyles();
             });
-            this.playerObj.updateStyle(' fa-amazon ');
         },
 
         setPlayerStyles: function(){
@@ -53,31 +51,31 @@ hcMedia.factory('PlayerService',
         },
 
         determinePlayerVisbility: function() {
-            console.log(this.playerObj.visible);
             // Player is open
             if(this.playerObj.visible == 2) {
-                this.playerObj.updateStyle('fa-amazon');
+                this.playerObj.updateToggleStyle('fa-angle-double-down', this.playerObj);
                 // Close the player
                 this.playerObj.visible = 1;
                 return 0;
             }
             // Player is closed
             if(this.playerObj.visible == 1) {
-                this.playerObj.updateStyle('fa-apple');
                 // Expand the player.
                 this.playerObj.visible = 2;
+                this.playerObj.updateToggleStyle('fa-angle-double-up', this.playerObj);
                 return this.playerObj.height;
             }
             if(this.playerObj.visible == 0) {
-                this.playerObj.updateStyle('fa-adn');
                 jQuery(this.playerObj.wrapper).css({ 'display':  'block', 'height': 0, 'position': 'relative' });
                 jQuery(this.playerObj.wrapper).css({left: 0});
                 this.playerObj.visible = 2;
+                this.playerObj.updateToggleStyle('fa-angle-double-up', this.playerObj);
                 return this.playerObj.height;
             }
         },
 
         toggleVisible: function(){
+            if(this.playerObj.status == 0) return;
             var h = this.determinePlayerVisbility();
             jQuery(this.playerObj.wrapper).animate({
                 height:h
@@ -111,8 +109,8 @@ hcMedia.factory('PlayerService',
 
         loadPlayer: function(episode){
 
-
-            this.playerObj.toggleStyle = 'anchor';
+            // Action Button should show loading
+            this.playerObj.updateBubbleStyle('fa-spinner', this.playerObj);
 
             this.playerObj.element.src = $sce.trustAsResourceUrl(episode.src);
             if(this.playerObj.status == 1){
@@ -123,7 +121,7 @@ hcMedia.factory('PlayerService',
             this.playerObj.activeEpisode = episode;
             var self = this;
             this.playerObj.element.oncanplay = function(){
-                self.playerObj.toggleStyle = 'amazon';
+                //self.playerObj.toggleStyle = 'fa-pause';
                 // Start playback
                 self.playAction();
                 // Move the pointer to bookmark. Defaults to 0.
@@ -152,13 +150,15 @@ hcMedia.factory('PlayerService',
             this.playerObj.status = 1;
             this.playerObj.toggleText = 'pause';
             this.startCounter();
+            this.playerObj.updateBubbleStyle('fa-pause', this.playerObj);
         },
 
         pauseAction: function(){
             this.stopCounter();
             this.playerObj.element.pause();
             this.playerObj.status = 3;
-            this.playerObj.toggle = 'play';
+            this.playerObj.toggleText = 'play';
+            this.playerObj.updateBubbleStyle('fa-pause', this.playerObj);
         },
 
         rewind: function(){

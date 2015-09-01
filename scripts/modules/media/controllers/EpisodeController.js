@@ -24,6 +24,18 @@ hcMedia.controller('EpisodeController', [
 			$scope.showDetails = false;
 		};
 
+		$scope.toggleSubscriptionMenu = function(){
+			var navBar = jQuery('.subscriptionNavbar');
+			console.log(jQuery(navBar).css('right'));
+			var position = jQuery(navBar).css('right') == '0px' ? '-320px' : 0;
+			console.log(position)
+			jQuery(navBar).animate({
+				'right': position
+			});
+			console.log(position)
+
+		};
+
 		$scope.episodesBySubscription = function(subscription){
 			$scope.EpisodeManager.active.menu = subscription.id;
 			// Make a copy of the original

@@ -4,7 +4,7 @@
     <a ng-click="setSubscriptionStyle('list')">List</a>
     <a ng-click="setSubscriptionStyle('grid')">Grid</a>
     <div class="subscriptions">
-        <ul class="swButton" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
+        <ul class="swButton" ng-class="{'list': subscriptionStyle == 'list', 'grid': subscriptionStyle == 'grid'}">
             <li class="swItem" ng-repeat="s in subscriptions|orderByTitle">
                 <span>{{s.title}}</span></span>
                 <span><img src="{{s.img}}"></span>

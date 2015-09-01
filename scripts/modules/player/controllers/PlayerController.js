@@ -10,7 +10,8 @@ hcApp.controller('PlayerController', [
         //    wrapper: jQuery('#audioPlayer'),
         //    viewToggle: jQuery('#toggleAudio')
         //};
-        $rootScope.toggleStyle = 'fa-bars';
+        $rootScope.toggleStyle = '';
+        $rootScope.buttonStyle = '';
 
         //$rootScope.playerObj = $rootScope.playerObj || PlayerService.initialize(data, 'audio');
         //var playerObj = $rootScope.playerObj;
@@ -31,8 +32,18 @@ hcApp.controller('PlayerController', [
 
         };
 
-        updateToggleStyle = function(toggleStyle){
+        updateToggleStyle = function(toggleStyle, playerObj){
+            // Add the player object to the scope.
+            $rootScope.playerObj = playerObj;
+            playerObj.toggleStyle = toggleStyle;
             $rootScope.toggleStyle = toggleStyle;
+        };
+
+        updateButtonStyle = function(buttonStyle, playerObj){
+            // Add the player object to the scope.
+            $rootScope.playerObj = playerObj;
+            playerObj.buttonStyle = buttonStyle;
+            $rootScope.buttonStyle = buttonStyle;
         };
 
         updateActiveBookmark = function(episode, playerObj){
@@ -78,7 +89,7 @@ hcApp.controller('PlayerController', [
             PlayerService.setVolumeTo(val);
         };
 
-        PlayerService.initialize(updateToggleStyle);
+        PlayerService.initialize(updateToggleStyle, updateButtonStyle);
 
 
                    
