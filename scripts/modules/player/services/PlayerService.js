@@ -28,7 +28,7 @@ hcMedia.factory('PlayerService',
                 height: 0,
                 type: 'audio',
                 loading: true,
-                toggleStyle: 'fa-bars',
+                toggleStyle: '',
                 counter: 0,
                 updateToggleStyle: updateToggleStyle,
                 updateBubbleStyle: updateBubbleStyle
@@ -110,7 +110,7 @@ hcMedia.factory('PlayerService',
         loadPlayer: function(episode){
 
             // Action Button should show loading
-            this.playerObj.updateBubbleStyle('fa-spinner', this.playerObj);
+            this.playerObj.updateBubbleStyle('loading', this.playerObj);
 
             this.playerObj.element.src = $sce.trustAsResourceUrl(episode.src);
             if(this.playerObj.status == 1){
@@ -150,7 +150,7 @@ hcMedia.factory('PlayerService',
             this.playerObj.status = 1;
             this.playerObj.toggleText = 'pause';
             this.startCounter();
-            this.playerObj.updateBubbleStyle('fa-pause', this.playerObj);
+            this.playerObj.updateBubbleStyle('showPauseIcon', this.playerObj);
         },
 
         pauseAction: function(){
@@ -158,7 +158,7 @@ hcMedia.factory('PlayerService',
             this.playerObj.element.pause();
             this.playerObj.status = 3;
             this.playerObj.toggleText = 'play';
-            this.playerObj.updateBubbleStyle('fa-play', this.playerObj);
+            this.playerObj.updateBubbleStyle('showPlayIcon', this.playerObj);
         },
 
         rewind: function(){

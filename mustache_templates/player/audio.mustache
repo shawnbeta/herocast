@@ -2,9 +2,8 @@
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
 <div ng-controller="PlayerController">
 
-    <a id="playbackBubble" ng-click="togglePlayback(playerObj.activeEpisode)" >
-        <i class="fa {{playerObj.buttonStyle}}"></i>
-    </a>
+        <a id="playbackActionButton" ng-click="togglePlayback(playerObj.activeEpisode)" class="{{playerObj.buttonStyle}}">
+        </a>
 
 <div id="audioPlayer">
             Now Playing: {{playerObj.activeEpisode.title}}   {{subscription}}

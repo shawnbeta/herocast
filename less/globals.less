@@ -20,6 +20,11 @@ h2 {
   width: 100%;
 }
 
+a,
+a:hover {
+  text-decoration: none;
+}
+
 
 
 @media(min-width: @screen-sm-min) {
@@ -86,7 +91,29 @@ h2 {
 }
 
 
+// icons
+.loading {
+  &:before{
+    .fa-spin;
+    .fa-pulse;
+    content: '\f110';
+    font-family: @fa;
+  }
+}
 
+.showPlayIcon {
+  &:before{
+    content: '\f04b';
+    font-family: @fa;
+  }
+}
+
+.showPauseIcon {
+  &:before{
+    content: '\f04c';
+    font-family: @fa;
+  }
+}
 
 
 //@media(max-width: @screen-xs-max){}
