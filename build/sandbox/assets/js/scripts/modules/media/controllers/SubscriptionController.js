@@ -50,6 +50,31 @@ hcMedia.controller('SubscriptionController', [
         }
 
 
+        $scope.setAutoDownload = function(model){
+            model.auto_download = model.auto_download !=1 ? 1  : 0;
+            model.updateAutoDownload(model);
+        };
+
+        $scope.downloadToggle = function(model){
+            return model.auto_download !=1 ? 'AutoDownload'  : 'Stop AutoDownload';
+        };
+
+        /*scope.doRemove = function(model){
+         var secondScope = {
+         episodes: angular.copy($rootScope.episodes),
+         subscriptions: angular.copy($rootScope.subscriptions)
+         };
+         var rsp = model.remove(model, secondScope);
+         $rootScope.episodes = rsp.episodes;
+         $rootScope.subscriptions = rsp.subscriptions;
+         };*/
+
+        $scope.doRemove = function(model){
+            var rsp = model.remove(model, $rootScope.subscriptions, $rootScope.episodes);
+            $rootScope.episodes = rsp.episodes;
+            $rootScope.subscriptions = rsp.subscriptions;
+        };
+
         //SubscriptionService.initializeManager(setSubscriptionManager, $rootScope.subscriptions);
 
     
