@@ -28,10 +28,13 @@
            <span><label>Modified Date: </label>{{episodeDetailer.modified_date}}</span>
        </span>
 <ul>
-    <li class="episodeItem" ng-repeat="e in episodes| orderByPubDate" >
+    <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
         <span>{{e.title}}</span>
         <span>{{e.pub_date | date:"medium"}}</span>
         <span>{{e.id}}</span>
+        <!--<span><img src="{{e.img}}"></span>-->
+        <span><img src="assets/img/turtle.png"></span>-->
+
         <span><img src="{{e.img}}"></span>
         <%# PlayerControls %>
             <span ng-controller="PlayerController">
