@@ -26,6 +26,21 @@ hcMedia.controller('SubscriptionController', [
         });
     };
 
+        $scope.toggleSubscriptionMenu = function(){
+            var navBar = jQuery('.subscriptionNavbar');
+            var position = jQuery(navBar).css(left) < 0 ? 0 : '-9999px';
+            jQuery(navBar).animate({
+                left: position
+            });
+        }
+
+        $scope.episodeStyle = 'list';
+
+        $scope.setSubscriptionStyle = function(val) {
+            $scope.episodeStyle = val;
+        };
+
+
         $scope.executeSearch = function(){
             var rsp = SearchService.executeSearch($scope);
             rsp.then(function(rsp){

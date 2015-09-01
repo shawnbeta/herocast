@@ -13,6 +13,12 @@ hcMedia.controller('EpisodeController', [
 			}
 		};
 
+		$scope.episodeStyle = 'list';
+
+		$scope.setEpisodeStyle = function(val) {
+			$scope.episodeStyle = val;
+		};
+
 		hideDescription = function(){
 			$scope.episodeDetailer = {};
 			$scope.showDetails = false;

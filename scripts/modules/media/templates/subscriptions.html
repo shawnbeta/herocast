@@ -1,10 +1,10 @@
 <!--Generated Code: mustache_templates/media/subscriptions.mustache -->
 <div ng-controller="SubscriptionController">
     <h1>Subscriptions</h1>
-
-
+    <a ng-click="setSubscriptionStyle('list')">List</a>
+    <a ng-click="setSubscriptionStyle('grid')">Grid</a>
     <div class="subscriptions">
-        <ul>
+        <ul class="swButton" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
             <li class="swItem" ng-repeat="s in subscriptions|orderByTitle">
                 <span>{{s.title}}</span></span>
                 <span><img src="{{s.img}}"></span>
