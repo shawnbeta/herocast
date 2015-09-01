@@ -83,7 +83,7 @@ hcMedia.factory('PlayerService',
         },
 
 
-        engageAudio: function(episode, updateActiveBookmark){
+        togglePlayback: function(episode, updateActiveBookmark){
 
             if(this.playerObj.status == 0){
                 return this.loadPlayer(episode);
@@ -158,7 +158,7 @@ hcMedia.factory('PlayerService',
             this.playerObj.element.pause();
             this.playerObj.status = 3;
             this.playerObj.toggleText = 'play';
-            this.playerObj.updateBubbleStyle('fa-pause', this.playerObj);
+            this.playerObj.updateBubbleStyle('fa-play', this.playerObj);
         },
 
         rewind: function(){
@@ -172,25 +172,25 @@ hcMedia.factory('PlayerService',
         },
 
         jumpBack: function(){
-            var currentTime = parseInt(playerObj.element.currentTime);
-            playerObj.element.currentTime = currentTime - 300;
+            var currentTime = parseInt(this.playerObj.element.currentTime);
+            this.playerObj.element.currentTime = currentTime - 300;
         },
 
         jumpAhead: function(){
-            var currentTime = parseInt(playerObj.element.currentTime);
-            playerObj.element.currentTime = currentTime + 300;
+            var currentTime = parseInt(this.playerObj.element.currentTime);
+            this.playerObj.element.currentTime = currentTime + 300;
         },
 
         volumeDown: function(){
-            playerObj.element.volume-=0.1;
+            this.playerObj.element.volume-=0.1;
         },
 
         volumeUp: function(){
-            playerObj.element.volume+=0.1;
+            this.playerObj.element.volume+=0.1;
         },
 
         setVolumeTo: function(){
-            playerObj.element.volume=val;
+            this.playerObj.element.volume=val;
         },
 
         startCounter: function(){

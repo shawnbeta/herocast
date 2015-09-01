@@ -2,7 +2,7 @@
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
 <div ng-controller="PlayerController">
 
-    <a id="playbackBubble" ng-click="toggleVisible()" >
+    <a id="playbackBubble" ng-click="togglePlayback(playerObj.activeEpisode)" >
         <i class="fa {{playerObj.buttonStyle}}"></i>
     </a>
 

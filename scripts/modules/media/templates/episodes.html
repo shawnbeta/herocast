@@ -8,6 +8,7 @@
 
 
     <div class="subscriptionNavbar">
+        <a ng-click="toggleSubscriptionMenu()"><i class="fa fa-close"></i>Close</a>
         <ul class="subscriptionMenu">
             <li>
                 <a ng-class="{'selected': EpisodeManager.active.menu == 0}" ng-click="allEpisodes()">
@@ -41,7 +42,7 @@
 
         <span><img src="{{e.img}}"></span>
             <span ng-controller="PlayerController">
-                    <button ng-click="engageAudio(e)">{{isPlaying(e)}}</button>
+                    <button ng-click="togglePlayback(e)">{{isPlaying(e)}}</button>
                     <button ng-click="updateWatched(e)">{{isWatched(e)}}</button>
                     <button ng-click="playPause(e)">download</button>
                     <button ng-click="toggleDetails(e)">details</button>

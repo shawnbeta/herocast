@@ -26,9 +26,9 @@ hcApp.controller('PlayerController', [
 
         // Play or Pause audio playback.
         // @params: Single episode object.
-        $rootScope.engageAudio = function(episode){
+        $rootScope.togglePlayback = function(episode){
             // send the episode and player
-            PlayerService.engageAudio(episode, updateActiveBookmark);
+            PlayerService.togglePlayback(episode, updateActiveBookmark);
 
         };
 
@@ -89,7 +89,7 @@ hcApp.controller('PlayerController', [
             PlayerService.setVolumeTo(val);
         };
 
-        PlayerService.initialize(updateToggleStyle, updateButtonStyle);
+        $rootScope.playerObj = $rootScope.playerObj || PlayerService.initialize(updateToggleStyle, updateButtonStyle);
 
 
                    
