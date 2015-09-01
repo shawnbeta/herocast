@@ -21,90 +21,106 @@ hcMedia.factory('PlayerService',
                 showDetails: false,
                 activeEpisode: {},
                 toggleText: null,
-                visible: false,
+                // 0: default(left:-9999px, display: none)
+                // 1: expanded
+                // 2: closed(left:0, height: 0)
+                visible: 0,
                 height: 0,
                 type: 'audio',
                 loading: true,
                 toggleStyle: 'fa-bars',
                 counter: 0,
-                updateStyle: updateToggleStyle,
-                setToggleStyle: function(newStyle){
-                    this.toggleStyle = newStyle;
-                    return this.updateToggleStyle(newStyle);
-                }
+                updateStyle: updateToggleStyle
             }
         },
 
         initialize: function(updateToggleStyle){
             this.playerObj = this.createPlayerObj(updateToggleStyle);
+            this.playerObj.updateStyle(' fa-amazon ');
             this.setPlayerStyles();
             var self = this;
 
             // Use resize to get the height of the player if the user adjust the screen size.
-            jQuery(window).on('resize', function(){
-                // Just collapse the player for now
-                jQuery(this.playerObj.wrapper).css({'display': 'none', 'height': ''});
-                self.setPlayerStyles(playerObj);
+            jQuery(window).on('resize load', function(){
+                self.setPlayerStyles();
             });
+            this.playerObj.updateStyle(' fa-amazon ');
         },
 
+        //hidePlayer: function(wrapper){
+        //    // Player should be moved to margin equal to elements height
+        //    jQuery(wrapper).css({
+        //        'display':  'block',
+        //        'height': 0
+        //    });
+        //},
         setPlayerStyles: function(){
             // So js doesn't have to check the element each time.
             this.playerObj.height  = jQuery(this.playerObj.wrapper).height();
-            //console.log(player.height);
-            // Player should be moved to margin equal to elements height
-            jQuery(this.playerObj.wrapper).css({
-                'display':  'block',
-                'height': 0
-            });
+        },
+
+        determinePlayerVisbility: function() {
+            console.log(this.playerObj.visible);
+            // Player is open
+            if(this.playerObj.visible == 2) {
+                this.playerObj.updateStyle('fa-amazon');
+                // Close the player
+                this.playerObj.visible = 1;
+                return 0;
+            }
+            // Player is closed
+            if(this.playerObj.visible == 1) {
+                this.playerObj.updateStyle('fa-apple');
+                // Expand the player.
+                this.playerObj.visible = 2;
+                return this.playerObj.height;
+            }
+            if(this.playerObj.visible == 0) {
+                this.playerObj.updateStyle('fa-adn');
+                jQuery(this.playerObj.wrapper).css({ 'display':  'block', 'height': 0, 'position': 'relative' });
+                jQuery(this.playerObj.wrapper).css({left: 0});
+                this.playerObj.visible = 2;
+                return this.playerObj.height;
+            }
         },
 
         toggleVisible: function(){
-            if(this.playerObj.visible == false){
-                jQuery(this.playerObj.wrapper).animate({
-                    height: this.playerObj.height
-                });
-            }else {
-                jQuery(this.playerObj.wrapper).animate({
-                    height: 0
-                });
-            }
-            this.playerObj.visible = !this.playerObj.visible;
-        },
-
-        adjustPlayerHeight: function(wrapper, height){
-            jQuery(wrapper).animate({
-                'height': height
+            var h = this.determinePlayerVisbility();
+            jQuery(this.playerObj.wrapper).animate({
+                height:h
             });
         },
+
 
         engageAudio: function(episode, updateActiveBookmark){
 
             if(this.playerObj.status == 0){
-                console.log('aaaa')
                 return this.loadPlayer(episode);
             }
 
             if(this.playerObj.status == 1 && this.playerObj.activeEpisode == episode){
-                console.log('dddd')
                 this.pauseAction();
-                return {success: true}
+                return;
             }
 
             // Player is currently playing a different episode.
             if(this.playerObj.status == 1){
-                console.log('12351')
-                console.log(this.playerObj.activeEpisode.id)
                 // Run the callback;
                 updateActiveBookmark(this.playerObj.activeEpisode.id, this.playerObj);
                 this.loadPlayer(episode);
             }
+            // resume from pause
+            else {
+                this.playAction();
+            }
+            return;
         },
 
         loadPlayer: function(episode){
 
 
-            this.playerObj.updateStyle('loading');
+            this.playerObj.toggleStyle = 'anchor';
+
             this.playerObj.element.src = $sce.trustAsResourceUrl(episode.src);
             if(this.playerObj.status == 1){
                 this.playerObj.element.load();
@@ -113,16 +129,17 @@ hcMedia.factory('PlayerService',
             this.playerObj.status = 1;
             this.playerObj.activeEpisode = episode;
             var self = this;
-            // Continue the p
             this.playerObj.element.oncanplay = function(){
-                self.playerObj.toggleStyle = 'active';
-                self.playerObj.loading = false;
+                self.playerObj.toggleStyle = 'amazon';
                 // Start playback
                 self.playAction();
                 // Move the pointer to bookmark. Defaults to 0.
                 self.playerObj.element.currentTime = parseFloat(episode.bookmark);
-                // Finally resize the player wrapper
-                self.adjustPlayerHeight(self.playerObj.wrapper, self.playerObj.height);
+                // Only run on initial load.
+                if(self.playerObj.visible == 0)
+                    self.toggleVisible();
+                //console.log(self.playerObj.wrapper);
+                //console.log(self.playerObj.height);
             }
             //return {
             //    playerObj: this.playerObj,

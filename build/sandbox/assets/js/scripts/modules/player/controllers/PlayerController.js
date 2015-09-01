@@ -10,7 +10,7 @@ hcApp.controller('PlayerController', [
         //    wrapper: jQuery('#audioPlayer'),
         //    viewToggle: jQuery('#toggleAudio')
         //};
-        $rootScope.toggleStyle = {};
+        $rootScope.toggleStyle = 'fa-bars';
 
         //$rootScope.playerObj = $rootScope.playerObj || PlayerService.initialize(data, 'audio');
         //var playerObj = $rootScope.playerObj;
