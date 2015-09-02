@@ -93,6 +93,7 @@ module.exports = function (grunt) {
                 files: {
                     //'build/sandbox/assets/css/bootstrap.css': 'bower_components/bootstrap/less/bootstrap.less',
                     'build/sandbox/assets/css/contrib/bootstrap-lite.css': 'less/contrib/bootstrap-lite.less',
+                    'build/sandbox/assets/css/libs/media/main.css': 'less/media/main.less',
                     'build/sandbox/assets/css/libs/media/grid.css': 'less/media/grid.less',
                     'build/sandbox/assets/css/libs/media/list.css': 'less/media/list.less',
                     'build/sandbox/assets/css/libs/footer.css': 'less/footer.less',

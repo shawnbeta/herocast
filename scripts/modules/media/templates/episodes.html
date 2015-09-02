@@ -1,11 +1,13 @@
 <!--Generated Code: mustache_templates/media/episodes.mustache -->
 
-<div ng-controller="EpisodeController">
+<div ng-controller="EpisodeController" class="mediaView">
     <header>
         <h1>Episodes</h1>
-        <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
-        <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
-        <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+        <div class="mediaMenu">
+            <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
+            <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
+            <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+        </div>
     </header>
     <div class="subscriptionNavbar">
         <a ng-click="toggleSubscriptionMenu()"><i class="fa fa-close"></i>Close</a>
@@ -36,34 +38,45 @@
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
 
         <div class="teaser id_{{e.id}}">
-            <span>{{e.pub_date | date:"MMMM d, yyyy"}}</span>
+            <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
             <!--<span><img src="{{e.img}}"></span>-->
             <div class="swImg"><img src="assets/img/turtle.png"></div>
 
-            <div class="swTitle">{{e.title}}</div>
-            <div class="swDescription">{{e.description}}</div>
-            <a class="toggleDescription" ng-click="toggleDescription(e.id)">
-                <i class="fa" ng-class="isExpanded ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>
+                <div class="swTitle">{{e.title}}</div>
+                <div class="swDescription">{{e.description}}</div>
+            <a class="toggleDescription largeOnly" ng-click="toggleDetails(e.id)">
+                <!--<i class="fa" ng-class="isExpanded(e.id) ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>-->
+                <i class="fa fa-info"></i>
             </a>
         </div>
 
             <div ng-controller="PlayerController" class="playerCtrls clearfix">
-                    
-                    <button ng-click="togglePlayback(e)"><i class="fa fa-{{isPlaying(e)}}"></i></button>
-                    
-                    
-                    
-                    <button ng-click="updateWatched(e)"><i class="{{isWatched(e)}} fa fa-check"></i></button>
-                    
-                    <button ng-click="download(e)"><i class="fa fa-download"></i></button>
-                    
-                    
-                    <button ng-click="toggleDetails(e)"><i class="fa fa-info"></i></button>
-                    
-                    
-                    <button ng-click="copyToServer(e)"><i class="fa fa-server"></i></button>
-                    
+                    <button ng-click="togglePlayback(e)">
+                        
+                        <i class="fa fa-{{isPlaying(e)}}"></i>
+                        
+                    </button>
+                    <button ng-click="updateWatched(e)">
+                        
+                        
+                        <i class="{{isWatched(e)}} fa fa-check"></i>
+                    </button>
+                    <button ng-click="download(e)">
+                        
+                        <i class="fa fa-download"></i>
+                        
+                    </button>
+                    <button ng-click="copyToServer(e)">
+                        
+                        <i class="fa fa-server"></i>
+                        
+                    </button>
+                    <button ng-click="toggleDetails(e)">
+                        
+                        <i class="fa fa-info"></i>
+                        
+                    </button>
             </div>
         </li>
     </ul>

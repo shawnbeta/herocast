@@ -12,7 +12,26 @@ function(PersistenceService, Episode, $http, $rootScope) {
         expandedDescriptions : [],
 
         toggleDescription : function(id){
-            if(this.isExpanded(id)) return
+            alert('working');
+            if(this.isExpanded(id))
+                return this.collapseDescription(id);
+            // Since the id isn't in the array we know it hasn't been
+            // expanded. Add it to the array and expand it.
+            this.expandedDescriptions.push(id);
+            this.adjustTeaserHeight('auto', id);
+        },
+
+        collapseDescription: function(id){
+            // remove the id from the array.
+            _.reject(this.expandedDescriptions, id);
+            // collapse the teaser
+            this.adjustTeaserHeight('100px', id);
+        },
+
+        adjustTeaserHeight: function(height, id){
+            jQuery('.teaser id_' + id).animate({
+                'height': height
+            });
         },
 
         // Loads episodes from localStorage
@@ -33,6 +52,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
         },
 
         isExpanded: function(id){
+            console.log(_.contains(this.expandedDescriptions, id ));
             return _.contains(this.expandedDescriptions, id );
         },
 

@@ -16,12 +16,12 @@
         "icon": "download"
       },
       {
-        "action": "toggleDetails",
-        "icon": "info"
-      },
-      {
         "action": "copyToServer",
         "icon": "server"
+      },
+      {
+        "action": "toggleDetails",
+        "icon": "info"
       }
     ]
   }

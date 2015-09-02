@@ -9,6 +9,7 @@
         "bootstrap-lite"
       ],
       "libs": [
+        "media/main",
         "media/grid",
         "media/list",
         "footer",

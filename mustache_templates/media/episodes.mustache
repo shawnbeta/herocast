@@ -1,12 +1,14 @@
 {{=<% %>=}}
 <!--Generated Code: mustache_templates/media/episodes.mustache -->
 
-<div ng-controller="EpisodeController">
+<div ng-controller="EpisodeController" class="mediaView">
     <header>
         <h1>Episodes</h1>
-        <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
-        <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
-        <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+        <div class="mediaMenu">
+            <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
+            <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
+            <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+        </div>
     </header>
     <div class="subscriptionNavbar">
         <a ng-click="toggleSubscriptionMenu()"><i class="fa fa-close"></i>Close</a>
@@ -37,24 +39,27 @@
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
 
         <div class="teaser id_{{e.id}}">
-            <span>{{e.pub_date | date:"MMMM d, yyyy"}}</span>
+            <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
             <!--<span><img src="{{e.img}}"></span>-->
             <div class="swImg"><img src="assets/img/turtle.png"></div>
 
-            <div class="swTitle">{{e.title}}</div>
-            <div class="swDescription">{{e.description}}</div>
-            <a class="toggleDescription" ng-click="toggleDescription(e.id)">
-                <i class="fa" ng-class="isExpanded(e.id) ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>
+                <div class="swTitle">{{e.title}}</div>
+                <div class="swDescription">{{e.description}}</div>
+            <a class="toggleDescription largeOnly" ng-click="toggleDetails(e.id)">
+                <!--<i class="fa" ng-class="isExpanded(e.id) ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>-->
+                <i class="fa fa-info"></i>
             </a>
         </div>
 
         <%# PlayerControls %>
             <div ng-controller="PlayerController" class="playerCtrls clearfix">
                 <%# links %>
-                    <%# text %><button ng-click="<% action %>(e)"><% text %></button><%/ text %>
-                    <%# icon %><button ng-click="<% action %>(e)"><i class="fa fa-<% icon %>"></i></button><%/ icon %>
-                    <%# color %><button ng-click="<% action %>(e)"><i class="<% color %> fa fa-<% iconStyle %>"></i></button><%/ color %>
+                    <button ng-click="<% action %>(e)">
+                        <%# text %><% text %><%/ text %>
+                        <%# icon %><i class="fa fa-<% icon %>"></i><%/ icon %>
+                        <%# color %><i class="<% color %> fa fa-<% iconStyle %>"></i><%/ color %>
+                    </button>
                 <%/ links %>
             </div>
         <%/ PlayerControls %>
