@@ -14,7 +14,15 @@ hcUtilities.service('HelperService', function(){
 	        text += possible.charAt(Math.floor(Math.random() * possible.length));
 	        
 	    return text;
-	}; 
+	};
+
+
+	HelperService.getViewportSize = function(){
+		return {
+			w: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+			h: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+		}
+	};
 
 
 	HelperService.addClass = function(style, ele){

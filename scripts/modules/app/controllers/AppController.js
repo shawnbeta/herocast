@@ -1,14 +1,9 @@
 hcApp.controller('AppController', [
-    '$rootScope', '$scope', '$interval', 'PersistenceService', '_',
-	'SubscriptionService', 'EpisodeService', 'DepartureService',
- 	function($rootScope, $scope, $interval, PersistenceService, _,
- 	    SubscriptionService, EpisodeService, DepartureService){
-		$scope.siteName = 'Herocast';
-		$scope.makeTitle = function(){
-			$scope.title = "Welcome to " + $scope.siteName;
-		};
-		//localStorage.clear();
-		
+    '$rootScope', '$scope', '$interval', 'PersistenceService', '_', 'SubscriptionService', 'EpisodeService',
+    'DepartureService', 'OverlayService',
+ 	function($rootScope, $scope, $interval, PersistenceService, _, SubscriptionService, EpisodeService,
+             DepartureService, OverlayService){
+
 		// Run housekeeping
         departureService = new DepartureService();
         departureService.initialize();		
@@ -39,5 +34,13 @@ hcApp.controller('AppController', [
 		$rootScope.subscriptions = SubscriptionService.load(sc);
 		$rootScope.episodes = EpisodeService.load(ec);
 
+        $rootScope.OverlayManager = {};
+        $rootScope.toggleOverlay = function(){
+            OverlayService.toggleOverlay(updateOverlayManager)
+        };
+
+        updateOverlayManager = function(om){
+            $rootScope.OverlayManager = om
+        };
 
 	}]);

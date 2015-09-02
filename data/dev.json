@@ -13,6 +13,7 @@
         "media/grid",
         "media/list",
         "footer",
+        "overlay",
         "globals",
         "main",
         "navBar",
@@ -59,9 +60,11 @@
         "player/controllers/PlayerController",
         "player/directives/NowPlayingDirective",
         "player/services/PlayerService",
+
         "ui/controller/NavController",
         "ui/directives/ActionBarDirective",
         "ui/directives/NavDirectives",
+        "ui/services/OverlayService",
 
         "utility/models/Departures",
         "utility/services/DepartureService",

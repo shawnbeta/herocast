@@ -97,6 +97,7 @@ module.exports = function (grunt) {
                     'build/sandbox/assets/css/libs/media/grid.css': 'less/media/grid.less',
                     'build/sandbox/assets/css/libs/media/list.css': 'less/media/list.less',
                     'build/sandbox/assets/css/libs/footer.css': 'less/footer.less',
+                    'build/sandbox/assets/css/libs/overlay.css': 'less/overlay.less',
                     'build/sandbox/assets/css/libs/globals.css': 'less/globals.less',
                     'build/sandbox/assets/css/libs/main.css': 'less/main.less',
                     'build/sandbox/assets/css/libs/navBar.css': 'less/navBar.less',

@@ -1,6 +1,6 @@
 hcMedia.controller('EpisodeController', [
-	'$scope', '$rootScope', '$sce', '$filter', 'EpisodeService',
-	function($scope, $rootScope, $sce, $filter, EpisodeService){
+	'$scope', '$rootScope', '$sce', '$filter', 'EpisodeService', 'OverlayService',
+	function($scope, $rootScope, $sce, $filter, EpisodeService, OverlayService){
 		$scope.toggleDetails = function(model){
 			if($scope.showDetails && $scope.episodeDetailer == model)
 				return hideDescription();
@@ -25,13 +25,14 @@ hcMedia.controller('EpisodeController', [
 			$scope.showDetails = false;
 		};
 
-		$scope.toggleDescription = function(id){
-			EpisodeService.toggleDescription(id)
+		$scope.toggleOverlay = function(episode){
+			OverlayService.toggleOverlay(updateOverlayManager, episode)
 		};
 
-		$scope.isExpanded = function(id){
-
+		updateOverlayManager = function(om){
+			$rootScope.OverlayManager = om
 		};
+
 
 		$scope.toggleSubscriptionMenu = function(){
 			var navBar = jQuery('.subscriptionNavbar');

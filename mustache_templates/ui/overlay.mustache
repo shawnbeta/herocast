@@ -1,0 +1,17 @@
+{{=<% %>=}}
+<!-- Generated Code: mustache_templates/ui/navBar.mustache -->
+<div id="mask" ng-show="OverlayManager.mask == 1" ng-click="toggleOverlay()"></div>
+<div id="overlayWrapper" ng-show="OverlayManager.status == 1">
+    <div id="overlayContent">
+        <i class="fa fa-close swClose"></i>
+        <!--<div class="swContent">-->
+            <header class="clearfix">
+                <h1 class="swTitle col-sm-8">{{OverlayManager.content.title}}</h1>
+                <div class="swDate col-sm-4">{{OverlayManager.content.date | date:"MMMM d, yyyy"}}</div>
+            </header>
+            <div class="swDescription" ng-bind-html="OverlayManager.content.description"></div>
+        <!--</div>-->
+
+    </div>
+</div>
+<!-- End Generated Code: mustache_templates/ui/navBar.mustache -->

@@ -2,7 +2,7 @@
 <!--Generated Code: mustache_templates/media/episodes.mustache -->
 
 <div ng-controller="EpisodeController" class="mediaView">
-    <header>
+    <header class="clearfix">
         <h1>Episodes</h1>
         <div class="mediaMenu">
             <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
@@ -45,8 +45,9 @@
             <div class="swImg"><img src="assets/img/turtle.png"></div>
 
                 <div class="swTitle">{{e.title}}</div>
-                <div class="swDescription">{{e.description}}</div>
+                <div class="swDescription" ng-bind-html="e.description"></div>
             <a class="toggleDescription largeOnly" ng-click="toggleDetails(e.id)">
+                <a class="toggleDescription largeOnly" ng-click="toggleOverlay(e)">
                 <!--<i class="fa" ng-class="isExpanded(e.id) ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>-->
                 <i class="fa fa-info"></i>
             </a>

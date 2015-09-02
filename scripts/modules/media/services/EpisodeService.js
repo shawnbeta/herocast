@@ -11,15 +11,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
         expandedDescriptions : [],
 
-        toggleDescription : function(id){
-            alert('working');
-            if(this.isExpanded(id))
-                return this.collapseDescription(id);
-            // Since the id isn't in the array we know it hasn't been
-            // expanded. Add it to the array and expand it.
-            this.expandedDescriptions.push(id);
-            this.adjustTeaserHeight('auto', id);
-        },
+
 
         collapseDescription: function(id){
             // remove the id from the array.

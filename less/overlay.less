@@ -1,0 +1,44 @@
+@import (reference) 'styles.less';
+
+#mask,
+#overlayWrapper {
+  position: fixed;
+  width: 100%;
+  //display: none;
+}
+#overlayWrapper {
+  z-index: 5;
+  height: 0;
+  overflow: visible;
+  #overlayContent {
+    width: 90%;
+    margin: 20px auto;
+    background: @white1;
+    max-width: 600px;
+    padding: 8px 10px 20px;
+    //overflow: scroll;
+    height: 500px;
+    position: relative;
+    .swDescription{
+      overflow-y: scroll;
+      height: 90%;
+    }
+  }
+}
+
+#mask{
+  z-index: 4;
+  background: @dark1;
+  opacity: .8;
+  top: 0;
+  bottom: 0;
+}
+
+.swClose{
+  z-index: 2;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  color: @red;
+}
