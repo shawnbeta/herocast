@@ -4,9 +4,9 @@
     <header class="clearfix">
         <h1>Episodes</h1>
         <div class="mediaMenu">
-            <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
-            <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
-            <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+            <button class="swButton" ng-click="toggleSubscriptionMenu()">Browse By Subscription</button>
+            <button class="viewSwitch" ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></button>
+            <button class="viewSwitch" ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></button>
         </div>
     </header>
     <div class="subscriptionNavbar">
