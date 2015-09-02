@@ -2,10 +2,13 @@
 <!-- Generated Code: mustache_templates/player/audio.mustache -->
 <div ng-controller="PlayerController">
 
+    <div id="actionWrapper">
         <a id="playbackActionButton" ng-click="togglePlayback(playerObj.activeEpisode)" class="{{playerObj.buttonStyle}}">
         </a>
+    </div>
 
-<div id="audioPlayer">
+
+<div id="audioPlayer" class="clearfix">
             Now Playing: {{playerObj.activeEpisode.title}}   {{subscription}}
             <div>Time:{{playerObj.counter.hours}}:{{playerObj.counter.minutes}}:{{playerObj.counter.seconds}}</div>
             <button ng-click="setBookmark(playerObj.activeEpisode)"><i class="fa fa-bookmark">bookmark</i></button>

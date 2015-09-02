@@ -4,7 +4,9 @@ hcMedia.factory('PlayerService',
         
         // This needs to be global so it's accessable from everywhere.
         var ticker;
-
+        var rtime;
+        var timeout = false;
+        var delta = 200;
     
     return {
 
@@ -38,11 +40,57 @@ hcMedia.factory('PlayerService',
         initialize: function(updateToggleStyle, updateBubbleStyle){
             this.playerObj = this.createPlayerObj(updateToggleStyle, updateBubbleStyle);
             this.setPlayerStyles();
-            var self = this;
-            // Use resize to get the height of the player if the user adjust the screen size.
-            jQuery(window).on('resize load', function(){
-                self.setPlayerStyles();
+
+            jQuery(window).on('resize', function(){
+                rtime = new Date();
+                console.log(1)
+                if (timeout === false) {
+                    timeout = true;
+                    console.log(4)
+
+                    setTimeout(this.resizeend, delta);
+                }
             });
+
+            //var self = this;
+
+            //jQuery(window).on('resize', _.debounce(this.moveStage, 300));
+
+
+            // Use resize to get the height of the player if the user adjust the screen size.
+            //jQuery(window).on('resize', function(){
+            //    if(this.resizeTO) clearTimeout(this.resizeTO);
+            //    this.resizeTO = setTimeout(function() {
+            //        $(this).trigger('resizeEnd');
+            //    }, 500);
+            //});
+            //
+            //jQuery(window).resize(_.debounce(function(){
+            //}, 500));            //    console.log("resized");
+
+
+
+        },
+
+        resizeend: function() {
+            if (new Date() - rtime < delta) {
+                setTimeout(resizeend, delta);
+            } else {
+                timeout = false;
+                alert('Done resizing');
+            }
+        },
+
+
+        moveStage: function(){
+            //do something, window hasn't changed size in 500ms
+            //self.playerObj.height = jQuery(self.playerObj.wrapper).height();
+            // Give the user time to finish resizing before adjusting stage top
+            //self.animateStage(self.playerObj.height);
+            jQuery('#stage').animate({
+                top: jQuery('#audioPlayer').height()
+            });
+
         },
 
         setPlayerStyles: function(){
@@ -66,8 +114,8 @@ hcMedia.factory('PlayerService',
                 return this.playerObj.height;
             }
             if(this.playerObj.visible == 0) {
-                jQuery(this.playerObj.wrapper).css({ 'display':  'block', 'height': 0, 'position': 'relative' });
-                jQuery(this.playerObj.wrapper).css({left: 0});
+                //jQuery(this.playerObj.wrapper).css({ 'display':  'block', 'height': 0, 'position': 'relative' });
+                //jQuery(this.playerObj.wrapper).css({left: 0});
                 this.playerObj.visible = 2;
                 this.playerObj.updateToggleStyle('fa-angle-double-up', this.playerObj);
                 return this.playerObj.height;
@@ -77,8 +125,12 @@ hcMedia.factory('PlayerService',
         toggleVisible: function(){
             if(this.playerObj.status == 0) return;
             var h = this.determinePlayerVisbility();
-            jQuery(this.playerObj.wrapper).animate({
-                height:h
+            this.animateStage(h);
+        },
+
+        animateStage : function(h){
+            jQuery('#stage').animate({
+                top:h
             });
         },
 

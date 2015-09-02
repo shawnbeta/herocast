@@ -4,7 +4,7 @@
     <header class="clearfix">
         <h1>Episodes</h1>
         <div class="mediaMenu">
-            <button class="swButton" ng-click="toggleSubscriptionMenu()">Browse By Subscription</button>
+            <button class="subscriptionMenuToggle swButton" ng-click="toggleSubscriptionMenu()">Browse By Subscription</button>
             <button class="viewSwitch" ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></button>
             <button class="viewSwitch" ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></button>
         </div>
@@ -40,18 +40,19 @@
         <div class="teaser id_{{e.id}}">
             <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
-            <!--<span><img src="{{e.img}}"></span>-->
             <div class="swImg">
                 <button ng-click="togglePlayback(e)" class="imgPlayback largeOnly">
-                    <i class="fa fa-play"></i>
+                    <i class="fa fa-{{isPlaying(e)}}"></i>
                 </button>
-                <img src="assets/img/turtle.png"></div>
+                <!--<span><img src="{{e.img}}"></span>-->
+                <img src="assets/img/turtle.png">
+            </div>
 
                 <div class="swTitle">{{e.title}}</div>
                 <div class="swDescription" ng-bind-html="e.description"></div>
         </div>
 
-            <div ng-controller="PlayerController" class="playerCtrls clearfix">
+            <div ng-controller="PlayerController" class="actionbar clearfix">
                     <button ng-click="togglePlayback(e)">
                         
                         <i class="fa fa-{{isPlaying(e)}}"></i>

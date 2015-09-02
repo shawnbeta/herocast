@@ -3,20 +3,26 @@
     <header class="clearfix">
         <h1>Subscriptions</h1>
         <div class="mediaMenu">
-            <a ng-click="setSubscriptionStyle('list')"><i class="fa fa-th-list"></i></a>
-            <a ng-click="setSubscriptionStyle('grid')"><i class="fa fa-th"></i></a>
+            <button ng-click="setSubscriptionStyle('list')"><i class="fa fa-th-list"></i></button>
+            <button ng-click="setSubscriptionStyle('grid')"><i class="fa fa-th"></i></button>
         </div>
     </header>
 
     <div class="subscriptions">
-        <ul class="swButton" ng-class="{'list': subscriptionStyle == 'list', 'grid': subscriptionStyle == 'grid'}">
+        <ul class="itemWrapper" ng-class="{'list': subscriptionStyle == 'list', 'grid': subscriptionStyle == 'grid'}">
             <li class="swItem" ng-repeat="s in subscriptions|orderByTitle">
-                <span>{{s.title}}</span></span>
-                <span><img src="{{s.img}}"></span>
-                <span>
-                    <button ng-click="setAutoDownload(s)">{{downloadToggle(s)}}</button>
-                    <button ng-click="doRemove(s)">Remove</button>
-                </span>
+
+                <div class="swImg">
+                    <!--<span><img src="{{s.img}}"></span>-->
+                    <img src="assets/img/turtle.png">
+                </div>
+
+                <div class="swTitle">{{s.title}}</div>
+
+                <div class="actionbar">
+                    <button ng-click="setAutoDownload(s)"><i class="fa fa-download"></i>{{downloadToggle(s)}}</button>
+                    <button ng-click="doRemove(s)"><i class="fa fa-trash-o"></i>Delete Subscription</button>
+                </div>
             </li>
         </ul>
     </div>
