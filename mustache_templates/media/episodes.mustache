@@ -35,22 +35,21 @@
            <span><label>Create Date: </label>{{episodeDetailer.create_date}}</span>
            <span><label>Modified Date: </label>{{episodeDetailer.modified_date}}</span>
        </span>
-<ul class=" itemWrapper" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
+<ul class="itemWrapper" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
 
         <div class="teaser id_{{e.id}}">
             <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
             <!--<span><img src="{{e.img}}"></span>-->
-            <div class="swImg"><img src="assets/img/turtle.png"></div>
+            <div class="swImg">
+                <button ng-click="togglePlayback(e)" class="imgPlayback largeOnly">
+                    <i class="fa fa-play"></i>
+                </button>
+                <img src="assets/img/turtle.png"></div>
 
                 <div class="swTitle">{{e.title}}</div>
                 <div class="swDescription" ng-bind-html="e.description"></div>
-            <a class="toggleDescription largeOnly" ng-click="toggleDetails(e.id)">
-                <a class="toggleDescription largeOnly" ng-click="toggleOverlay(e)">
-                <!--<i class="fa" ng-class="isExpanded(e.id) ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>-->
-                <i class="fa fa-info"></i>
-            </a>
         </div>
 
         <%# PlayerControls %>

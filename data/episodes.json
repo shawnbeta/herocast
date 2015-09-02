@@ -20,7 +20,7 @@
         "icon": "server"
       },
       {
-        "action": "toggleDetails",
+        "action": "toggleOverlay",
         "icon": "info"
       }
     ]
