@@ -1,4 +1,5 @@
-hcApp.controller('NavController', function($scope) {
+hcApp.controller('NavController', ['$scope', '$location',
+    function($scope, $location) {
     
     $scope.actions = [
         episodeButton = {
@@ -45,5 +46,10 @@ hcApp.controller('NavController', function($scope) {
         title : 'Settings',
         target: 'settings',
         alt: 'Manage Settings'
-    };        
-});
+    };
+
+    $scope.go = function(path){
+        $location.path(path);
+    }
+
+}]);

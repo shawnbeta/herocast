@@ -47,49 +47,61 @@
 </div>
 <!-- End Generated Code: mustache_templates/player/audio.mustache -->
 <!-- Generated Code: mustache_templates/ui/navBar.mustache -->
-    <div class="swNavBar ">
+    <div class="swNavBar" ng-controller="NavController">
 
     <div class="swContainer clearfix">
-        <div class="col-xs-2 menuToggle smallOnly">
-            <a href="#"> <i class="fa fa-bars"></i></a>
+
+        <div class="logoWrapper actionWrapper">
+            <button ng-click="go('about')" class=" actionButton swLogo" href="/" title="Episodes">
+                <div>herocast</div></button>
         </div>
 
-        <div class="col-sm-2 logoWrap">
-            <div class="swLogo" href="/" title="Episodes">herocast</div>
+        <div class="actionWrapper">
+        <button ng-click="go('episodes')" title="episodes" class="actionButton">
+                <div>episodes</div>
+                
+            </button>
         </div>
 
-        <nav class="col-sm-8">
-            <a href="#/episodes" title="episodes">
-                episodes
+        <div class="actionWrapper">
+        <button ng-click="go('subscriptions')" title="subscriptions" class="actionButton">
+                <div>subscriptions</div>
                 
-            </a>
-            <a href="#/subscriptions" title="subscriptions">
-                subscriptions
-                
-            </a>
-            <a href="#/add" title="add">
+            </button>
+        </div>
+
+        <div class="actionWrapper">
+        <button ng-click="go('add')" title="add" class="actionButton">
                 
                 <i class="fa fa-plus"></i>
-            </a>
-            <a href="#/settings" title="settings">
+            </button>
+        </div>
+
+        <div class="actionWrapper">
+        <button ng-click="go('settings')" title="settings" class="actionButton">
                 
                 <i class="fa fa-cog"></i>
-            </a>
-        </nav>
+            </button>
+        </div>
 
-        <div class="col-sm-1 playerToggle" ng-controller="PlayerController">
-            <a id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
-                <i class="fa {{toggleStyle}}"></i>
-            </a>
-            <i class="fa fa-bars"></i>
 
+        <div class="actionWrapper">
+            <span class="playerToggle" ng-controller="PlayerController">
+                <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
+                    <i class="fa {{toggleStyle}}"></i>
+                </button>-->
+                <button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">
+                    <i class="fa fa-angle-double-up "></i>
+                </button>
+            </span>
         </div>
     </div>
+
     </div>
 <!-- End Generated Code: mustache_templates/ui/navBar.mustache -->
 
 <h1>{{viewTitle}}</h1>
-<div ng-view></div>s
+<div ng-view class="swContainer"></div>
 
          <script src="http:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Quicksand:300,400,700"></script> 
          <script src="assets/js/contrib/angular.js"></script>  <script src="assets/js/contrib/angular-mocks.js"></script>  <script src="assets/js/contrib/angular-route.js"></script>  <script src="assets/js/contrib/angular-sanitize.js"></script>  <script src="assets/js/contrib/angular-touch.js"></script>  <script src="assets/js/contrib/jquery.js"></script>  <script src="assets/js/contrib/underscore.js"></script> 

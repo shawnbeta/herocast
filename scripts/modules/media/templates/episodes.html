@@ -1,12 +1,12 @@
 <!--Generated Code: mustache_templates/media/episodes.mustache -->
 
 <div ng-controller="EpisodeController">
-    <h1>Episodes</h1>
-    <a ng-click="setEpisodeStyle('list')">List</a>
-    <a ng-click="setEpisodeStyle('grid')">Grid</a>
-    <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
-
-
+    <header>
+        <h1>Episodes</h1>
+        <a ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></a>
+        <a ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></a>
+        <a ng-click="toggleSubscriptionMenu()">Browse By Subscription</a>
+    </header>
     <div class="subscriptionNavbar">
         <a ng-click="toggleSubscriptionMenu()"><i class="fa fa-close"></i>Close</a>
         <ul class="subscriptionMenu">
@@ -32,22 +32,39 @@
            <span><label>Create Date: </label>{{episodeDetailer.create_date}}</span>
            <span><label>Modified Date: </label>{{episodeDetailer.modified_date}}</span>
        </span>
-<ul ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
+<ul class=" itemWrapper" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
-        <span>{{e.title}}</span>
-        <span>{{e.pub_date | date:"medium"}}</span>
-        <span>{{e.id}}</span>
-        <!--<span><img src="{{e.img}}"></span>-->
-        <span><img src="assets/img/turtle.png"></span>
 
-        <span><img src="{{e.img}}"></span>
-            <span ng-controller="PlayerController">
-                    <button ng-click="togglePlayback(e)">{{isPlaying(e)}}</button>
-                    <button ng-click="updateWatched(e)">{{isWatched(e)}}</button>
-                    <button ng-click="playPause(e)">download</button>
-                    <button ng-click="toggleDetails(e)">details</button>
-                    <button ng-click="copyToServer(e)">copy</button>
-            </span>
+        <div class="teaser id_{{e.id}}">
+            <span>{{e.pub_date | date:"MMMM d, yyyy"}}</span>
+            <!--<span>{{e.id}}</span>-->
+            <!--<span><img src="{{e.img}}"></span>-->
+            <div class="swImg"><img src="assets/img/turtle.png"></div>
+
+            <div class="swTitle">{{e.title}}</div>
+            <div class="swDescription">{{e.description}}</div>
+            <a class="toggleDescription" ng-click="toggleDescription(e.id)">
+                <i class="fa" ng-class="isExpanded ? 'fa-angle-double-down' : 'fa-angle-double-up' "></i>
+            </a>
+        </div>
+
+            <div ng-controller="PlayerController" class="playerCtrls clearfix">
+                    
+                    <button ng-click="togglePlayback(e)"><i class="fa fa-{{isPlaying(e)}}"></i></button>
+                    
+                    
+                    
+                    <button ng-click="updateWatched(e)"><i class="{{isWatched(e)}} fa fa-check"></i></button>
+                    
+                    <button ng-click="download(e)"><i class="fa fa-download"></i></button>
+                    
+                    
+                    <button ng-click="toggleDetails(e)"><i class="fa fa-info"></i></button>
+                    
+                    
+                    <button ng-click="copyToServer(e)"><i class="fa fa-server"></i></button>
+                    
+            </div>
         </li>
     </ul>
 

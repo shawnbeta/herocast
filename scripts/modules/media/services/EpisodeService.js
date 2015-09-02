@@ -9,6 +9,12 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
     return {
 
+        expandedDescriptions : [],
+
+        toggleDescription : function(id){
+            if(this.isExpanded(id)) return
+        },
+
         // Loads episodes from localStorage
         // test running
         // @param: Array of Episode IDs
@@ -24,6 +30,10 @@ function(PersistenceService, Episode, $http, $rootScope) {
                 episodes[element] = model;
             });
             return episodes;
+        },
+
+        isExpanded: function(id){
+            return _.contains(this.expandedDescriptions, id );
         },
 
         // Create a fresh model.

@@ -1,34 +1,37 @@
 {{=<% %>=}}
 <!-- Generated Code: mustache_templates/ui/navBar.mustache -->
 <%# navBar %>
-    <div class="swNavBar ">
+    <div class="swNavBar" ng-controller="NavController">
 
     <div class="swContainer clearfix">
-        <div class="col-xs-2 menuToggle smallOnly">
-            <a href="#"> <i class="fa fa-bars"></i></a>
+
+        <div class="logoWrapper actionWrapper">
+            <button ng-click="go('about')" class=" actionButton swLogo" href="/" title="Episodes">
+                <div>herocast</div></button>
         </div>
 
-        <div class="col-sm-2 logoWrap">
-            <div class="swLogo" href="/" title="Episodes">herocast</div>
-        </div>
-
-        <nav class="col-sm-8">
             <%# links %>
-            <a href="#/<% href %>" title="<% title %>">
-                <%# text %><% text %><%/ text %>
+        <div class="actionWrapper">
+        <button ng-click="go('<% href %>')" title="<% title %>" class="actionButton">
+                <%# text %><div><% text %></div><%/ text %>
                 <%# icon %><i class="fa fa-<% icon %>"></i><%/ icon %>
-            </a>
-            <%/ links %>
-        </nav>
+            </button>
+        </div>
 
-        <div class="col-sm-1 playerToggle" ng-controller="PlayerController">
-            <a id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
-                <i class="fa {{toggleStyle}}"></i>
-            </a>
-            <i class="fa fa-bars"></i>
+        <%/ links %>
 
+        <div class="actionWrapper">
+            <span class="playerToggle" ng-controller="PlayerController">
+                <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
+                    <i class="fa {{toggleStyle}}"></i>
+                </button>-->
+                <button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">
+                    <i class="fa fa-angle-double-up "></i>
+                </button>
+            </span>
         </div>
     </div>
+
     </div>
 <%/ navBar %>
 <!-- End Generated Code: mustache_templates/ui/navBar.mustache -->

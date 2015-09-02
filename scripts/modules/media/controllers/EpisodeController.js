@@ -10,7 +10,8 @@ hcMedia.controller('EpisodeController', [
 		$scope.EpisodeManager = {
 			active:{
 				menu: 0
-			}
+			},
+			expanded: []
 		};
 
 		$scope.episodeStyle = 'list';
@@ -22,6 +23,14 @@ hcMedia.controller('EpisodeController', [
 		hideDescription = function(){
 			$scope.episodeDetailer = {};
 			$scope.showDetails = false;
+		};
+
+		$scope.toggleDescription = function(id){
+			EpisodeService.toggleDescription(id)
+		};
+
+		$scope.isExpanded = function(id){
+
 		};
 
 		$scope.toggleSubscriptionMenu = function(){
@@ -64,6 +73,6 @@ hcMedia.controller('EpisodeController', [
 		};
 
 		$scope.isWatched = function(model){
-			return model.watched == 0 ? 'mark watched'  : 'mark unwatched';
+			return model.watched == 0 ? 'redText'  : 'greenText';
 		};
 	}]);

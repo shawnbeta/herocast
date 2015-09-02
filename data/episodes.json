@@ -4,23 +4,24 @@
     "links": [
       {
         "action": "togglePlayback",
-        "text": "{{isPlaying(e)}}"
+        "icon": "{{isPlaying(e)}}"
       },
       {
         "action": "updateWatched",
-        "text": "{{isWatched(e)}}"
+        "color": "{{isWatched(e)}}",
+        "iconStyle": "check"
       },
       {
-        "action": "playPause",
-        "text": "download"
+        "action": "download",
+        "icon": "download"
       },
       {
         "action": "toggleDetails",
-        "text": "details"
+        "icon": "info"
       },
       {
         "action": "copyToServer",
-        "text": "copy"
+        "icon": "server"
       }
     ]
   }
