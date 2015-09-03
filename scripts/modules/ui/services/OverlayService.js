@@ -25,7 +25,8 @@ hcMedia.factory('OverlayService',
                 return updateOverlayManager(om);
         },
 
-        setOverlayManager : function(episode){;
+        setOverlayManager : function(episode){
+
             var om = this.OverlayManager;
             om.active = episode.id;
             om.status = 1;
@@ -35,8 +36,8 @@ hcMedia.factory('OverlayService',
                 description: episode.description
             };
             om.mask = 1;
-            // Get the size of the viewport to adjust height
-            document.getElementById("overlayContent").style.height = HelperService.getViewportSize().h;
+            //// Get the size of the viewport to adjust height
+            //document.getElementById("overlayContent").style.height = HelperService.getViewportSize().h;
 
             return om;
         },

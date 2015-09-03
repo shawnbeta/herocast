@@ -1,14 +1,25 @@
 hcMedia.controller('SubscriptionController', [
-    '$scope', '$rootScope', '$routeParams', 'PersistenceService',
+    '$scope', '$rootScope', '$routeParams', '$location', 'PersistenceService',
     'SubscriptionService', 'EpisodeService', 'SearchService',
-	function($scope, $rootScope, $routeParams, PersistenceService,
+	function($scope, $rootScope, $routeParams, $location, PersistenceService,
 	    SubscriptionService, EpisodeService, SearchService){
 
         $rootScope.submgr = $rootScope.submgr || {};
 
-        $scope.toggleAddView = function(val){
-            $scope.activeAddView = val;
+        $scope.addView = 0;
+
+        $rootScope.currentPage = 'subscriptions';
+
+
+        if($location.path() == '/add') {
+            $rootScope.currentPage = 'add';
         }
+
+
+
+        $scope.toggleAddView = function(val){
+            $scope.addView = val;
+        };
 	    
 	// Make a copy of the subscriptions to work with.
 	//$rootScope.subscriptionList, $rootScope.subscriptionNav
@@ -28,7 +39,7 @@ hcMedia.controller('SubscriptionController', [
 
 
 
-        $scope.subscriptionStyle = 'list';
+        $scope.subscriptionStyle = 'grid';
 
         $scope.setSubscriptionStyle = function(val) {
             $scope.subscriptionStyle = val;
@@ -84,8 +95,9 @@ hcMedia.controller('SubscriptionController', [
             $rootScope.subscriptions = rsp.subscriptions;
         };
 
-        //SubscriptionService.initializeManager(setSubscriptionManager, $rootScope.subscriptions);
+        SubscriptionService.initializeManager(setSubscriptionManager, $rootScope.subscriptions);
 
     
     
-}]);   
+}]);
+

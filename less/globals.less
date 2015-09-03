@@ -16,11 +16,20 @@ h2 {
   margin: 0;
 }
 
+h1 {
+  font-size: 22px;
+}
+
 .swContainer {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   padding: 0 15px;
+}
+
+.selected {
+  background: @secondary-color !important;
+  color: @dark1;
 }
 
 button {
@@ -55,17 +64,17 @@ a:hover {
 
 // Links and Buttons
 .swTextLink {
-  color: @blue;
+  color: @primary-color;
   &:hover {
     text-decoration: underline;
   }
 }
 .swButtonLink {
   color: @white1;
-  background: @blue;
+  background: @primary-color;
   padding: 10px;
   &:hover {
-    background: @red;
+    background: @primary-color;
   }
 }
 
@@ -83,7 +92,7 @@ a:hover {
 // Links and Buttons
 .swButton {
   padding: 5px 10px;
-  background: red;
+  background: @primary-color;
   color: @white1;
   span,
   i {
@@ -122,10 +131,10 @@ a:hover {
 
 // Color Assignemnts
 .greenText {
-  color: @green;
+  color: @bonus-color;
 }
 .redText {
-  color: @red;
+  color: @base-color;
 }
 
 //@media(max-width: @screen-xs-max){}

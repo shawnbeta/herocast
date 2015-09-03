@@ -15,11 +15,11 @@
 <div id="mask" ng-show="OverlayManager.mask == 1" ng-click="toggleOverlay()"></div>
 <div id="overlayWrapper" ng-show="OverlayManager.status == 1">
     <div id="overlayContent">
-        <i class="fa fa-close swClose"></i>
+        <i class="fa fa-close swClose" ng-click="toggleOverlay()"></i>
         <!--<div class="swContent">-->
             <header class="clearfix">
-                <h1 class="swTitle col-sm-8">{{OverlayManager.content.title}}</h1>
-                <div class="swDate col-sm-4">{{OverlayManager.content.date | date:"MMMM d, yyyy"}}</div>
+                <h1 class="swTitle col-sm-8" ng-bind="OverlayManager.content.title"></h1>
+                <div class="swDate col-sm-4" ng-bind="OverlayManager.content.date | date:'MMMM d, yyyy'"></div>
             </header>
             <div class="swDescription" ng-bind-html="OverlayManager.content.description"></div>
         <!--</div>-->
@@ -48,7 +48,7 @@
             <button ng-click="toggleNowPlayingDetails()"><i class="fa fa-angle-double-right">description</i></button>
     <span ng-if="playerObj.showDetails">
         {{playerObj.activeEpisode.description}}
-        '{{playerObj.activeEpisode.pub_date}}
+        {{playerObj.activeEpisode.pub_date}}
     </span>
             <div slider class="slider" min="0" max="9001" step="100">
                 <span></span>
@@ -60,7 +60,7 @@
             <button ng-click="setVolumeTo(1)">D</button>
             <button ng-click="volumeUp()">+</button>
 
-        </div>
+</div>
  <audio src="{{playerObj.file}}"></audio>
 </div>
 </div>
@@ -80,54 +80,67 @@
     <div class="swContainer clearfix">
 
         <div class="logoWrapper actionWrapper">
-            <button ng-click="go('about')" class=" actionButton swLogo" href="/" title="Episodes">
-                <div>herocast</div></button>
+            <button ng-click="go('about')" class="actionButton swLogo" href="/" title="Episodes">
+                <div>herocast</div>
+            </button>
         </div>
 
         <div class="actionWrapper">
-        <button ng-click="go('episodes')" title="episodes" class="actionButton">
+        <button ng-click="go('episodes')" title="episodes" class="actionButton linkItems"
+                ng-class="{'selected' : currentPage == 'episodes'}">
                 <div>episodes</div>
                 
             </button>
         </div>
 
+
+
         <div class="actionWrapper">
-        <button ng-click="go('subscriptions')" title="subscriptions" class="actionButton">
+        <button ng-click="go('subscriptions')" title="subscriptions" class="actionButton linkItems"
+                ng-class="{'selected' : currentPage == 'subscriptions'}">
                 <div>subscriptions</div>
                 
             </button>
         </div>
 
+
+
         <div class="actionWrapper">
-        <button ng-click="go('add')" title="add" class="actionButton">
+        <button ng-click="go('add')" title="add" class="actionButton linkItems"
+                ng-class="{'selected' : currentPage == 'add'}">
                 
                 <i class="fa fa-plus"></i>
             </button>
         </div>
 
+
+
         <div class="actionWrapper">
-        <button ng-click="go('settings')" title="settings" class="actionButton">
+        <button ng-click="go('settings')" title="settings" class="actionButton linkItems"
+                ng-class="{'selected' : currentPage == 'settings'}">
                 
                 <i class="fa fa-cog"></i>
             </button>
         </div>
 
 
+
+
         <div class="actionWrapper">
             <span class="playerToggle" ng-controller="PlayerController">
-                <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
+                <button id="toggleAudio" class="actionButton linkItems" ng-click="toggleVisible()">
+                    <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">-->
                     <i class="fa {{toggleStyle}}"></i>
-                </button>-->
-                <button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">
-                    <i class="fa fa-angle-double-up "></i>
                 </button>
+                <!--<button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">-->
+                    <!--<i class="fa fa-angle-double-up "></i>-->
+                <!--</button>-->
             </span>
         </div>
     </div>
 
     </div>
 <!-- End Generated Code: mustache_templates/ui/navBar.mustache -->
-<h1>{{viewTitle}}</h1>
 <div ng-view class="swContainer"></div>
 </div>
 

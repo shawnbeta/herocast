@@ -2,12 +2,16 @@
 <!--Generated Code: mustache_templates/media/episodes.mustache -->
 
 <div ng-controller="EpisodeController" class="mediaView">
-    <header class="clearfix">
+    <header class="viewHeader clearfix">
         <h1>Episodes</h1>
-        <div class="mediaMenu">
+        <div class="headerMenu">
             <button class="subscriptionMenuToggle swButton" ng-click="toggleSubscriptionMenu()">Browse By Subscription</button>
-            <button class="viewSwitch" ng-click="setEpisodeStyle('list')"><i class="fa fa-th-list"></i></button>
-            <button class="viewSwitch" ng-click="setEpisodeStyle('grid')"><i class="fa fa-th"></i></button>
+            <button class="viewSwitch" ng-click="setEpisodeStyle('list')">
+                <i class="fa fa-th-list" ng-class="{'selected' : episodeStyle == 'list'}"></i>
+            </button>
+            <button class="viewSwitch" ng-click="setEpisodeStyle('grid')">
+                <i class="fa fa-th" ng-class="{'selected' : episodeStyle == 'grid'}"></i>
+            </button>
         </div>
     </header>
     <div class="subscriptionNavbar">

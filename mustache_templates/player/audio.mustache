@@ -20,7 +20,7 @@
             <button ng-click="toggleNowPlayingDetails()"><i class="fa fa-angle-double-right">description</i></button>
     <span ng-if="playerObj.showDetails">
         {{playerObj.activeEpisode.description}}
-        '{{playerObj.activeEpisode.pub_date}}
+        {{playerObj.activeEpisode.pub_date}}
     </span>
             <div slider class="slider" min="0" max="9001" step="100">
                 <span></span>
@@ -32,7 +32,7 @@
             <button ng-click="setVolumeTo(1)">D</button>
             <button ng-click="volumeUp()">+</button>
 
-        </div>
+</div>
  <audio src="{{playerObj.file}}"></audio>
 </div>
 </div>

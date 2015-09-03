@@ -11,20 +11,17 @@ hcMedia.factory('SubscriptionService', [
             var submgr = this.SubscriptionManager();
             submgr.subscriptions = subscriptions;
             setSubscriptionManager(submgr);
-
         },
 
         SubscriptionManager: function(){
           return {
               subscriptions: [],
-              active:{
-                  views: {
-                      add: 0
-                  },
-                  menu: 0
-              }
+              addView: 0
           }
+
         },
+
+
 
 
         

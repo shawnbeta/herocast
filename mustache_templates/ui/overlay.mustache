@@ -3,11 +3,11 @@
 <div id="mask" ng-show="OverlayManager.mask == 1" ng-click="toggleOverlay()"></div>
 <div id="overlayWrapper" ng-show="OverlayManager.status == 1">
     <div id="overlayContent">
-        <i class="fa fa-close swClose"></i>
+        <i class="fa fa-close swClose" ng-click="toggleOverlay()"></i>
         <!--<div class="swContent">-->
             <header class="clearfix">
-                <h1 class="swTitle col-sm-8">{{OverlayManager.content.title}}</h1>
-                <div class="swDate col-sm-4">{{OverlayManager.content.date | date:"MMMM d, yyyy"}}</div>
+                <h1 class="swTitle col-sm-8" ng-bind="OverlayManager.content.title"></h1>
+                <div class="swDate col-sm-4" ng-bind="OverlayManager.content.date | date:'MMMM d, yyyy'"></div>
             </header>
             <div class="swDescription" ng-bind-html="OverlayManager.content.description"></div>
         <!--</div>-->

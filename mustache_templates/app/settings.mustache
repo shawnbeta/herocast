@@ -3,10 +3,15 @@
 
 <%# settings %>
 <div ng-controller="SettingsController">
-    <h1>Subscriptions</h1>
-    <%# links %>
-        <button ng-click="<% action %>()" title="<% title %>"><% title %></button>
-    <%/ links %>
+    <header class="viewHeader clearfix">
+        <h1>Settings</h1>
+        <div class="headerMenu">
+            <%# links %>
+            <button class="swButton" ng-click="<% action %>()" title="<% title %>"><% title %></button>
+            <%/ links %>
+        </div>
+    </header>
+
 </div>
 <%/ settings %>
 <!-- End Generated Code: mustache_templates/app/settings.mustache -->

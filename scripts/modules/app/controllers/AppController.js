@@ -36,6 +36,10 @@ hcApp.controller('AppController', [
 
         $rootScope.OverlayManager = {};
         $rootScope.toggleOverlay = function(){
+
+            //jQuery('#overlayWrapper').css({
+            //    'z-index': 5
+            //});
             OverlayService.toggleOverlay(updateOverlayManager)
         };
 
@@ -43,4 +47,22 @@ hcApp.controller('AppController', [
             $rootScope.OverlayManager = om
         };
 
-	}]);
+        $rootScope.notifyDisabled = function() {
+            alert('This feature has been disabled.');
+
+
+
+        }
+
+        $rootScope.currentPage = 'episodes';
+
+
+
+
+
+
+        }]);
+
+
+document.getElementById("overlayWrapper").style.zIndex = "5";
+document.getElementById("mask").style.zIndex = "4";

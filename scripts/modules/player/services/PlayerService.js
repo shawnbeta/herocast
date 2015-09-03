@@ -123,7 +123,7 @@ hcMedia.factory('PlayerService',
         },
 
         toggleVisible: function(){
-            if(this.playerObj.status == 0) return;
+            if(this.playerObj.status == 0) return alert('You\'ll have to play something first');
             var h = this.determinePlayerVisbility();
             this.animateStage(h);
         },

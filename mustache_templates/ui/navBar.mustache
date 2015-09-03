@@ -6,28 +6,33 @@
     <div class="swContainer clearfix">
 
         <div class="logoWrapper actionWrapper">
-            <button ng-click="go('about')" class=" actionButton swLogo" href="/" title="Episodes">
-                <div>herocast</div></button>
+            <button ng-click="go('about')" class="actionButton swLogo" href="/" title="Episodes">
+                <div>herocast</div>
+            </button>
         </div>
 
             <%# links %>
         <div class="actionWrapper">
-        <button ng-click="go('<% href %>')" title="<% title %>" class="actionButton">
+        <button ng-click="go('<% href %>')" title="<% title %>" class="actionButton linkItems"
+                ng-class="{'selected' : currentPage == '<% title %>'}">
                 <%# text %><div><% text %></div><%/ text %>
                 <%# icon %><i class="fa fa-<% icon %>"></i><%/ icon %>
             </button>
         </div>
 
+
+
         <%/ links %>
 
         <div class="actionWrapper">
             <span class="playerToggle" ng-controller="PlayerController">
-                <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">
+                <button id="toggleAudio" class="actionButton linkItems" ng-click="toggleVisible()">
+                    <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">-->
                     <i class="fa {{toggleStyle}}"></i>
-                </button>-->
-                <button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">
-                    <i class="fa fa-angle-double-up "></i>
                 </button>
+                <!--<button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">-->
+                    <!--<i class="fa fa-angle-double-up "></i>-->
+                <!--</button>-->
             </span>
         </div>
     </div>

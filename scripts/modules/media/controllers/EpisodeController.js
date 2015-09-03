@@ -46,6 +46,9 @@ hcMedia.controller('EpisodeController', [
 
 		};
 
+		$rootScope.currentPage = 'episodes';
+
+
 		$scope.episodesBySubscription = function(subscription){
 			$scope.EpisodeManager.active.menu = subscription.id;
 			// Make a copy of the original

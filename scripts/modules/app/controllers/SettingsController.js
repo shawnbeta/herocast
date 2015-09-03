@@ -26,9 +26,12 @@ hcApp.controller('SettingsController', [
 			     subscriptionObjCollection, rsp.data.episodes);
 	    });
 
-	}; 
-	
-	$scope.purgeRemote = function(){
+	};
+		$rootScope.currentPage = 'settings';
+
+
+
+		$scope.purgeRemote = function(){
 	    MediaService.purge();
 	};
 	
