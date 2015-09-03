@@ -25,8 +25,12 @@ function($routeProvider) {
     .when('/add', {
         controller : 'SubscriptionController',
         templateUrl : 'assets/js/scripts/modules/media/templates/add.html'
-    })  	
-	.when('/settings', {
+    })
+		.when('/about', {
+			controller : 'SubscriptionController',
+			templateUrl : 'assets/js/scripts/modules/app/templates/about.html'
+		})
+		.when('/settings', {
 		controller : 'SettingsController',
 		templateUrl : 'assets/js/scripts/modules/app/templates/settings.html'
 	})		

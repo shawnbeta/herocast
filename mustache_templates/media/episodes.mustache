@@ -44,6 +44,7 @@
 <ul class="itemWrapper" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
 
+        <div class="teaser">
             <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
             <div class="swImg">
@@ -54,8 +55,10 @@
                 <img src="assets/img/turtle.png">
             </div>
 
-                <div class="swTitle">{{e.title}}</div>
-                <div class="swDescription" ng-bind-html="e.description"></div>
+                <div class="swTitle">
+                    <span>{{e.title}}</span>
+                </div>
+                <p class="swDescription" ng-bind-html="e.description | characters:200"></p>
         </div>
 
         <%# PlayerControls %>

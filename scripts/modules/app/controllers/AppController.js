@@ -49,10 +49,11 @@ hcApp.controller('AppController', [
 
         $rootScope.notifyDisabled = function() {
             alert('This feature has been disabled.');
-
-
-
         }
+
+        $rootScope.notifiyAbout = function(){
+            alert('<a href="http://google.com">Test</a>');
+        };
 
         $rootScope.currentPage = 'episodes';
 

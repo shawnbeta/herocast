@@ -4,7 +4,9 @@
     <header class="viewHeader clearfix">
         <h1>Episodes</h1>
         <div class="headerMenu">
-            <button class="subscriptionMenuToggle swButton" ng-click="toggleSubscriptionMenu()">Browse By Subscription</button>
+            <button class="subscriptionMenuToggle swButton" ng-click="toggleSubscriptionMenu()">
+                Browse By Subscription
+            </button>
             <button class="viewSwitch" ng-click="setEpisodeStyle('list')">
                 <i class="fa fa-th-list" ng-class="{'selected' : episodeStyle == 'list'}"></i>
             </button>
@@ -41,7 +43,7 @@
 <ul class="itemWrapper" ng-class="{'list': episodeStyle == 'list', 'grid': episodeStyle == 'grid'}">
     <li class="swItem" ng-repeat="e in episodes| orderByPubDate" >
 
-        <div class="teaser id_{{e.id}}">
+        <div class="teaser">
             <div class="swDate">{{e.pub_date | date:"MMMM d, yyyy"}}</div>
             <!--<span>{{e.id}}</span>-->
             <div class="swImg">
@@ -52,8 +54,10 @@
                 <img src="assets/img/turtle.png">
             </div>
 
-                <div class="swTitle">{{e.title}}</div>
-                <div class="swDescription" ng-bind-html="e.description"></div>
+                <div class="swTitle">
+                    <span>{{e.title}}</span>
+                </div>
+                <p class="swDescription" ng-bind-html="e.description | characters:200"></p>
         </div>
 
             <div ng-controller="PlayerController" class="actionbar clearfix">

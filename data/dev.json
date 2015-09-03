@@ -28,6 +28,7 @@
         "angular-route",
         "angular-sanitize",
         "angular-touch",
+        "truncate",
         "jquery",
         "underscore"
       ],

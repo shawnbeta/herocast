@@ -3,13 +3,16 @@
 <div ng-controller="SettingsController">
     <header class="viewHeader clearfix">
         <h1>Settings</h1>
-        <div class="headerMenu">
+    </header>
+
+    <div class="swContent">
+        <div class="swLinks">
             <button class="swButton" ng-click="flushLocalStorage()" title="flush local storage">flush local storage</button>
             <button class="swButton" ng-click="fetchBulk()" title="fetch bulk">fetch bulk</button>
             <button class="swButton" ng-click="purgeRemote()" title="purge remote data">purge remote data</button>
             <button class="swButton" ng-click="fetchNew()" title="fetch new">fetch new</button>
         </div>
-    </header>
+    </div>
 
 </div>
 <!-- End Generated Code: mustache_templates/app/settings.mustache -->

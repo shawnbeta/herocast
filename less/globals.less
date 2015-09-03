@@ -74,7 +74,7 @@ a:hover {
   background: @primary-color;
   padding: 10px;
   &:hover {
-    background: @primary-color;
+    background: @base-color;
   }
 }
 
@@ -94,6 +94,9 @@ a:hover {
   padding: 5px 10px;
   background: @primary-color;
   color: @white1;
+  &:hover {
+    background: @base-color;
+  }
   span,
   i {
     display: inline-block;
@@ -136,6 +139,47 @@ a:hover {
 .redText {
   color: @base-color;
 }
+
+
+.viewHeader {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  h1 {
+    @media(max-width: @screen-xs-max){
+      text-align: center;
+    }
+    @media(min-width: @screen-sm-min){
+      width: 45%;
+      float: left;
+    }
+  }
+  .headerMenu {
+    margin-top: 10px;
+    @media(min-width: @screen-sm-min){
+      width: 53%;
+      text-align: right;
+      float: right;
+    }
+
+    .viewSwitch {
+      float: right;
+      margin-left: 5px;
+      background: @base-color;
+      &:hover {
+        background: @secondary-color;
+      }
+      i{
+        color: @white1;
+        padding: 5px;
+        font-size: 20px;
+
+      }
+    }
+  }
+
+}
+
 
 //@media(max-width: @screen-xs-max){}
 //@media(min-width: @screen-sm-min){} /* deprecated: @screen-tablet, or @screen-sm */

@@ -6,7 +6,10 @@
     <div class="swContainer clearfix">
 
         <div class="logoWrapper actionWrapper">
-            <button ng-click="go('about')" class="actionButton swLogo" href="/" title="Episodes">
+                <button ng-click="go('about')" class="actionButton swLogo" href="/" title="Episodes">
+
+
+
                 <div>herocast</div>
             </button>
         </div>
@@ -24,16 +27,14 @@
 
         <%/ links %>
 
-        <div class="actionWrapper">
-            <span class="playerToggle" ng-controller="PlayerController">
-                <button id="toggleAudio" class="actionButton linkItems" ng-click="toggleVisible()">
+        <div class="actionWrapper" ng-controller="PlayerController">
+                <button class="actionButton linkItems" ng-click="toggleVisible()">
                     <!--<button id="toggleAudio" ng-click="toggleVisible()" ng-if="playerObj.status != 0">-->
                     <i class="fa {{toggleStyle}}"></i>
                 </button>
                 <!--<button id="toggleAudio" class="actionButton" ng-click="toggleVisible()">-->
                     <!--<i class="fa fa-angle-double-up "></i>-->
                 <!--</button>-->
-            </span>
         </div>
     </div>
 

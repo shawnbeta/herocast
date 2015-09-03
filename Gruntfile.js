@@ -73,6 +73,11 @@ module.exports = function (grunt) {
                         dest: 'scripts/modules/media/templates/episodes.html'
                     },
                     {
+                        data: 'data/dev.json',
+                        template: 'mustache_templates/app/about.mustache',
+                        dest: 'scripts/modules/app/templates/about.html'
+                    },
+                    {
                         data: 'data/add.json',
                         template: 'mustache_templates/media/add.mustache',
                         dest: 'scripts/modules/media/templates/add.html'
@@ -169,6 +174,12 @@ module.exports = function (grunt) {
                         expand: true,
                         flatten: true,
                         src: 'bower_components/angular-touch/angular-touch.js',
+                        dest: 'build/sandbox/assets/js/contrib/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: 'bower_components/angular-truncate/src/truncate.js',
                         dest: 'build/sandbox/assets/js/contrib/'
                     },
                     {

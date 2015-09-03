@@ -1,6 +1,7 @@
 var hcApp = angular.module('hcApp', [
     'ngRoute',
     'ngSanitize',
+    'truncate',
     'hcMedia',
     'hcUtilities',
     'hcVendors'
