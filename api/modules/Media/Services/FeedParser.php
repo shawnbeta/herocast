@@ -117,6 +117,11 @@ class FeedParser {
             $duration = $durationArray[0]['data'];
             
             //echo $duration;
+
+//            echo 'pub int';
+//            echo $pubDateInt;
+//            echo 'lu';
+//            echo $lu;
             
             if($pubDateInt > $lu){
                 $episode->setTitle($item->get_title());

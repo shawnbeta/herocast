@@ -37,8 +37,8 @@ class EpisodeController extends BaseController {
 					case 'bookmark' :
 						$rsp = EpisodeService::setBookmark($get);
 				}
-				
-				
+
+
 				break;
 		}
 		parent::jsonResponse($rsp);

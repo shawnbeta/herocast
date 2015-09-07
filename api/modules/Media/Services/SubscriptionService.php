@@ -16,8 +16,11 @@ class SubscriptionService extends BaseService {
 			return print 'You need to enter a URL';
 		
 		if (filter_var ( $g ['src'], FILTER_VALIDATE_URL )) {
-			$lastUpdate = new \DateTime ( '1899' );
-			$g['lu'] = strtotime($lastUpdate->format('Y-m-d H:i:s'));			
+//			$lastUpdate = new \DateTime ( '1899' );
+			$lastUpdate = new \DateTime;
+		  $lastUpdate->modify('-30 days');
+		  //var_dump($lastUpdate);
+			$g['lu'] = (strtotime($lastUpdate->format('Y-m-d H:i:s'))) * 1000;
 			$feedData = FeedParser::getFeedData ( $g );
 			$subscription = self::makeFeedSubscription ( $feedData['subscription'], $g );
 			EpisodeService::makeEpisodes ( $feedData['episodes'], $subscription );
@@ -50,10 +53,10 @@ class SubscriptionService extends BaseService {
 	public static function getRaw($g)
 	{
 		if (filter_var ( $g ['src'], FILTER_VALIDATE_URL )) {
-			var_dump(FeedParser::getFormattedXML($g));
+			//var_dump(FeedParser::getFormattedXML($g));
 		}else{
-			var_dump(YoutubeService::queryChannelData($g));
-			var_dump(YoutubeService::queryEpisodeData($g));
+			//var_dump(YoutubeService::queryChannelData($g));
+			//var_dump(YoutubeService::queryEpisodeData($g));
 		}
 	}
 	
