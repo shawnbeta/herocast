@@ -131,6 +131,7 @@ module.exports = function (grunt) {
 
                         expand: true,
                         flatten: false,
+                        dot: true,
                         src: 'api/**',
                         dest: 'build/sandbox/'
                     },

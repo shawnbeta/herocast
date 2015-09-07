@@ -31,7 +31,7 @@ hcMedia.factory('SubscriptionService', [
         //          String subscriptionType: audio or video
         // @return: Promise of JSON Data from server. 
         add : function(src, subscriptionType) {
-            var url = 'api/?entity=subscription&action=add&src=' + src + '&subscriptionType=' + subscriptionType;
+            var url = 'api/index.php?entity=subscription&action=add&src=' + src + '&subscriptionType=' + subscriptionType;
 
             return $http.get(url).success(function(data, status, headers, config) {
                 return data;
@@ -194,7 +194,7 @@ hcMedia.factory('SubscriptionService', [
         // @params: Subscription subscription object model.
         // @return: Promise indicating success or failure.
         removeRemote : function(subscription) {
-            var url = 'api/?entity=subscription&action=delete&id=' + subscription.id;
+            var url = 'api/index.php?entity=subscription&action=delete&id=' + subscription.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -225,7 +225,7 @@ hcMedia.factory('SubscriptionService', [
         // @params: Subscription object model.
         // @return: Promise indicating success/failure
         updateDownloadRemote : function(subscription) {
-            var url = 'api/?entity=subscription&action=update&val=' +
+            var url = 'api/index.php?entity=subscription&action=update&val=' +
                 subscription.auto_download + '&id=' + subscription.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously

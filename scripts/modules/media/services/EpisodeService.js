@@ -184,7 +184,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
         // @return: Asyc promise 
         updateRemote : function(model, field, val) {
             // Update server
-            var url = 'api/?entity=episode&action=update' +
+            var url = 'api/index.php?entity=episode&action=update' +
                 '&field=' + field + '&val=' + val + '&id=' + model.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
@@ -291,7 +291,7 @@ function(PersistenceService, Episode, $http, $rootScope) {
 
         // Copy the episode from remote to local
         copyToServer : function(episode) {
-            var url = 'api/?entity=episode&action=copy' + '&id=' + episode.id;
+            var url = 'api/index.php?entity=episode&action=copy' + '&id=' + episode.id;
             return $http.get(url).success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
