@@ -1,4 +1,5 @@
-hcMedia.factory('MediaService', function($http){
+hcMedia.factory('MediaService', ['$http',
+  function($http){
   return {
   	  	
     fetchAll: function(){
@@ -15,7 +16,7 @@ hcMedia.factory('MediaService', function($http){
     
     
   };
-}); 
+}]);
 
 
   

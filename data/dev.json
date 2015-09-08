@@ -81,6 +81,40 @@
       ]
     }
   },
+  "routes":{
+    "collection": [
+      {
+        "path": "",
+        "controller": "EpisodeController",
+        "url": "assets/js/scripts/modules/media/templates/episodes.html"
+      },
+      {
+        "path": "episodes",
+        "controller": "EpisodeController",
+        "url": "assets/js/scripts/modules/media/templates/episodes.html"
+      },
+      {
+        "path": "subscriptions",
+        "controller": "SubscriptionController",
+        "url": "assets/js/scripts/modules/media/templates/subscriptions.html"
+      },
+      {
+        "path": "add",
+        "controller": "SubscriptionController",
+        "url": "assets/js/scripts/modules/media/templates/add.html"
+      },
+      {
+        "path": "about",
+        "controller": "SubscriptionController",
+        "url": "assets/js/scripts/modules/app/templates/about.html"
+      },
+      {
+        "path": "settings",
+        "controller": "SettingsController",
+        "url": "assets/js/scripts/modules/app/templates/settings.html"
+      }
+    ]
+  },
   "navBar": {
     "links": [
       {

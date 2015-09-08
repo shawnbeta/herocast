@@ -1,0 +1,105 @@
+{
+  "assets": {
+    "css": {
+      "remote": [
+        "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
+        "https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,700italic,900italic|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800|Open+Sans+Condensed:300,700,300italic"
+      ],
+      "staging": [
+        "styles"
+      ]
+    },
+    "js" : {
+      "staging": [
+        "main"
+      ]
+    }
+  },
+  "routes":{
+    "collection": [
+      {
+        "path": "",
+        "controller": "EpisodeController",
+        "url": "assets/templates/episodes.html"
+      },
+      {
+        "path": "episodes",
+        "controller": "EpisodeController",
+        "url": "assets/templates/episodes.html"
+      },
+      {
+        "path": "subscriptions",
+        "controller": "SubscriptionController",
+        "url": "assets/templates/subscriptions.html"
+      },
+      {
+        "path": "add",
+        "controller": "SubscriptionController",
+        "url": "assets/templates/add.html"
+      },
+      {
+        "path": "about",
+        "controller": "SubscriptionController",
+        "url": "assets/templates/about.html"
+      },
+      {
+        "path": "settings",
+        "controller": "SettingsController",
+        "url": "assets/templates/settings.html"
+      }
+    ]
+  },
+  "navBar": {
+    "links": [
+      {
+        "href": "episodes",
+        "target": false,
+        "title": "episodes",
+        "text": "episodes"
+      },
+      {
+        "href": "subscriptions",
+        "target": false,
+        "title": "subscriptions",
+        "text": "subscriptions"
+      },
+      {
+        "href": "add",
+        "target": false,
+        "title": "add",
+        "icon": "plus"
+      },
+      {
+        "href": "settings",
+        "target": false,
+        "title": "settings",
+        "icon": "cog"
+      }
+    ]
+  },
+
+  "settings": {
+    "links": [
+      {
+        "action" : "flushLocalStorage",
+        "title": "flush local storage"
+      },
+      {
+        "action" : "fetchBulk",
+        "title": "fetch bulk"
+      },
+      {
+        "action" : "purgeRemote",
+        "title": "purge remote data"
+      },
+      {
+        "action" : "fetchNew",
+        "title": "fetch new"
+      }
+    ]
+  }
+
+
+
+
+}

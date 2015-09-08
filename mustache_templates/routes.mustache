@@ -1,0 +1,20 @@
+{{=<% %>=}}
+
+<%# routes %>
+hcApp.config(['$routeProvider',
+
+function($routeProvider) {
+$routeProvider
+<%# collection %>
+.when('/<% path %>', {
+controller : '<% controller %>',
+templateUrl : '<%& url %>'
+})
+
+<%/ collection %>
+.otherwise({
+redirectTo : '/'
+});
+}]);
+<%/ routes %>
+

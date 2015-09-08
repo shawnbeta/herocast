@@ -1,4 +1,4 @@
-hcUtilities.factory('PersistenceService', function($http){
+hcUtilities.factory('PersistenceService', function(){
 
 	var PersistenceService = function(){};
 	
